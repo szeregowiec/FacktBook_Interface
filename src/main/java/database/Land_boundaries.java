@@ -20,6 +20,7 @@ public class Land_boundaries {
         return total;
     }
 
+    @Transient
     @ElementCollection
     private List<Border_countries> border_countries;
 

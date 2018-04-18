@@ -2,10 +2,7 @@ package database;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,8 +11,10 @@ public class International_agreements {
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
+    @Transient
     @ElementCollection
     private List<String> party_to;
+    @Transient
     @ElementCollection
     private List<String> signed_but_not_ratified;
 

@@ -4,9 +4,8 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import database.Data;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import database.Geographic_coordinates;
+import database.Geography;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
@@ -34,18 +33,18 @@ public class GreetingController {
         return lista;
     }
 
-    @GetMapping(value = "/countries/{country}", produces = "plain/text")
-    public String country(@PathVariable("country") String country) {
+    @GetMapping(value = "/countries/{country}/geography", produces = "application/json")
+    public Geography geography(@PathVariable("country") String country) {
         Object obj = queryOne("select d from Data d where d.name='"+country+"'");
         Data data = (Data) obj;
 
         Gson gson = new Gson();
-        gson.toJsonTree(data.getGeography().getGeographic_coordinates());
+        gson.toJsonTree(data.getGeography().getGeographic_coordinates(), Geographic_coordinates.class);
 
-        System.out.println(gson.toString());
+        //System.out.println("to jest to co zostaje zwrocone " +data.getGeography().getNatural_hazards().size());
 
 
-        return gson.toString();
+        return data.getGeography();
     }
 
 

@@ -1,19 +1,15 @@
 package database;
 
 import com.google.gson.Gson;
-import database.Border_countries;
-import database.Data;
-import database.Json;
+import com.google.gson.JsonElement;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,52 +44,36 @@ public class Main {
             }
         }
 
-
+//        JsonElement gson = new Gson().toJsonTree(result.getCountries().getDenmark().getData(),Data.class);
+//        System.out.println("yhmy");
 
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-
-          //addA(entityManager,result);
-//        addB(entityManager,result);
-//        addC(entityManager,result);
-      //  addD(entityManager,result);
-//        addE(entityManager,result);
-//        addF(entityManager,result);
-//        addG(entityManager,result);
-//        addH(entityManager,result);
-//        addI(entityManager,result);
-       // addJ(entityManager,result);
-        //addK(entityManager,result);
-
-
-
-
+//
+//          //addA(entityManager,result);
+////        addB(entityManager,result);
+////        addC(entityManager,result);
+  addD(entityManager,result);
+////        addE(entityManager,result);
+////        addF(entityManager,result);
+////        addG(entityManager,result);
+////        addH(entityManager,result);
+////        addI(entityManager,result);
+//       // addJ(entityManager,result);
+//        //addK(entityManager,result);
+//
+//
+//
+//
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
 
 
     }
-    public static List<String> zapytanie(String s){
-        EntityManagerFactory entityManagerFactory =Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
 
-
-
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery(s);
-        List<String> list = query.getResultList();
-
-
-        //System.out.println("to jest global rank "+i.getGeography().getArea().getGlobal_rank());
-
-        entityManager.getTransaction().commit();
-        entityManagerFactory.close();
-        return list;
-    }
 
 
     static void addAfghanistan(EntityManager entityManager, Json result){
@@ -1571,7 +1551,7 @@ public class Main {
 //        addBurundi(entityManager,result);
 //    }
 
-    public void addDenmark(EntityManager entityManager, Json result){
+    static void addDenmark(EntityManager entityManager, Json result){
         if(!result.getCountries().getDenmark().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
             for (Border_countries bc : result.getCountries().getDenmark().getData().getGeography().getLand_boundaries().getBorder_countries()) {
                 bc.setBorder(bc.getBorder_length().getValue());
@@ -1583,7 +1563,7 @@ public class Main {
         result.getCountries().getDenmark().getData().setName("denmark");
         entityManager.persist(result.getCountries().getDenmark());
     }
-    public void addDhekelia(EntityManager entityManager, Json result){
+    static void addDhekelia(EntityManager entityManager, Json result){
         if(!result.getCountries().getDhekelia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
             for (Border_countries bc : result.getCountries().getDhekelia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
                 bc.setBorder(bc.getBorder_length().getValue());
@@ -1595,7 +1575,7 @@ public class Main {
         result.getCountries().getDhekelia().getData().setName("dhekelia");
         entityManager.persist(result.getCountries().getDhekelia());
     }
-    public void addDjibouti(EntityManager entityManager, Json result){
+    static void addDjibouti(EntityManager entityManager, Json result){
         if(!result.getCountries().getDjibouti().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
             for (Border_countries bc : result.getCountries().getDjibouti().getData().getGeography().getLand_boundaries().getBorder_countries()) {
                 bc.setBorder(bc.getBorder_length().getValue());
@@ -1607,7 +1587,7 @@ public class Main {
         result.getCountries().getDjibouti().getData().setName("djibouti");
         entityManager.persist(result.getCountries().getDjibouti());
     }
-    public void addDominica(EntityManager entityManager, Json result){
+    static void addDominica(EntityManager entityManager, Json result){
 /*        if(!result.getCountries().getDominica().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
             for (Border_countries bc : result.getCountries().getDominica().getData().getGeography().getLand_boundaries().getBorder_countries()) {
                 bc.setBorder(bc.getBorder_length().getValue());
@@ -1619,7 +1599,7 @@ public class Main {
         result.getCountries().getDominica().getData().setName("dominica");
         entityManager.persist(result.getCountries().getDominica());
     }
-    public void addDominican_republic(EntityManager entityManager, Json result){
+    static void addDominican_republic(EntityManager entityManager, Json result){
         if(!result.getCountries().getDominican_republic().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
             for (Border_countries bc : result.getCountries().getDominican_republic().getData().getGeography().getLand_boundaries().getBorder_countries()) {
                 bc.setBorder(bc.getBorder_length().getValue());
@@ -1632,7 +1612,7 @@ public class Main {
         entityManager.persist(result.getCountries().getDominican_republic());
     }
 
-    public void addD(EntityManager entityManager, Json result){
+    static void addD(EntityManager entityManager, Json result){
         addDenmark(entityManager,result);
         addDhekelia(entityManager,result);
         addDjibouti(entityManager,result);

@@ -11,6 +11,7 @@ public class Environment {
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
+    @Transient
     @ElementCollection
     private List<String> current_issues;
     @OneToOne(cascade = {CascadeType.ALL})

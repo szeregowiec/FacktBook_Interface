@@ -39,6 +39,7 @@ public class Geography {
     @OneToOne(cascade = {CascadeType.ALL})
     private Land_use land_use;
 
+    @Transient
     @ElementCollection
     private List<Natural_hazard> natural_hazards;
 
@@ -47,6 +48,8 @@ public class Geography {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits coastline;
+
+    @Transient
     @ElementCollection
     private List<String> resources;
     @OneToOne(cascade = {CascadeType.ALL})
