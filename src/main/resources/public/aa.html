@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <!--
+        <div>
+            <p class="greeting-id">The ID is </p>
+            <p class="greeting-content">The content is </p>
+            <button type="submit" onclick="UserAction()">Search</button>
+            <button type="button" onclick="loadDoc()">Change Content</button>
+            <a href="http://localhost:8080/rest-web/rest/library/book/1" title="huhuhuh">
+              <div id="wynik">
+        ble ble ble</div>
+        > </a>
+
+        </div>
+
+        <div id="demo"> xxx</div>
+
+-->
+<button type="button" onclick="loadDoc()">Change Content</button>
+<div id="wynik">efsiyfguer</div>
+<p class="isbn"> to jest numer isbn  -> </p>
+
+    <script>
+    function loadDoc(){
+      var request = new XMLHttpRequest();
+      request.addEventListener("readystatechange", processRequest, false);
+      request.open("GET", "//localhost:8080/greeting", true);
+      request.send();
+
+      function processRequest(e) {
+          if (request.readyState == 4 && request.status == 200) {
+              var response = JSON.parse(request.responseText);
+document.getElementById("wynik").innerHTML = response[1];
+// $('.isbn').append(response.id);
+
+
+          }
+      }
+    }
+
+
+
+    </script>
+</body>
+
+</html>
