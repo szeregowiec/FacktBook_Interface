@@ -1,14 +1,15 @@
 package hello;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
+import com.google.gson.Gson;
+import database.Data;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,28 +19,66 @@ import javax.persistence.Query;
 @RestController
 public class GreetingController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
 
-    @GetMapping("/greeting")
+
+    @GetMapping("/countries")
     public List<String> greeting(@RequestParam(value="name", defaultValue="World")String id) {
-        List<String> lista = zapytanie("select d.name from Data d");
+        List<String> lista = queryList("select d.name from Data d");
         JSONObject json = new JSONObject();
         try {
             json.put("list",lista);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
         return lista;
     }
 
-    public static List<String> zapytanie(String s){
+    @GetMapping(value = "/countries/{country}", produces = "plain/text")
+    public String country(@PathVariable("country") String country) {
+        Object obj = queryOne("select d from Data d where d.name='"+country+"'");
+        Data data = (Data) obj;
+
+        Gson gson = new Gson();
+        gson.toJsonTree(data.getGeography().getGeographic_coordinates());
+
+        System.out.println(gson.toString());
+
+
+        return gson.toString();
+    }
+
+
+
+    public static Object queryOne(String s){
+//
+//        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+//        Session session = sessionFactory.openSession();
+//        session.beginTransaction();
+//
+//        Query query =  session.createQuery(s);
+//
+//        Object obj = query.getSingleResult();
+//
+//        session.getTransaction().commit();
+//        session.close();
+
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        Query query =  entityManager.createQuery(s);
+
+        Object obj = query.getSingleResult();
 
 
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
+        return obj;
+    }
+
+    public static List<String> queryList(String s){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -47,8 +86,6 @@ public class GreetingController {
         Query query =  entityManager.createQuery(s);
         List<String> list = query.getResultList();
 
-
-        //System.out.println("to jest global rank "+i.getGeography().getArea().getGlobal_rank());
 
         entityManager.getTransaction().commit();
         entityManagerFactory.close();

@@ -13,45 +13,45 @@ public class Countries {
     private int id;
 
  //   private MyCountry world;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry afghanistan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry akrotiri;
-//
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry albania;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry algeria;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry american_samoa;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry andorra;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry angola;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry anguilla;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry antarctica;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry antigua_and_barbuda;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry arctic_ocean;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry argentina;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry armenia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry aruba;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry ashmore_and_cartier_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry atlantic_ocean;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry australia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry austria;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry azerbaijan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry afghanistan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry akrotiri;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry albania;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry algeria;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry american_samoa;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry andorra;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry angola;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry anguilla;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry antarctica;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry antigua_and_barbuda;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry arctic_ocean;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry argentina;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry armenia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry aruba;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry ashmore_and_cartier_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry atlantic_ocean;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry australia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry austria;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry azerbaijan;
 //    @OneToOne(cascade = {CascadeType.ALL})
 //    private MyCountry bahamas_the;
 //    @OneToOne(cascade = {CascadeType.ALL})
@@ -419,82 +419,82 @@ public class Countries {
 //        return world;
 //    }
 
-//    public MyCountry getAfghanistan() {
-//        return afghanistan;
-//    }
-//
-//    public MyCountry getAkrotiri() {
-//        return akrotiri;
-//    }
-//
-//    public MyCountry getAlbania() {
-//        return albania;
-//    }
-//
-//    public MyCountry getAlgeria() {
-//        return algeria;
-//    }
-//
-//    public MyCountry getAmerican_samoa() {
-//        return american_samoa;
-//    }
-//
-//    public MyCountry getAndorra() {
-//        return andorra;
-//    }
-//
-//    public MyCountry getAngola() {
-//        return angola;
-//    }
-//
-//    public MyCountry getAnguilla() {
-//        return anguilla;
-//    }
-//
-//    public MyCountry getAntarctica() {
-//        return antarctica;
-//    }
-//
-//    public MyCountry getAntigua_and_barbuda() {
-//        return antigua_and_barbuda;
-//    }
-//
-//    public MyCountry getArctic_ocean() {
-//        return arctic_ocean;
-//    }
-//
-//    public MyCountry getArgentina() {
-//        return argentina;
-//    }
-//
-//    public MyCountry getArmenia() {
-//        return armenia;
-//    }
-//
-//    public MyCountry getAruba() {
-//        return aruba;
-//    }
-//
-//    public MyCountry getAshmore_and_cartier_islands() {
-//        return ashmore_and_cartier_islands;
-//    }
-//
-//    public MyCountry getAtlantic_ocean() {
-//        return atlantic_ocean;
-//    }
-//
-//    public MyCountry getAustralia() {
-//        return australia;
-//    }
-//
-//    public MyCountry getAustria() {
-//        return austria;
-//    }
-//
-//    public MyCountry getAzerbaijan() {
-//        return azerbaijan;
-//    }
-//
+    public MyCountry getAfghanistan() {
+        return afghanistan;
+    }
+
+    public MyCountry getAkrotiri() {
+        return akrotiri;
+    }
+
+    public MyCountry getAlbania() {
+        return albania;
+    }
+
+    public MyCountry getAlgeria() {
+        return algeria;
+    }
+
+    public MyCountry getAmerican_samoa() {
+        return american_samoa;
+    }
+
+    public MyCountry getAndorra() {
+        return andorra;
+    }
+
+    public MyCountry getAngola() {
+        return angola;
+    }
+
+    public MyCountry getAnguilla() {
+        return anguilla;
+    }
+
+    public MyCountry getAntarctica() {
+        return antarctica;
+    }
+
+    public MyCountry getAntigua_and_barbuda() {
+        return antigua_and_barbuda;
+    }
+
+    public MyCountry getArctic_ocean() {
+        return arctic_ocean;
+    }
+
+    public MyCountry getArgentina() {
+        return argentina;
+    }
+
+    public MyCountry getArmenia() {
+        return armenia;
+    }
+
+    public MyCountry getAruba() {
+        return aruba;
+    }
+
+    public MyCountry getAshmore_and_cartier_islands() {
+        return ashmore_and_cartier_islands;
+    }
+
+    public MyCountry getAtlantic_ocean() {
+        return atlantic_ocean;
+    }
+
+    public MyCountry getAustralia() {
+        return australia;
+    }
+
+    public MyCountry getAustria() {
+        return austria;
+    }
+
+    public MyCountry getAzerbaijan() {
+        return azerbaijan;
+    }
+
 //    public MyCountry getBahamas_the() {
 //        return bahamas_the;
 //    }

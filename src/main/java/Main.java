@@ -1,3 +1,5 @@
+package database;
+
 import com.google.gson.Gson;
 import database.Border_countries;
 import database.Data;
@@ -46,18 +48,15 @@ public class Main {
             }
         }
 
-        List<String> list = zapytanie("select d.name from Data d");
-        for(String s:list){
-            System.out.println("panstwo : ->>>>>>>>>>>>> "+s);
-        }
-
-//
-//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-//        EntityManager entityManager = entityManagerFactory.createEntityManager();
-//
-//        entityManager.getTransaction().begin();
 
 
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+
+          //addA(entityManager,result);
 //        addB(entityManager,result);
 //        addC(entityManager,result);
       //  addD(entityManager,result);
@@ -72,38 +71,10 @@ public class Main {
 
 
 
-        //Query query =  entityManager.createQuery("select d.name from Data d , Geography g where g.map_references='Central America and the Caribbean' and d.geography=g.id  ");
-//        Query query =  entityManager.createQuery("select d.name from Data d");
-//        List<String> students = query.getResultList();
-//        for (String s : students) {
-//            System.out.println("to jest wynik w mian 1 "+s);
-//        }
-
-//        List<String > students = query.getResultList();
-//
-//        for (String s : students) {
-//            System.out.println("to jest wynik "+s);
-//        }
+        entityManager.getTransaction().commit();
+        entityManagerFactory.close();
 
 
-
-//        Query query = entityManager.createQuery("SELECT g  FROM  Geography g,  Data d WHERE d.name='denmark' ");
-////          //Query query = entityManager.createQuery("SELECT d.name FROM  Geography g, Data d WHERE g.map_references = 'Europe' ");
-//        List<Geography> lista = query.getResultList();
-
-
-
-//        Object list2 = query.getSingleResult();
-//
-//        Geography b = (Geography) list2;
-//        System.out.println(b.getClimate());
-//
-//        entityManager.getTransaction().commit();
-//        entityManagerFactory.close();
-
-//        for (Geography s : lista){
-//            System.out.println(s.getClimate());
-//        }
     }
     public static List<String> zapytanie(String s){
         EntityManagerFactory entityManagerFactory =Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
@@ -125,925 +96,925 @@ public class Main {
     }
 
 
-//    public void addAfghanistan(EntityManager entityManager, Json result){
+    static void addAfghanistan(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAfghanistan().setName("afghanistan");
+
+        result.getCountries().getAfghanistan().getData().setName("afghanistan");
+        entityManager.persist(result.getCountries().getAfghanistan());
 //        for(Border_countries bc : result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries()){
 //            bc.setBorder(bc.getBorder_length().getValue());
 //            bc.setUnits(bc.getBorder_length().getUnits());
 //        }
 //        result.getCountries().getAfghanistan().setName("afghanistan");
-//
-//        result.getCountries().getAfghanistan().getData().setName("afghanistan");
 //        entityManager.persist(result.getCountries().getAfghanistan());
-////        for(Border_countries bc : result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries()){
-////            bc.setBorder(bc.getBorder_length().getValue());
-////            bc.setUnits(bc.getBorder_length().getUnits());
-////        }
-////        result.getCountries().getAfghanistan().setName("afghanistan");
-////        entityManager.persist(result.getCountries().getAfghanistan());
-////        result.getCountries().getAfghanistan().getData().setName("afghanistan");
-////        entityManager.persist(result.getCountries().getAfghanistan().getData());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security().getBranches());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security().getService_age_and_obligation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getIntroduction());
-////
-////
-////
-/////* GEOGRAPHY*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates().getLongitude());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates().getLatitude());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getLand());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getWater());
-////
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getTotal());
-////      /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries().get(0).getBorder_length());*/
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getHighest_point());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getLowest_point());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getMean_elevation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getHighest_point().getElevation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getLowest_point().getElevation());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_arable_land());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_crops());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_pasture());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_total());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getForest());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getOther());
-////
-////     /*  // entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getNatural_hazards());*/
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getEnvironment());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getEnvironment().getInternational_agreements());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getCoastline());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getIrrigated_land());
-//////
-/////*PEOPLE*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPopulation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getNationality());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getEthnic_groups());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLanguages());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getReligions());
-////
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_0_to_14());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_15_to_24());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_25_to_54());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_55_to_64());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_65_and_over());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getElderly_dependency_ratio());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getPotential_support_ratio());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getTotal_dependency_ratio());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getYouth_dependency_ratio());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getTotal());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPopulation_growth_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getBirth_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDeath_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getNet_migration_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization().getRate_of_urbanization());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization().getUrban_population());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMajor_urban_areas());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getTotal_population());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_0_to_14_years());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_15_to_24_years());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_25_to_54_years());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_55_to_64_years());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_65_years_and_over());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAt_birth());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMothers_mean_age_at_first_birth());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMaternal_mortality_rate());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getTotal());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getTotal_population());
-////
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getTotal_fertility_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getHealth_expenditures());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPhysicians_density());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getHospital_bed_density());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getRural());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getUrban());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getRural());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getUrban());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getRural());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getUrban());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getRural());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getUrban());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMajor_infectious_diseases());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAdult_obesity());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getEducation_expenditures());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getTotal_population());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getTotal());
-////
-////  /*      entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getFemale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getMale());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getTotal());*/
-/////*GOVERMENT*/
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCountry_name());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates().getLatitude());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates().getLongitude());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getTime_difference());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getIndependence());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getConstitution());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCitizenship());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getSuffrage());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getExecutive_branch());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getLegislative_branch());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getJudicial_branch());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getPolitical_parties_and_leaders());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getPolitical_pressure_groups_and_leaders());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation().getFrom_united_states());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation().getIn_united_states());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getFlag_description());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getNational_symbol());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getNational_anthem());
-////
-/////*ECONOMY*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getPurchasing_power_parity());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getReal_growth_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getPer_capita_purchasing_power_parity());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getOfficial_exchange_rate());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getExports_of_goods_and_services());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getGovernment_consumption());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getHousehold_consumption());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getImports_of_goods_and_services());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_fixed_capital());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_inventories());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getAgriculture());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getIndustry());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getServices());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getAgriculture_products());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getIndustries());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getIndustrial_production_growth_rate());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getTotal_size());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getAgriculture());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getIndustry());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getServices());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share().getHighest_ten_percent());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share().getLowest_ten_percent());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget().getExpenditures());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget().getRevenues());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getTaxes_and_other_revenues());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget_surplus_or_deficit());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getFiscal_year());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getCommodities());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getPartners());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getTotal_value());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getCommodities());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getPartners());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getTotal_value());
-////
-////     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment());*/
-////    /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment().getAbroad());*/
-////     /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment().getAt_home());*/
-////
-////       /* entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getDistribution_of_family_income());*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getPublic_debt());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getInflation_rate());
-////     /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCentral_bank_discount_rate());*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCommercial_bank_prime_lending_rate());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_narrow_money());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_broad_money());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_domestic_credit());
-////      /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getMarket_value_of_publicly_traded_shares());*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCurrent_account_balance());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getReserves_of_foreign_exchange_and_gold());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExternal_debt());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExchange_rates());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGross_national_saving());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getPopulation_below_poverty_line());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getUnemployment_rate());
-/////*ENERGY*/
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getAccess());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getAccess().getTotal_electrification());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getProduction());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getConsumption());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getExports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getImports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getInstalled_generating_capacity());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getFossil_fuels());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getNuclear_fuels());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getHydroelectric_plants());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getOther_renewable_sources());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getProduction());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getExports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getImports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getProved_reserves());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getProduction());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getConsumption());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getExports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getImports());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getProduction());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getConsumption());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getExports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getImports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getProved_reserves());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCarbon_dioxide_emissions_from_consumption_of_energy());
-////
-////
-////
-////        /*COMMUNICATIONS*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getFixed_lines());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getMobile_cellular());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getSystem());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getInternet());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getInternet().getUsers());
-////
-////
-////        /*Transportation*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getNational_system());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getCivil_aircraft_registration_country_code_prefix());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getPaved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getUnpaved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getHeliports());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getPipelines());
-////
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getPaved());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getTotal());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getUnpaved());
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getWaterways());
-/////*        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getMerchant_marine());*/
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getPorts_and_terminals());
-////
-////        /*moze byc problem z klasa Total wewnetrzna*/
-////   /*     entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways());*/
-////     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways().getBroad_gauge());*/
-////     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways().getStandard_gauge());*/
-////
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getIllicit_drugs());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons());
-////        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getRefugees());
-////       /* entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getStateless_persons());*/
+//        result.getCountries().getAfghanistan().getData().setName("afghanistan");
+//        entityManager.persist(result.getCountries().getAfghanistan().getData());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security().getBranches());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getMilitary_and_security().getService_age_and_obligation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getIntroduction());
 //
 //
 //
-//    }
-//    public void addAkrotiri(EntityManager entityManager, Json result){
+///* GEOGRAPHY*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates().getLongitude());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getGeographic_coordinates().getLatitude());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getLand());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getArea().getWater());
+//
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getTotal());
+//      /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries().get(0).getBorder_length());*/
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getHighest_point());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getLowest_point());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getMean_elevation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getHighest_point().getElevation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getElevation().getLowest_point().getElevation());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_arable_land());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_crops());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_pasture());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_total());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getForest());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getLand_use().getBy_sector().getOther());
+//
+//     /*  // entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getNatural_hazards());*/
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getEnvironment());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getEnvironment().getInternational_agreements());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getCoastline());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography().getIrrigated_land());
+////
+///*PEOPLE*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPopulation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getNationality());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getEthnic_groups());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLanguages());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getReligions());
+//
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_0_to_14());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_15_to_24());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_25_to_54());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_55_to_64());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAge_structure().getAge_65_and_over());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getElderly_dependency_ratio());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getPotential_support_ratio());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getTotal_dependency_ratio());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDependency_ratios().getRatios().getYouth_dependency_ratio());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age().getTotal());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPopulation_growth_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getBirth_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDeath_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getNet_migration_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMedian_age());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization().getRate_of_urbanization());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getUrbanization().getUrban_population());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMajor_urban_areas());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getTotal_population());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_0_to_14_years());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_15_to_24_years());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_25_to_54_years());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_55_to_64_years());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAge_65_years_and_over());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSex_ratio().getBy_age().getAt_birth());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMothers_mean_age_at_first_birth());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMaternal_mortality_rate());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getInfant_mortality_rate().getTotal());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLife_expectancy_at_birth().getTotal_population());
+//
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getTotal_fertility_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getHealth_expenditures());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getPhysicians_density());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getHospital_bed_density());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getRural());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getImproved().getUrban());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getRural());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getDrinking_water_source().getUnimproved().getUrban());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getRural());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getImproved().getUrban());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getRural());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSanitation_facility_access().getUnimproved().getUrban());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getMajor_infectious_diseases());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getAdult_obesity());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getEducation_expenditures());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getLiteracy().getTotal_population());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getSchool_life_expectancy().getTotal());
+//
+//  /*      entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getFemale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getMale());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getPeople().getYouth_unemployment().getTotal());*/
+///*GOVERMENT*/
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCountry_name());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates().getLatitude());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getGeographic_coordinates().getLongitude());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCapital().getTime_difference());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getIndependence());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getConstitution());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getCitizenship());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getSuffrage());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getExecutive_branch());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getLegislative_branch());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getJudicial_branch());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getPolitical_parties_and_leaders());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getPolitical_pressure_groups_and_leaders());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation().getFrom_united_states());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getDiplomatic_representation().getIn_united_states());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getFlag_description());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getNational_symbol());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getGovernment().getNational_anthem());
+//
+///*ECONOMY*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getPurchasing_power_parity());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getReal_growth_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getPer_capita_purchasing_power_parity());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getOfficial_exchange_rate());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getExports_of_goods_and_services());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getGovernment_consumption());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getHousehold_consumption());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getImports_of_goods_and_services());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_fixed_capital());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_inventories());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getAgriculture());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getIndustry());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getServices());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getAgriculture_products());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getIndustries());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getIndustrial_production_growth_rate());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getTotal_size());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getAgriculture());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getIndustry());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getServices());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share().getHighest_ten_percent());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getHousehold_income_by_percentage_share().getLowest_ten_percent());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget().getExpenditures());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget().getRevenues());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getTaxes_and_other_revenues());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getBudget_surplus_or_deficit());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getFiscal_year());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getCommodities());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getPartners());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExports().getTotal_value());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getCommodities());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getPartners());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getImports().getTotal_value());
+//
+//     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment());*/
+//    /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment().getAbroad());*/
+//     /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_direct_foreign_investment().getAt_home());*/
+//
+//       /* entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getDistribution_of_family_income());*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getPublic_debt());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getInflation_rate());
+//     /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCentral_bank_discount_rate());*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCommercial_bank_prime_lending_rate());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_narrow_money());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_broad_money());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getStock_of_domestic_credit());
+//      /*  entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getMarket_value_of_publicly_traded_shares());*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getCurrent_account_balance());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getReserves_of_foreign_exchange_and_gold());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExternal_debt());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getExchange_rates());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getGross_national_saving());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getPopulation_below_poverty_line());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEconomy().getUnemployment_rate());
+///*ENERGY*/
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getAccess());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getAccess().getTotal_electrification());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getProduction());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getConsumption());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getExports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getImports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getInstalled_generating_capacity());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getFossil_fuels());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getNuclear_fuels());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getHydroelectric_plants());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getElectricity().getBy_source().getOther_renewable_sources());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getProduction());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getExports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getImports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCrude_oil().getProved_reserves());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getProduction());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getConsumption());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getExports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getRefined_petroleum_products().getImports());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getProduction());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getConsumption());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getExports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getImports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getNatural_gas().getProved_reserves());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getEnergy().getCarbon_dioxide_emissions_from_consumption_of_energy());
 //
 //
 //
-//        for(Border_countries bc : result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAkrotiri().setName("akrotiri");
+//        /*COMMUNICATIONS*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getFixed_lines());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getMobile_cellular());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getTelephones().getSystem());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getInternet());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getCommunications().getInternet().getUsers());
 //
-//        result.getCountries().getAkrotiri().getData().setName("akrotiri");
-//        entityManager.persist(result.getCountries().getAkrotiri());
+//
+//        /*Transportation*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getNational_system());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getCivil_aircraft_registration_country_code_prefix());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getPaved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getAirports().getUnpaved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getAir_transport().getHeliports());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getPipelines());
+//
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getPaved());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getTotal());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRoadways().getUnpaved());
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getWaterways());
+///*        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getMerchant_marine());*/
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getPorts_and_terminals());
+//
+//        /*moze byc problem z klasa Total wewnetrzna*/
+//   /*     entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways());*/
+//     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways().getBroad_gauge());*/
+//     /*   entityManager.persist(result.getCountries().getAfghanistan().getData().getTransportation().getRailways().getStandard_gauge());*/
+//
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getIllicit_drugs());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons());
+//        entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getRefugees());
+//       /* entityManager.persist(result.getCountries().getAfghanistan().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getStateless_persons());*/
+
+
+
+    }
+    static void addAkrotiri(EntityManager entityManager, Json result){
+
+
+
+        for(Border_countries bc : result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAkrotiri().setName("akrotiri");
+
+        result.getCountries().getAkrotiri().getData().setName("akrotiri");
+        entityManager.persist(result.getCountries().getAkrotiri());
+
+
+
+//        entityManager.persist(result.getCountries().getAkrotiri().getData());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security());
+///*        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security().getBranches());*/
+///*        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security().getService_age_and_obligation());*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getIntroduction());
 //
 //
 //
-////        entityManager.persist(result.getCountries().getAkrotiri().getData());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security());
-/////*        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security().getBranches());*/
-/////*        entityManager.persist(result.getCountries().getAkrotiri().getData().getMilitary_and_security().getService_age_and_obligation());*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getIntroduction());
-////
-////
-////
-/////* GEOGRAPHY*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates().getLongitude());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates().getLatitude());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getLand());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getWater());
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries().getTotal());
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getHighest_point());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getLowest_point());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getMean_elevation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getHighest_point().getElevation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getLowest_point().getElevation());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_arable_land());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_crops());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_pasture());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_total());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getForest());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getOther());
-////
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getEnvironment());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getEnvironment().getInternational_agreements());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getCoastline());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getIrrigated_land());
-////
-/////*PEOPLE*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPopulation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getNationality());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getEthnic_groups());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLanguages());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getReligions());
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_0_to_14());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_15_to_24());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_25_to_54());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_55_to_64());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_65_and_over());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getElderly_dependency_ratio());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getPotential_support_ratio());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getTotal_dependency_ratio());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getYouth_dependency_ratio());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getTotal());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPopulation_growth_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getBirth_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDeath_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getNet_migration_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization().getRate_of_urbanization());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization().getUrban_population());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMajor_urban_areas());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getTotal_population());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_0_to_14_years());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_15_to_24_years());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_25_to_54_years());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_55_to_64_years());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_65_years_and_over());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAt_birth());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMothers_mean_age_at_first_birth());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMaternal_mortality_rate());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getTotal());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getTotal_population());
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getTotal_fertility_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getHealth_expenditures());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPhysicians_density());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getHospital_bed_density());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getRural());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getUrban());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getRural());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getUrban());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getRural());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getUrban());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getRural());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getUrban());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMajor_infectious_diseases());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAdult_obesity());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getEducation_expenditures());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getTotal_population());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getTotal());
-////
-////  /*      entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getFemale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getMale());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getTotal());*/
-/////*GOVERMENT*/
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCountry_name());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates().getLatitude());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates().getLongitude());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getTime_difference());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getIndependence());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getConstitution());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCitizenship());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getSuffrage());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getExecutive_branch());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getLegislative_branch());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getJudicial_branch());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getPolitical_parties_and_leaders());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getPolitical_pressure_groups_and_leaders());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation().getFrom_united_states());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation().getIn_united_states());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getFlag_description());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getNational_symbol());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getNational_anthem());
-////
-/////*ECONOMY*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getPurchasing_power_parity());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getReal_growth_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getPer_capita_purchasing_power_parity());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getOfficial_exchange_rate());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getExports_of_goods_and_services());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getGovernment_consumption());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getHousehold_consumption());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getImports_of_goods_and_services());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_fixed_capital());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_inventories());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getAgriculture());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getIndustry());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getServices());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getAgriculture_products());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getIndustries());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getIndustrial_production_growth_rate());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getTotal_size());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getAgriculture());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getIndustry());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getServices());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share().getHighest_ten_percent());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share().getLowest_ten_percent());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget().getExpenditures());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget().getRevenues());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getTaxes_and_other_revenues());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget_surplus_or_deficit());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getFiscal_year());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getCommodities());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getPartners());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getTotal_value());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getCommodities());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getPartners());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getTotal_value());
-////
-////     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment());*/
-////    /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment().getAbroad());*/
-////     /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment().getAt_home());*/
-////
-////       /* entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getDistribution_of_family_income());*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getPublic_debt());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getInflation_rate());
-////     /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCentral_bank_discount_rate());*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCommercial_bank_prime_lending_rate());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_narrow_money());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_broad_money());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_domestic_credit());
-////      /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getMarket_value_of_publicly_traded_shares());*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCurrent_account_balance());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getReserves_of_foreign_exchange_and_gold());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExternal_debt());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExchange_rates());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGross_national_saving());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getPopulation_below_poverty_line());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getUnemployment_rate());
-/////*ENERGY*/
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getAccess());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getAccess().getTotal_electrification());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getProduction());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getConsumption());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getExports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getImports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getInstalled_generating_capacity());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getFossil_fuels());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getNuclear_fuels());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getHydroelectric_plants());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getOther_renewable_sources());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getProduction());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getExports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getImports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getProved_reserves());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getProduction());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getConsumption());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getExports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getImports());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getProduction());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getConsumption());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getExports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getImports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getProved_reserves());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCarbon_dioxide_emissions_from_consumption_of_energy());
-////
-////
-////
-////        /*COMMUNICATIONS*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications());
-////       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones());
-////      //  entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getFixed_lines());
-////       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getMobile_cellular());
-////       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getSystem());
-////       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getInternet());
-////       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getInternet().getUsers());
-////
-////
-////        /*Transportation*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getNational_system());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getCivil_aircraft_registration_country_code_prefix());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getPaved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getUnpaved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getHeliports());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getPipelines());
-////
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getPaved());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getTotal());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getUnpaved());
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getWaterways());
-/////*        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getMerchant_marine());*/
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getPorts_and_terminals());
-////
-////        /*moze byc problem z klasa Total wewnetrzna*/
-////   /*     entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways());*/
-////     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways().getBroad_gauge());*/
-////     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways().getStandard_gauge());*/
-////
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getIllicit_drugs());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons());
-////        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getRefugees());
-////       /* entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getStateless_persons());*/
+///* GEOGRAPHY*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates().getLongitude());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getGeographic_coordinates().getLatitude());
 //
-//    }
-//    public void addAlbania(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAlbania().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAlbania().setName("albania");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getLand());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getArea().getWater());
 //
-//        result.getCountries().getAlbania().getData().setName("albania");
-//        entityManager.persist(result.getCountries().getAlbania());
-//    }
-//    public void addAlgeria(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAlgeria().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAlgeria().setName("algeria");
 //
-//        result.getCountries().getAlgeria().getData().setName("algeria");
-//        entityManager.persist(result.getCountries().getAlgeria());
-//    }
-//    public void addAmerican_samoa(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAmerican_samoa().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAmerican_samoa().setName("american_samoa");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_boundaries().getTotal());
 //
-//        result.getCountries().getAmerican_samoa().getData().setName("american_samoa");
-//        entityManager.persist(result.getCountries().getAmerican_samoa());
-//    }
-//    public void addAndorra(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAndorra().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAndorra().setName("andorra");
 //
-//        result.getCountries().getAndorra().getData().setName("andorra");
-//        entityManager.persist(result.getCountries().getAndorra());
-//    }
-//    public void addAngola(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAngola().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAngola().setName("angola");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getHighest_point());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getLowest_point());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getMean_elevation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getHighest_point().getElevation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getElevation().getLowest_point().getElevation());
 //
-//        result.getCountries().getAngola().getData().setName("angola");
-//        entityManager.persist(result.getCountries().getAngola());
-//    }
-//    public void addAnguilla(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAnguilla().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAnguilla().setName("anguilla");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_arable_land());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_crops());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_permanent_pasture());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getAgricultural_land_total());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getForest());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getLand_use().getBy_sector().getOther());
 //
-//        result.getCountries().getAnguilla().getData().setName("anguilla");
-//        entityManager.persist(result.getCountries().getAnguilla());
-//    }
-//    public void addAntarctica(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAntarctica().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAntarctica().setName("antarctica");
 //
-//        result.getCountries().getAntarctica().getData().setName("antarctica");
-//        entityManager.persist(result.getCountries().getAntarctica());
-//    }
-//    public void addAntigua_and_barbuda(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAntigua_and_barbuda().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAntigua_and_barbuda().setName("antigua_and_barbuda");
 //
-//        result.getCountries().getAntigua_and_barbuda().getData().setName("antigua_and_barbuda");
-//        entityManager.persist(result.getCountries().getAntigua_and_barbuda());
-//    }
-//    public void addArctic_ocean(EntityManager entityManager, Json result){
-//        /*for(Border_countries bc : result.getCountries().getArctic_ocean().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getArctic_ocean().setName("arctic_ocean");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getEnvironment());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getEnvironment().getInternational_agreements());
 //
-//        result.getCountries().getArctic_ocean().getData().setName("arctic_ocean");
-//        entityManager.persist(result.getCountries().getArctic_ocean());
-//    }
-//    public void addArgentina(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getArgentina().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getArgentina().setName("argentina");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getCoastline());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGeography().getIrrigated_land());
 //
-//        result.getCountries().getArgentina().getData().setName("argentina");
-//        entityManager.persist(result.getCountries().getArgentina());
-//    }
-//    public void addArmenia(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getArmenia().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getArmenia().setName("armenia");
+///*PEOPLE*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPopulation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getNationality());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getEthnic_groups());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLanguages());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getReligions());
 //
-//        result.getCountries().getArmenia().getData().setName("armenia");
-//        entityManager.persist(result.getCountries().getArmenia());
-//    }
-//    public void addAruba(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAruba().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAruba().setName("aruba");
 //
-//        result.getCountries().getAruba().getData().setName("aruba");
-//        entityManager.persist(result.getCountries().getAruba());
-//    }
-//    public void addAshmore_and_cartier_islands(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAshmore_and_cartier_islands().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAshmore_and_cartier_islands().setName("ashmore_and_cartier_islands");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_0_to_14());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_15_to_24());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_25_to_54());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_55_to_64());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAge_structure().getAge_65_and_over());
 //
-//        result.getCountries().getAshmore_and_cartier_islands().getData().setName("ashmore_and_cartier_islands");
-//        entityManager.persist(result.getCountries().getAshmore_and_cartier_islands());
-//    }
-//    public void addAtlantic_ocean(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAtlantic_ocean().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAtlantic_ocean().setName("atlantic_ocean");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getElderly_dependency_ratio());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getPotential_support_ratio());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getTotal_dependency_ratio());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDependency_ratios().getRatios().getYouth_dependency_ratio());
 //
-//        result.getCountries().getAtlantic_ocean().getData().setName("atlantic_ocean");
-//        entityManager.persist(result.getCountries().getAtlantic_ocean());
-//    }
-//    public void addAustralia(EntityManager entityManager, Json result){
-///*        for(Border_countries bc : result.getCountries().getAustralia().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }*/
-//        result.getCountries().getAustralia().setName("australia");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age().getTotal());
 //
-//        result.getCountries().getAustralia().getData().setName("australia");
-//        entityManager.persist(result.getCountries().getAustralia());
-//    }
-//    public void addAustria(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAustria().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAustria().setName("austria");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPopulation_growth_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getBirth_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDeath_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getNet_migration_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMedian_age());
 //
-//        result.getCountries().getAustria().getData().setName("austria");
-//        entityManager.persist(result.getCountries().getAustria());
-//    }
-//    public void addAzerbaijan(EntityManager entityManager, Json result){
-//        for(Border_countries bc : result.getCountries().getAzerbaijan().getData().getGeography().getLand_boundaries().getBorder_countries()){
-//            bc.setBorder(bc.getBorder_length().getValue());
-//            bc.setUnits(bc.getBorder_length().getUnits());
-//        }
-//        result.getCountries().getAzerbaijan().setName("azerbaijan");
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization().getRate_of_urbanization());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getUrbanization().getUrban_population());
 //
-//        result.getCountries().getAzerbaijan().getData().setName("azerbaijan");
-//        entityManager.persist(result.getCountries().getAzerbaijan());
-//    }
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMajor_urban_areas());
 //
-//    public void addA(EntityManager entityManager, Json result){
-//                addAfghanistan(entityManager,result);
-//        addAkrotiri(entityManager,result);
-//        addAlbania(entityManager,result);
-//        addAlgeria(entityManager,result);
-//        addAmerican_samoa(entityManager,result);
-//        addAndorra(entityManager,result);
-//        addAngola( entityManager, result);
-//        addAnguilla(entityManager,result);
-//        addAntarctica(entityManager,result);
-//        addAntigua_and_barbuda(entityManager,result);
-//        addArctic_ocean(entityManager,result);
-//        addArgentina(entityManager,result);
-//        addArmenia(entityManager,result);
-//        addAruba(entityManager,result);
-//        addAshmore_and_cartier_islands(entityManager,result);
-//        addAtlantic_ocean(entityManager,result);
-//        addAustralia(entityManager,result);
-//        addAustria(entityManager,result);
-//        addAzerbaijan(entityManager,result);
-//    }
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getTotal_population());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_0_to_14_years());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_15_to_24_years());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_25_to_54_years());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_55_to_64_years());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAge_65_years_and_over());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSex_ratio().getBy_age().getAt_birth());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMothers_mean_age_at_first_birth());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMaternal_mortality_rate());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getInfant_mortality_rate().getTotal());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLife_expectancy_at_birth().getTotal_population());
+//
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getTotal_fertility_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getHealth_expenditures());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getPhysicians_density());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getHospital_bed_density());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getRural());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getImproved().getUrban());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getRural());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getDrinking_water_source().getUnimproved().getUrban());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getRural());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getImproved().getUrban());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getRural());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSanitation_facility_access().getUnimproved().getUrban());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getMajor_infectious_diseases());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getAdult_obesity());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getEducation_expenditures());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getLiteracy().getTotal_population());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getSchool_life_expectancy().getTotal());
+//
+//  /*      entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getFemale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getMale());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getPeople().getYouth_unemployment().getTotal());*/
+///*GOVERMENT*/
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCountry_name());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates().getLatitude());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getGeographic_coordinates().getLongitude());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCapital().getTime_difference());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getIndependence());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getConstitution());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getCitizenship());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getSuffrage());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getExecutive_branch());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getLegislative_branch());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getJudicial_branch());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getPolitical_parties_and_leaders());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getPolitical_pressure_groups_and_leaders());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation().getFrom_united_states());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getDiplomatic_representation().getIn_united_states());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getFlag_description());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getNational_symbol());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getGovernment().getNational_anthem());
+//
+///*ECONOMY*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getPurchasing_power_parity());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getReal_growth_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getPer_capita_purchasing_power_parity());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getOfficial_exchange_rate());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getExports_of_goods_and_services());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getGovernment_consumption());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getHousehold_consumption());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getImports_of_goods_and_services());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_fixed_capital());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_end_use().getEnd_uses().getInvestment_in_inventories());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getAgriculture());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getIndustry());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGdp().getComposition().getBy_sector_of_origin().getSectors().getServices());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getAgriculture_products());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getIndustries());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getIndustrial_production_growth_rate());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getTotal_size());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getAgriculture());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getIndustry());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getLabor_force().getBy_occupation().getOccupation().getServices());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share().getHighest_ten_percent());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getHousehold_income_by_percentage_share().getLowest_ten_percent());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget().getExpenditures());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget().getRevenues());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getTaxes_and_other_revenues());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getBudget_surplus_or_deficit());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getFiscal_year());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getCommodities());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getPartners());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExports().getTotal_value());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getCommodities());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getPartners());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getImports().getTotal_value());
+//
+//     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment());*/
+//    /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment().getAbroad());*/
+//     /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_direct_foreign_investment().getAt_home());*/
+//
+//       /* entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getDistribution_of_family_income());*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getPublic_debt());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getInflation_rate());
+//     /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCentral_bank_discount_rate());*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCommercial_bank_prime_lending_rate());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_narrow_money());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_broad_money());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getStock_of_domestic_credit());
+//      /*  entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getMarket_value_of_publicly_traded_shares());*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getCurrent_account_balance());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getReserves_of_foreign_exchange_and_gold());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExternal_debt());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getExchange_rates());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getGross_national_saving());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getPopulation_below_poverty_line());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEconomy().getUnemployment_rate());
+///*ENERGY*/
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getAccess());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getAccess().getTotal_electrification());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getProduction());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getConsumption());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getExports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getImports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getInstalled_generating_capacity());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getFossil_fuels());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getNuclear_fuels());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getHydroelectric_plants());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getElectricity().getBy_source().getOther_renewable_sources());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getProduction());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getExports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getImports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCrude_oil().getProved_reserves());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getProduction());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getConsumption());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getExports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getRefined_petroleum_products().getImports());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getProduction());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getConsumption());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getExports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getImports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getNatural_gas().getProved_reserves());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getEnergy().getCarbon_dioxide_emissions_from_consumption_of_energy());
+//
+//
+//
+//        /*COMMUNICATIONS*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications());
+//       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones());
+//      //  entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getFixed_lines());
+//       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getMobile_cellular());
+//       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getTelephones().getSystem());
+//       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getInternet());
+//       // entityManager.persist(result.getCountries().getAkrotiri().getData().getCommunications().getInternet().getUsers());
+//
+//
+//        /*Transportation*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getNational_system());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getCivil_aircraft_registration_country_code_prefix());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getPaved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getAirports().getUnpaved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getAir_transport().getHeliports());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getPipelines());
+//
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getPaved());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getTotal());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRoadways().getUnpaved());
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getWaterways());
+///*        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getMerchant_marine());*/
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getPorts_and_terminals());
+//
+//        /*moze byc problem z klasa Total wewnetrzna*/
+//   /*     entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways());*/
+//     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways().getBroad_gauge());*/
+//     /*   entityManager.persist(result.getCountries().getAkrotiri().getData().getTransportation().getRailways().getStandard_gauge());*/
+//
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getIllicit_drugs());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons());
+//        entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getRefugees());
+//       /* entityManager.persist(result.getCountries().getAkrotiri().getData().getTransnational_issues().getRefugees_and_iternally_displaced_persons().getStateless_persons());*/
+
+    }
+    static void addAlbania(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAlbania().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAlbania().setName("albania");
+
+        result.getCountries().getAlbania().getData().setName("albania");
+        entityManager.persist(result.getCountries().getAlbania());
+    }
+    static void addAlgeria(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAlgeria().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAlgeria().setName("algeria");
+
+        result.getCountries().getAlgeria().getData().setName("algeria");
+        entityManager.persist(result.getCountries().getAlgeria());
+    }
+    static void addAmerican_samoa(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAmerican_samoa().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAmerican_samoa().setName("american_samoa");
+
+        result.getCountries().getAmerican_samoa().getData().setName("american_samoa");
+        entityManager.persist(result.getCountries().getAmerican_samoa());
+    }
+    static void addAndorra(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAndorra().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAndorra().setName("andorra");
+
+        result.getCountries().getAndorra().getData().setName("andorra");
+        entityManager.persist(result.getCountries().getAndorra());
+    }
+    static void addAngola(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAngola().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAngola().setName("angola");
+
+        result.getCountries().getAngola().getData().setName("angola");
+        entityManager.persist(result.getCountries().getAngola());
+    }
+    static void addAnguilla(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAnguilla().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAnguilla().setName("anguilla");
+
+        result.getCountries().getAnguilla().getData().setName("anguilla");
+        entityManager.persist(result.getCountries().getAnguilla());
+    }
+    static void addAntarctica(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAntarctica().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAntarctica().setName("antarctica");
+
+        result.getCountries().getAntarctica().getData().setName("antarctica");
+        entityManager.persist(result.getCountries().getAntarctica());
+    }
+    static void addAntigua_and_barbuda(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAntigua_and_barbuda().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAntigua_and_barbuda().setName("antigua_and_barbuda");
+
+        result.getCountries().getAntigua_and_barbuda().getData().setName("antigua_and_barbuda");
+        entityManager.persist(result.getCountries().getAntigua_and_barbuda());
+    }
+    static void addArctic_ocean(EntityManager entityManager, Json result){
+        /*for(Border_countries bc : result.getCountries().getArctic_ocean().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getArctic_ocean().setName("arctic_ocean");
+
+        result.getCountries().getArctic_ocean().getData().setName("arctic_ocean");
+        entityManager.persist(result.getCountries().getArctic_ocean());
+    }
+    static void addArgentina(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getArgentina().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getArgentina().setName("argentina");
+
+        result.getCountries().getArgentina().getData().setName("argentina");
+        entityManager.persist(result.getCountries().getArgentina());
+    }
+    static void addArmenia(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getArmenia().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getArmenia().setName("armenia");
+
+        result.getCountries().getArmenia().getData().setName("armenia");
+        entityManager.persist(result.getCountries().getArmenia());
+    }
+    static void addAruba(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAruba().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAruba().setName("aruba");
+
+        result.getCountries().getAruba().getData().setName("aruba");
+        entityManager.persist(result.getCountries().getAruba());
+    }
+    static void addAshmore_and_cartier_islands(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAshmore_and_cartier_islands().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAshmore_and_cartier_islands().setName("ashmore_and_cartier_islands");
+
+        result.getCountries().getAshmore_and_cartier_islands().getData().setName("ashmore_and_cartier_islands");
+        entityManager.persist(result.getCountries().getAshmore_and_cartier_islands());
+    }
+    static void addAtlantic_ocean(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAtlantic_ocean().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAtlantic_ocean().setName("atlantic_ocean");
+
+        result.getCountries().getAtlantic_ocean().getData().setName("atlantic_ocean");
+        entityManager.persist(result.getCountries().getAtlantic_ocean());
+    }
+    static void addAustralia(EntityManager entityManager, Json result){
+/*        for(Border_countries bc : result.getCountries().getAustralia().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }*/
+        result.getCountries().getAustralia().setName("australia");
+
+        result.getCountries().getAustralia().getData().setName("australia");
+        entityManager.persist(result.getCountries().getAustralia());
+    }
+    static void addAustria(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAustria().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAustria().setName("austria");
+
+        result.getCountries().getAustria().getData().setName("austria");
+        entityManager.persist(result.getCountries().getAustria());
+    }
+    static void addAzerbaijan(EntityManager entityManager, Json result){
+        for(Border_countries bc : result.getCountries().getAzerbaijan().getData().getGeography().getLand_boundaries().getBorder_countries()){
+            bc.setBorder(bc.getBorder_length().getValue());
+            bc.setUnits(bc.getBorder_length().getUnits());
+        }
+        result.getCountries().getAzerbaijan().setName("azerbaijan");
+
+        result.getCountries().getAzerbaijan().getData().setName("azerbaijan");
+        entityManager.persist(result.getCountries().getAzerbaijan());
+    }
+
+    public static void addA(EntityManager entityManager, Json result){
+                addAfghanistan(entityManager,result);
+        addAkrotiri(entityManager,result);
+        addAlbania(entityManager,result);
+        addAlgeria(entityManager,result);
+        addAmerican_samoa(entityManager,result);
+        addAndorra(entityManager,result);
+        addAngola( entityManager, result);
+        addAnguilla(entityManager,result);
+        addAntarctica(entityManager,result);
+        addAntigua_and_barbuda(entityManager,result);
+        addArctic_ocean(entityManager,result);
+        addArgentina(entityManager,result);
+        addArmenia(entityManager,result);
+        addAruba(entityManager,result);
+        addAshmore_and_cartier_islands(entityManager,result);
+        addAtlantic_ocean(entityManager,result);
+        addAustralia(entityManager,result);
+        addAustria(entityManager,result);
+        addAzerbaijan(entityManager,result);
+    }
 
 
 //    public void addBahamas_the(EntityManager entityManager, Json result){
