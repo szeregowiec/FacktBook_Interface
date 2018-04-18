@@ -6,10 +6,12 @@ import com.google.gson.JsonElement;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,11 +54,15 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
+
+
+//        Query query =  entityManager.createQuery("select d.name from Data d, Geography g where g.map_references='Europe' and d.geography=g.id");
+//        List<String> list = query.getResultList();
 //
-//          //addA(entityManager,result);
+   //addA(entityManager,result);
 ////        addB(entityManager,result);
 ////        addC(entityManager,result);
-  addD(entityManager,result);
+  //addD(entityManager,result);
 ////        addE(entityManager,result);
 ////        addF(entityManager,result);
 ////        addG(entityManager,result);

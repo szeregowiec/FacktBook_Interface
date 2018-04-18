@@ -32,13 +32,13 @@
     function loadDoc(){
       var request = new XMLHttpRequest();
       request.addEventListener("readystatechange", processRequest, false);
-      request.open("GET", "//localhost:8080/greeting", true);
+      request.open("GET", "//localhost:8080/countries/denmark/geography", true);
       request.send();
 
       function processRequest(e) {
           if (request.readyState == 4 && request.status == 200) {
               var response = JSON.parse(request.responseText);
-document.getElementById("wynik").innerHTML = response[1];
+document.getElementById("wynik").innerHTML = response.geographic_coordinates.latitude.degrees;
 // $('.isbn').append(response.id);
 
 

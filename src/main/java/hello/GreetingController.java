@@ -1,6 +1,8 @@
 package hello;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.google.gson.Gson;
 import database.Data;
@@ -45,6 +47,24 @@ public class GreetingController {
 
 
         return data.getGeography();
+    }
+
+    @GetMapping(value = "/continents", produces = "application/json")
+    public Set<String> continents() {
+
+        List<String> lista = queryList("select g.map_references from Geography g");
+        Set<String> set = new HashSet<>();
+        set.addAll(lista);
+
+        return set;
+    }
+    @GetMapping(value = "/continents/{continent}", produces = "application/json")
+    public List<String> continent(@PathVariable("continent") String continent) {
+
+        List<String> lista = queryList("select d.name from Data d, Geography g where g.map_references='"+continent+"' and d.geography=g.id");
+
+
+        return lista;
     }
 
 
