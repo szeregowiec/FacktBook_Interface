@@ -1,0 +1,126 @@
+#photoText {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-size: 60px;
+}
+
+#centeredImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#mainLogo {
+    background-color: darksalmon;
+    color: #ffffff;
+    padding: 100px 25px;
+}
+
+#mainLogoText {
+    font-size: 80px;
+    color: dimgrey;
+}
+
+
+#oneCountry {
+    font-size: 50px;
+    background-color: white;
+}
+
+#countryColumn {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+}
+
+
+
+
+/**
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+p {
+    font-size: 18px;
+}
+
+th {
+    font-size: 18px;
+}
+
+td {
+    font-size: 16px;
+}
+
+#kontakt {
+    background-color: ghostwhite;
+}
+
+
+
+
+.sidebar-nav-fixed {
+    width: %;
+}
+
+#pasek {
+    background-color: skyblue;
+}
+
+#tresc {
+    padding-top: 110px;
+}
+
+#coverId {
+    width: 300px;
+    height: 400px;
+}
+
+
+#divFormLogIn {
+    width: 350px;
+}
+
+
+#divFormSignUp {
+    width: 350px;
+}
+
+#divFormAddBook {
+    width: 350px;
+}
+
+#divFormSignUpEmployee {
+    width: 350px;
+}
+
+#divFormAddBook {
+    width: 350px;
+}
+
+#noBooks {
+    color: #b92c28;
+}
+
+
+#changeLabel {
+    display: block;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+#wrongPassword {
+    color: red;
+}
+
+#bookDiv {
+    width: 300px;
+    height: 500px;
+}
+*/

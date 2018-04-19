@@ -58,6 +58,7 @@ public class GreetingController {
 
         return set;
     }
+
     @GetMapping(value = "/continents/{continent}", produces = "application/json")
     public List<String> continent(@PathVariable("continent") String continent) {
 
