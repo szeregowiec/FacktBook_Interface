@@ -65,7 +65,7 @@ public class GreetingController {
     }
 
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
-    public Map<String,Float> sortGeographyCoastline() {
+    public List<CountrySort>  sortGeographyCoastline() {
 
         entityManager.getTransaction().begin();
         Query query =  entityManager.createQuery("select d from Data d ");
@@ -80,17 +80,26 @@ public class GreetingController {
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
 
-        //System.out.println("unsorted map: " + map);
         sorted_map.putAll(map);
-        //System.out.println("results: " + sorted_map);
 
-//        List<CountrySort> sorted_country = new LinkedList<>();
-//        for(String s : sorted_map.keySet()){
-//            sorted_country.add(new CountrySort(s));
+
+        List<CountrySort> sorted_country = new LinkedList<>();
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
+//            //Float f =  sorted_map.get(s);
+//            if(sorted_map.get(s) == null){
+//                cs.setValue(0);
+//            }else{
+//                cs.setValue(sorted_map.get(s).floatValue());
+//            }
 //
-//        }
+//
+            sorted_country.add(cs);
 
-        return sorted_map;
+        }
+
+        return sorted_country;
     }
 
     public static Object queryOne(String s){
@@ -149,18 +158,19 @@ class CountrySort{
         this.name = name;
     }
 
-    public Float getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(Float value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
     String name;
-    Float value;
-    CountrySort(String name){
+    float value;
+    CountrySort(String name, float f){
         this.name=name;
+        value=f;
 
     }
         }

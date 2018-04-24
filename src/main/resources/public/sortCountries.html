@@ -96,7 +96,7 @@ function checkedFunction(id) {
             var lista;
             var i;
             for(i=0; i<response.length;i++){
-                lista += "<li> "+response.china+"</li>"
+                lista += "<li> "+response[i].name+"     " + response[i].value+"</li>"
             }
             document.getElementById("countries").innerHTML =lista;
         }
