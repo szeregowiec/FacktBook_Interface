@@ -14,6 +14,15 @@ public class Geography {
     @Column(unique = true)
     private int id;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Column(length = 5000)
     private String location;

@@ -13,6 +13,7 @@ public class Data {
     //@OneToOne(cascade = {CascadeType.ALL})
     private Introduction introduction;
 
+
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id")
     private Geography geography;

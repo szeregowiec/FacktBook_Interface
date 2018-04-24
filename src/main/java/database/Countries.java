@@ -52,98 +52,98 @@ public class Countries {
     private MyCountry austria;
     @OneToOne(cascade = {CascadeType.ALL})
     private MyCountry azerbaijan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bahamas_the;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bahrain;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bangladesh;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry barbados;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry belarus;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry belgium;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry belize;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry benin;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bermuda;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bhutan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bolivia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bosnia_and_herzegovina;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry botswana;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bouvet_island;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry brazil;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry british_indian_ocean_territory;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry british_virgin_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry brunei;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry bulgaria;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry burkina_faso;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry burma;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry burundi;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cabo_verde;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cambodia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cameroon;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry canada;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cayman_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry central_african_republic;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry chad;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry chile;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry china;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry christmas_island;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry clipperton_island;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cocos_keeling_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry colombia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry comoros;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry congo_democratic_republic_of_the;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry congo_republic_of_the;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cook_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry coral_sea_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry costa_rica;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry croatia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cuba;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry curacao;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry cyprus;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry czechia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bahamas_the;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bahrain;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bangladesh;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry barbados;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry belarus;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry belgium;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry belize;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry benin;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bermuda;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bhutan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bolivia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bosnia_and_herzegovina;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry botswana;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bouvet_island;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry brazil;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry british_indian_ocean_territory;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry british_virgin_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry brunei;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry bulgaria;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry burkina_faso;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry burma;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry burundi;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cabo_verde;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cambodia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cameroon;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry canada;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cayman_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry central_african_republic;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry chad;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry chile;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry china;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry christmas_island;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry clipperton_island;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cocos_keeling_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry colombia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry comoros;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry congo_democratic_republic_of_the;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry congo_republic_of_the;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cook_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry coral_sea_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry costa_rica;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry croatia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cuba;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry curacao;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry cyprus;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry czechia;
     @OneToOne(cascade = {CascadeType.ALL})
     private MyCountry denmark;
     @OneToOne(cascade = {CascadeType.ALL})
@@ -154,120 +154,120 @@ public class Countries {
     private MyCountry dominica;
     @OneToOne(cascade = {CascadeType.ALL})
     private MyCountry dominican_republic;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry ecuador;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry egypt;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry el_salvador;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry equatorial_guinea;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry eritrea;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry estonia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry ethiopia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry falkland_islands_islas_malvinas;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry faroe_islands;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry fiji;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry finland;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry france;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry french_polynesia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry gabon;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry gambia_the;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry gaza_strip;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry georgia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry germany;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry ghana;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry gibraltar;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry greece;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry greenland;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry grenada;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guam;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guatemala;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guernsey;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guinea;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guinea_bissau;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry guyana;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry haiti;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry heard_island_and_mcdonald_islands ;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry holy_see_vatican_city;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry honduras;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry hong_kong;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry hungary;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry iceland;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry india;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry indian_ocean;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry indonesia;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry iran;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry iraq;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry ireland;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry isle_of_man ;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry israel;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry italy;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry jamaica;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry jan_mayen;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry japan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry jersey;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry jordan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry kazakhstan;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry kenya;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry kiribati;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry korea_north;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry korea_south;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry kosovo;
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private MyCountry kyrgyzstan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry ecuador;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry egypt;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry el_salvador;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry equatorial_guinea;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry eritrea;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry estonia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry ethiopia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry falkland_islands_islas_malvinas;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry faroe_islands;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry fiji;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry finland;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry france;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry french_polynesia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry gabon;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry gambia_the;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry gaza_strip;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry georgia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry germany;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry ghana;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry gibraltar;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry greece;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry greenland;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry grenada;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guam;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guatemala;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guernsey;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guinea;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guinea_bissau;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry guyana;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry haiti;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry heard_island_and_mcdonald_islands ;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry holy_see_vatican_city;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry honduras;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry hong_kong;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry hungary;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry iceland;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry india;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry indian_ocean;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry indonesia;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry iran;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry iraq;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry ireland;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry isle_of_man ;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry israel;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry italy;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry jamaica;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry jan_mayen;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry japan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry jersey;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry jordan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry kazakhstan;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry kenya;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry kiribati;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry korea_north;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry korea_south;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry kosovo;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private MyCountry kyrgyzstan;
 
 //    private MyCountry laos;
 //    private MyCountry latvia;
@@ -495,189 +495,189 @@ public class Countries {
         return azerbaijan;
     }
 
-//    public MyCountry getBahamas_the() {
-//        return bahamas_the;
-//    }
-//
-//    public MyCountry getBahrain() {
-//        return bahrain;
-//    }
-//
-//    public MyCountry getBangladesh() {
-//        return bangladesh;
-//    }
-//
-//    public MyCountry getBarbados() {
-//        return barbados;
-//    }
-//
-//    public MyCountry getBelarus() {
-//        return belarus;
-//    }
-//
-//    public MyCountry getBelgium() {
-//        return belgium;
-//    }
-//
-//    public MyCountry getBelize() {
-//        return belize;
-//    }
-//
-//    public MyCountry getBenin() {
-//        return benin;
-//    }
-//
-//    public MyCountry getBermuda() {
-//        return bermuda;
-//    }
-//
-//    public MyCountry getBhutan() {
-//        return bhutan;
-//    }
-//
-//    public MyCountry getBolivia() {
-//        return bolivia;
-//    }
-//
-//    public MyCountry getBosnia_and_herzegovina() {
-//        return bosnia_and_herzegovina;
-//    }
-//
-//    public MyCountry getBotswana() {
-//        return botswana;
-//    }
-//
-//    public MyCountry getBouvet_island() {
-//        return bouvet_island;
-//    }
-//
-//    public MyCountry getBrazil() {
-//        return brazil;
-//    }
-//
-//    public MyCountry getBritish_indian_ocean_territory() {
-//        return british_indian_ocean_territory;
-//    }
-//
-//    public MyCountry getBritish_virgin_islands() {
-//        return british_virgin_islands;
-//    }
-//
-//    public MyCountry getBrunei() {
-//        return brunei;
-//    }
-//
-//    public MyCountry getBulgaria() {
-//        return bulgaria;
-//    }
-//
-//    public MyCountry getBurkina_faso() {
-//        return burkina_faso;
-//    }
-//
-//    public MyCountry getBurma() {
-//        return burma;
-//    }
-//
-//    public MyCountry getBurundi() {
-//        return burundi;
-//    }
-//
-//    public MyCountry getCabo_verde() {
-//        return cabo_verde;
-//    }
-//
-//    public MyCountry getCambodia() {
-//        return cambodia;
-//    }
-//
-//    public MyCountry getCameroon() {
-//        return cameroon;
-//    }
-//
-//    public MyCountry getCanada() {
-//        return canada;
-//    }
-//
-//    public MyCountry getCayman_islands() {
-//        return cayman_islands;
-//    }
-//
-//    public MyCountry getCentral_african_republic() {
-//        return central_african_republic;
-//    }
-//
-//    public MyCountry getChad() {
-//        return chad;
-//    }
-//
-//    public MyCountry getChile() {
-//        return chile;
-//    }
-//
-//    public MyCountry getChina() {
-//        return china;
-//    }
-//
-//    public MyCountry getChristmas_island() {
-//        return christmas_island;
-//    }
-//
-//    public MyCountry getClipperton_island() {
-//        return clipperton_island;
-//    }
-//
-//    public MyCountry getCocos_keeling_islands() {
-//        return cocos_keeling_islands;
-//    }
-//
-//    public MyCountry getColombia() {
-//        return colombia;
-//    }
-//
-//    public MyCountry getComoros() {
-//        return comoros;
-//    }
-//
-//    public MyCountry getCongo_democratic_republic_of_the() {
-//        return congo_democratic_republic_of_the;
-//    }
-//
-//    public MyCountry getCongo_republic_of_the() {
-//        return congo_republic_of_the;
-//    }
-//
-//    public MyCountry getCook_islands() {
-//        return cook_islands;
-//    }
-//
-//    public MyCountry getCoral_sea_islands() {
-//        return coral_sea_islands;
-//    }
-//
-//    public MyCountry getCosta_rica() {
-//        return costa_rica;
-//    }
-//
-//    public MyCountry getCroatia() {
-//        return croatia;
-//    }
-//
-//    public MyCountry getCuba() {
-//        return cuba;
-//    }
-//
-//    public MyCountry getCuracao() {
-//        return curacao;
-//    }
-//
-//    public MyCountry getCyprus() {
-//        return cyprus;
-//    }
-//
-//    public MyCountry getCzechia() {
-//        return czechia;
-//    }
+    public MyCountry getBahamas_the() {
+        return bahamas_the;
+    }
+
+    public MyCountry getBahrain() {
+        return bahrain;
+    }
+
+    public MyCountry getBangladesh() {
+        return bangladesh;
+    }
+
+    public MyCountry getBarbados() {
+        return barbados;
+    }
+
+    public MyCountry getBelarus() {
+        return belarus;
+    }
+
+    public MyCountry getBelgium() {
+        return belgium;
+    }
+
+    public MyCountry getBelize() {
+        return belize;
+    }
+
+    public MyCountry getBenin() {
+        return benin;
+    }
+
+    public MyCountry getBermuda() {
+        return bermuda;
+    }
+
+    public MyCountry getBhutan() {
+        return bhutan;
+    }
+
+    public MyCountry getBolivia() {
+        return bolivia;
+    }
+
+    public MyCountry getBosnia_and_herzegovina() {
+        return bosnia_and_herzegovina;
+    }
+
+    public MyCountry getBotswana() {
+        return botswana;
+    }
+
+    public MyCountry getBouvet_island() {
+        return bouvet_island;
+    }
+
+    public MyCountry getBrazil() {
+        return brazil;
+    }
+
+    public MyCountry getBritish_indian_ocean_territory() {
+        return british_indian_ocean_territory;
+    }
+
+    public MyCountry getBritish_virgin_islands() {
+        return british_virgin_islands;
+    }
+
+    public MyCountry getBrunei() {
+        return brunei;
+    }
+
+    public MyCountry getBulgaria() {
+        return bulgaria;
+    }
+
+    public MyCountry getBurkina_faso() {
+        return burkina_faso;
+    }
+
+    public MyCountry getBurma() {
+        return burma;
+    }
+
+    public MyCountry getBurundi() {
+        return burundi;
+    }
+
+    public MyCountry getCabo_verde() {
+        return cabo_verde;
+    }
+
+    public MyCountry getCambodia() {
+        return cambodia;
+    }
+
+    public MyCountry getCameroon() {
+        return cameroon;
+    }
+
+    public MyCountry getCanada() {
+        return canada;
+    }
+
+    public MyCountry getCayman_islands() {
+        return cayman_islands;
+    }
+
+    public MyCountry getCentral_african_republic() {
+        return central_african_republic;
+    }
+
+    public MyCountry getChad() {
+        return chad;
+    }
+
+    public MyCountry getChile() {
+        return chile;
+    }
+
+    public MyCountry getChina() {
+        return china;
+    }
+
+    public MyCountry getChristmas_island() {
+        return christmas_island;
+    }
+
+    public MyCountry getClipperton_island() {
+        return clipperton_island;
+    }
+
+    public MyCountry getCocos_keeling_islands() {
+        return cocos_keeling_islands;
+    }
+
+    public MyCountry getColombia() {
+        return colombia;
+    }
+
+    public MyCountry getComoros() {
+        return comoros;
+    }
+
+    public MyCountry getCongo_democratic_republic_of_the() {
+        return congo_democratic_republic_of_the;
+    }
+
+    public MyCountry getCongo_republic_of_the() {
+        return congo_republic_of_the;
+    }
+
+    public MyCountry getCook_islands() {
+        return cook_islands;
+    }
+
+    public MyCountry getCoral_sea_islands() {
+        return coral_sea_islands;
+    }
+
+    public MyCountry getCosta_rica() {
+        return costa_rica;
+    }
+
+    public MyCountry getCroatia() {
+        return croatia;
+    }
+
+    public MyCountry getCuba() {
+        return cuba;
+    }
+
+    public MyCountry getCuracao() {
+        return curacao;
+    }
+
+    public MyCountry getCyprus() {
+        return cyprus;
+    }
+
+    public MyCountry getCzechia() {
+        return czechia;
+    }
 
     public MyCountry getDenmark() {
         return denmark;
@@ -699,237 +699,237 @@ public class Countries {
         return dominican_republic;
     }
 
-//    public MyCountry getEcuador() {
-//        return ecuador;
+    public MyCountry getEcuador() {
+        return ecuador;
+    }
+
+    public MyCountry getEgypt() {
+        return egypt;
+    }
+
+    public MyCountry getEl_salvador() {
+        return el_salvador;
+    }
+
+    public MyCountry getEquatorial_guinea() {
+        return equatorial_guinea;
+    }
+
+    public MyCountry getEritrea() {
+        return eritrea;
+    }
+
+    public MyCountry getEstonia() {
+        return estonia;
+    }
+
+    public MyCountry getEthiopia() {
+        return ethiopia;
+    }
+
+    public MyCountry getFalkland_islands_islas_malvinas() {
+        return falkland_islands_islas_malvinas;
+    }
+
+    public MyCountry getFaroe_islands() {
+        return faroe_islands;
+    }
+
+    public MyCountry getFiji() {
+        return fiji;
+    }
+
+    public MyCountry getFinland() {
+        return finland;
+    }
+
+    public MyCountry getFrance() {
+        return france;
+    }
+
+    public MyCountry getFrench_polynesia() {
+        return french_polynesia;
+    }
+
+    public MyCountry getGabon() {
+        return gabon;
+    }
+
+    public MyCountry getGambia_the() {
+        return gambia_the;
+    }
+
+    public MyCountry getGaza_strip() {
+        return gaza_strip;
+    }
+
+    public MyCountry getGeorgia() {
+        return georgia;
+    }
+
+    public MyCountry getGermany() {
+        return germany;
+    }
+
+    public MyCountry getGhana() {
+        return ghana;
+    }
+
+    public MyCountry getGibraltar() {
+        return gibraltar;
+    }
+
+    public MyCountry getGreece() {
+        return greece;
+    }
+
+    public MyCountry getGreenland() {
+        return greenland;
+    }
+
+    public MyCountry getGrenada() {
+        return grenada;
+    }
+
+    public MyCountry getGuam() {
+        return guam;
+    }
+
+    public MyCountry getGuatemala() {
+        return guatemala;
+    }
+
+    public MyCountry getGuernsey() {
+        return guernsey;
+    }
+
+    public MyCountry getGuinea() {
+        return guinea;
+    }
+
+    public MyCountry getGuinea_bissau() {
+        return guinea_bissau;
+    }
+
+    public MyCountry getGuyana() {
+        return guyana;
+    }
+
+    public MyCountry getHaiti() {
+        return haiti;
+    }
+
+    public MyCountry getHeard_island_and_mcdonald_islands() {
+        return heard_island_and_mcdonald_islands;
+    }
+
+    public MyCountry getHoly_see_vatican_city() {
+        return holy_see_vatican_city;
+    }
+
+    public MyCountry getHonduras() {
+        return honduras;
+    }
+
+    public MyCountry getHong_kong() {
+        return hong_kong;
+    }
+
+    public MyCountry getHungary() {
+        return hungary;
+    }
+
+    public MyCountry getIceland() {
+        return iceland;
+    }
+
+    public MyCountry getIndia() {
+        return india;
+    }
+
+    public MyCountry getIndian_ocean() {
+        return indian_ocean;
+    }
+
+    public MyCountry getIndonesia() {
+        return indonesia;
+    }
+
+    public MyCountry getIran() {
+        return iran;
+    }
+
+    public MyCountry getIraq() {
+        return iraq;
+    }
+
+    public MyCountry getIreland() {
+        return ireland;
+    }
+
+    public MyCountry getIsle_of_man() {
+        return isle_of_man;
+    }
+
+    public MyCountry getIsrael() {
+        return israel;
+    }
+
+    public MyCountry getItaly() {
+        return italy;
+    }
+
+    public MyCountry getJamaica() {
+        return jamaica;
+    }
+
+    public MyCountry getJan_mayen() {
+        return jan_mayen;
+    }
+
+    public MyCountry getJapan() {
+        return japan;
+    }
+
+    public MyCountry getJersey() {
+        return jersey;
+    }
+
+    public MyCountry getJordan() {
+        return jordan;
+    }
+
+    public MyCountry getKazakhstan() {
+        return kazakhstan;
+    }
+
+    public MyCountry getKenya() {
+        return kenya;
+    }
+
+    public MyCountry getKiribati() {
+        return kiribati;
+    }
+
+    public MyCountry getKorea_north() {
+        return korea_north;
+    }
+
+    public MyCountry getKorea_south() {
+        return korea_south;
+    }
+
+    public MyCountry getKosovo() {
+        return kosovo;
+    }
+
+//    public MyCountry getKuwait() {
+//        return kuwait;
 //    }
-//
-//    public MyCountry getEgypt() {
-//        return egypt;
-//    }
-//
-//    public MyCountry getEl_salvador() {
-//        return el_salvador;
-//    }
-//
-//    public MyCountry getEquatorial_guinea() {
-//        return equatorial_guinea;
-//    }
-//
-//    public MyCountry getEritrea() {
-//        return eritrea;
-//    }
-//
-//    public MyCountry getEstonia() {
-//        return estonia;
-//    }
-//
-//    public MyCountry getEthiopia() {
-//        return ethiopia;
-//    }
-//
-//    public MyCountry getFalkland_islands_islas_malvinas() {
-//        return falkland_islands_islas_malvinas;
-//    }
-//
-//    public MyCountry getFaroe_islands() {
-//        return faroe_islands;
-//    }
-//
-//    public MyCountry getFiji() {
-//        return fiji;
-//    }
-//
-//    public MyCountry getFinland() {
-//        return finland;
-//    }
-//
-//    public MyCountry getFrance() {
-//        return france;
-//    }
-//
-//    public MyCountry getFrench_polynesia() {
-//        return french_polynesia;
-//    }
-//
-//    public MyCountry getGabon() {
-//        return gabon;
-//    }
-//
-//    public MyCountry getGambia_the() {
-//        return gambia_the;
-//    }
-//
-//    public MyCountry getGaza_strip() {
-//        return gaza_strip;
-//    }
-//
-//    public MyCountry getGeorgia() {
-//        return georgia;
-//    }
-//
-//    public MyCountry getGermany() {
-//        return germany;
-//    }
-//
-//    public MyCountry getGhana() {
-//        return ghana;
-//    }
-//
-//    public MyCountry getGibraltar() {
-//        return gibraltar;
-//    }
-//
-//    public MyCountry getGreece() {
-//        return greece;
-//    }
-//
-//    public MyCountry getGreenland() {
-//        return greenland;
-//    }
-//
-//    public MyCountry getGrenada() {
-//        return grenada;
-//    }
-//
-//    public MyCountry getGuam() {
-//        return guam;
-//    }
-//
-//    public MyCountry getGuatemala() {
-//        return guatemala;
-//    }
-//
-//    public MyCountry getGuernsey() {
-//        return guernsey;
-//    }
-//
-//    public MyCountry getGuinea() {
-//        return guinea;
-//    }
-//
-//    public MyCountry getGuinea_bissau() {
-//        return guinea_bissau;
-//    }
-//
-//    public MyCountry getGuyana() {
-//        return guyana;
-//    }
-//
-//    public MyCountry getHaiti() {
-//        return haiti;
-//    }
-//
-//    public MyCountry getHeard_island_and_mcdonald_islands() {
-//        return heard_island_and_mcdonald_islands;
-//    }
-//
-//    public MyCountry getHoly_see_vatican_city() {
-//        return holy_see_vatican_city;
-//    }
-//
-//    public MyCountry getHonduras() {
-//        return honduras;
-//    }
-//
-//    public MyCountry getHong_kong() {
-//        return hong_kong;
-//    }
-//
-//    public MyCountry getHungary() {
-//        return hungary;
-//    }
-//
-//    public MyCountry getIceland() {
-//        return iceland;
-//    }
-//
-//    public MyCountry getIndia() {
-//        return india;
-//    }
-//
-//    public MyCountry getIndian_ocean() {
-//        return indian_ocean;
-//    }
-//
-//    public MyCountry getIndonesia() {
-//        return indonesia;
-//    }
-//
-//    public MyCountry getIran() {
-//        return iran;
-//    }
-//
-//    public MyCountry getIraq() {
-//        return iraq;
-//    }
-//
-//    public MyCountry getIreland() {
-//        return ireland;
-//    }
-//
-//    public MyCountry getIsle_of_man() {
-//        return isle_of_man;
-//    }
-//
-//    public MyCountry getIsrael() {
-//        return israel;
-//    }
-//
-//    public MyCountry getItaly() {
-//        return italy;
-//    }
-//
-//    public MyCountry getJamaica() {
-//        return jamaica;
-//    }
-//
-//    public MyCountry getJan_mayen() {
-//        return jan_mayen;
-//    }
-//
-//    public MyCountry getJapan() {
-//        return japan;
-//    }
-//
-//    public MyCountry getJersey() {
-//        return jersey;
-//    }
-//
-//    public MyCountry getJordan() {
-//        return jordan;
-//    }
-//
-//    public MyCountry getKazakhstan() {
-//        return kazakhstan;
-//    }
-//
-//    public MyCountry getKenya() {
-//        return kenya;
-//    }
-//
-//    public MyCountry getKiribati() {
-//        return kiribati;
-//    }
-//
-//    public MyCountry getKorea_north() {
-//        return korea_north;
-//    }
-//
-//    public MyCountry getKorea_south() {
-//        return korea_south;
-//    }
-//
-//    public MyCountry getKosovo() {
-//        return kosovo;
-//    }
-//
-////    public MyCountry getKuwait() {
-////        return kuwait;
-////    }
-//
-//    public MyCountry getKyrgyzstan() {
-//        return kyrgyzstan;
-//    }
+
+    public MyCountry getKyrgyzstan() {
+        return kyrgyzstan;
+    }
 
 //    public MyCountry getLaos() {
 //        return laos;

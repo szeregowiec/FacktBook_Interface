@@ -38,10 +38,10 @@
                 <div class="col-sm-4" id="countryColumn">
                     <p>choose first country</p>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose country!
+                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="left_choose_country" value="brak">Choose country!
     
   </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="left_countries">
                             <li><a href="#">country 1</a></li>
                             <li><a href="#">country 2</a></li>
                             <li><a href="#">country 3</a></li>
@@ -52,14 +52,14 @@
 
                 </div>
 
-                <div class="col-sm-4" id="countryColumn">
+                <div class="col-sm-4" id="countryColumn" >
                     <p>choose second country</p>
                     <div class="btn-group">
 
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose country!
+                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="right_choose_country"  value="brak">Choose country!
     
   </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="right_countries">
                             <li><a href="#">country 1</a></li>
                             <li><a href="#">country 2</a></li>
                             <li><a href="#">country 3</a></li>
@@ -77,7 +77,38 @@
     </div>
 
 
+    <script>
+        var request = new XMLHttpRequest();
+        request.addEventListener("readystatechange", processRequest, false);
+        request.open("GET", "//localhost:8080/countries", true);
+        request.send();
+        function processRequest(e) {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = JSON.parse(request.responseText);
+                var lista;
+                var i;
+                for(i=0; i<response.length;i++){
+                    lista += "<li onclick="+"\"changeCountry('"+response[i]+"')\">"+response[i]+"</li>"
+                }
+                document.getElementById("left_countries").innerHTML =lista;
+                var lista2;
+                for(i=0; i<response.length;i++){
+                    lista2 += "<li onclick="+"\"changeCountry2('"+response[i]+"')\">"+response[i]+"</li>"
+                }
+                document.getElementById("right_countries").innerHTML =lista2;
+            }
+        }
 
+        function changeCountry(country){
+            document.getElementById("left_choose_country").innerHTML = country;
+            document.getElementById("left_choose_country").value = country;
+        }
+        function changeCountry2(country){
+            document.getElementById("right_choose_country").innerHTML = country;
+            document.getElementById("right_choose_country").value = country;
+        }
+
+    </script>
 
 
 

@@ -1,13 +1,14 @@
 package hello;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.google.gson.Gson;
 import database.Data;
 import database.Geographic_coordinates;
 import database.Geography;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import javax.persistence.Query;
 @RestController
 public class GreetingController {
 
+   static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+    static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
 
@@ -39,13 +42,6 @@ public class GreetingController {
     public Geography geography(@PathVariable("country") String country) {
         Object obj = queryOne("select d from Data d where d.name='"+country+"'");
         Data data = (Data) obj;
-
-        Gson gson = new Gson();
-        gson.toJsonTree(data.getGeography().getGeographic_coordinates(), Geographic_coordinates.class);
-
-        //System.out.println("to jest to co zostaje zwrocone " +data.getGeography().getNatural_hazards().size());
-
-
         return data.getGeography();
     }
 
@@ -68,10 +64,37 @@ public class GreetingController {
         return lista;
     }
 
+    @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
+    public Map<String,Float> sortGeographyCoastline() {
 
+        entityManager.getTransaction().begin();
+        Query query =  entityManager.createQuery("select d from Data d ");
+        List<Data> list = query.getResultList();
+        entityManager.getTransaction().commit();
+
+
+        Map<String,Float> map = new HashMap<>();
+        for(Data d : list){
+            map.put(d.getName(),d.getGeography().getCoastline().getValue());
+        }
+        ValueComparator bvc = new ValueComparator(map);
+        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
+
+        //System.out.println("unsorted map: " + map);
+        sorted_map.putAll(map);
+        //System.out.println("results: " + sorted_map);
+
+//        List<CountrySort> sorted_country = new LinkedList<>();
+//        for(String s : sorted_map.keySet()){
+//            sorted_country.add(new CountrySort(s));
+//
+//        }
+
+        return sorted_map;
+    }
 
     public static Object queryOne(String s){
-//
+
 //        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 //        Session session = sessionFactory.openSession();
 //        session.beginTransaction();
@@ -83,8 +106,8 @@ public class GreetingController {
 //        session.getTransaction().commit();
 //        session.close();
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
         Query query =  entityManager.createQuery(s);
@@ -93,14 +116,14 @@ public class GreetingController {
 
 
         entityManager.getTransaction().commit();
-        entityManagerFactory.close();
+//        entityManagerFactory.close();
         return obj;
     }
 
     public static List<String> queryList(String s){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+//
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
         Query query =  entityManager.createQuery(s);
@@ -108,7 +131,54 @@ public class GreetingController {
 
 
         entityManager.getTransaction().commit();
-        entityManagerFactory.close();
+       // entityManagerFactory.close();
         return list;
+    }
+
+
+
+
+}
+
+class CountrySort{
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Float getValue() {
+        return value;
+    }
+
+    public void setValue(Float value) {
+        this.value = value;
+    }
+
+    String name;
+    Float value;
+    CountrySort(String name){
+        this.name=name;
+
+    }
+        }
+
+class ValueComparator implements Comparator<String> {
+    Map<String, Float> base;
+
+    public ValueComparator(Map<String, Float> base) {
+        this.base = base;
+    }
+
+    // Note: this comparator imposes orderings that are inconsistent with
+    // equals.
+    public int compare(String a, String b) {
+        if (base.get(a) >= base.get(b)) {
+            return -1;
+        } else {
+            return 1;
+        } // returning 0 would merge keys
     }
 }

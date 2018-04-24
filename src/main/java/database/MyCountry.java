@@ -16,6 +16,8 @@ public class MyCountry {
     public void setName(String name) {
         this.name = name;
     }
+
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Data data;
     @Transient

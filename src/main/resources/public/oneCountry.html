@@ -340,15 +340,10 @@
 
             var lista;
             var i;
-            for(i=1; i<response.length;i++){
+            for(i=0; i<response.length;i++){
                 lista += "<li onclick="+"\"changeCountry('"+response[i]+"')\">"+response[i]+"</li>"
             }
             document.getElementById("countries").innerHTML =lista;
-
-
-
-
-
         }
     }
 

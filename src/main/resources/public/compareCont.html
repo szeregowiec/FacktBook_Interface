@@ -35,10 +35,10 @@
                 <div class="col-sm-6" id="countryColumn">
                     <p>choose first continent</p>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose continent!
+                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="choose_continent" value="brak">Choose continent!
     
   </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="continents">
                             <li><a href="#">continent 1</a></li>
                             <li><a href="#">continent 2</a></li>
                             <li><a href="#">continent 3</a></li>
@@ -73,7 +73,34 @@
         </div>
     </div>
 
+    <script>
 
+
+
+        var request = new XMLHttpRequest();
+        request.addEventListener("readystatechange", processRequest, false);
+        request.open("GET", "//localhost:8080/continents", true);
+        request.send();
+        function processRequest(e) {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = JSON.parse(request.responseText);
+
+
+                var lista;
+                var i;
+                for(i=0; i<response.length;i++){
+                    lista += "<li onclick="+"\"changeContinent('"+response[i]+"')\">"+response[i]+"</li>"
+                }
+                document.getElementById("continents").innerHTML =lista;
+            }
+        }
+        function changeContinent(country){
+            document.getElementById("choose_continent").innerHTML = country;
+            document.getElementById("choose_continent").value = country;
+        }
+
+
+    </script>
 
 
 
