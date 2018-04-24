@@ -25,10 +25,9 @@
                  <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort" value="brak" onclick="getSortedCountries(this.value)">Sort!
     
   </button>
-        <ul  id="countries">
+        <table style="width:100%" id="countries">
 
-
-            </ul>
+        </table>
 
     </div>
 
@@ -81,6 +80,7 @@ function checkedFunction(id) {
 }
     
     function getSortedCountries(criterion){
+    if(criterion!="brak"){
         var request = new XMLHttpRequest();
     request.addEventListener("readystatechange", processRequest, false);
         if(criterion=="coastline"){
@@ -96,11 +96,11 @@ function checkedFunction(id) {
             var lista;
             var i;
             for(i=0; i<response.length;i++){
-                lista += "<li> "+response[i].name+"     " + response[i].value+"</li>"
+                lista += "<tr><td> "+response[i].name+"     " + response[i].value+"</td></tr>"
             }
             document.getElementById("countries").innerHTML =lista;
         }
-    }
+    }}
     }
 </script>
 
