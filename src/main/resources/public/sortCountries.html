@@ -40,18 +40,25 @@
                     <table align="center" cellspacing="0" cellpadding="0" border="0">
                     <tr>
                         <td width="800" id="td_border" class="td_border"  ><a href="javascript:funkcja('id_1')">GEOGRAPHY</a></td>
-                        </tr>
-                        <tr>
-                <td>
-                    
-                        <tr>
-                        <td >
-                            <input type="checkbox" id="coastline" onclick="checkedFunction(this.id)" >coastline</td>
-                        </tr>
-                    
-                    
-                            </td>
                     </tr>
+                        <tr>
+                            <td ><input type="checkbox" id="coastline" onclick="checkedFunction(this.id)" >coastline</td>
+                        </tr>
+                        <tr>
+                            <td width="800" id="td_border" class="td_border"  >area</a></td>
+                        </tr>
+                        <tr>
+                            <td ><input type="checkbox" id="total" onclick="checkedFunction(this.id)" >total</td>
+                        </tr>
+                        <tr>
+                            <td ><input type="checkbox" id="land" onclick="checkedFunction(this.id)" >land</td>
+                        </tr>
+                        <tr>
+                            <td ><input type="checkbox" id="water" onclick="checkedFunction(this.id)" >water</td>
+                        </tr>
+                    
+                    
+
                     </table>
 
 
@@ -83,9 +90,9 @@ function checkedFunction(id) {
     if(criterion!="brak"){
         var request = new XMLHttpRequest();
     request.addEventListener("readystatechange", processRequest, false);
-        if(criterion=="coastline"){
-            request.open("GET", "http://localhost:8080/countries/sort/geography/coastline", true); 
-        }
+        //if(criterion=="coastline"){
+            request.open("GET", "http://localhost:8080/countries/sort/geography/"+criterion, true);
+       //}
    
     request.send();
     function processRequest(e) {

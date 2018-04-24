@@ -71,8 +71,6 @@ public class GreetingController {
         Query query =  entityManager.createQuery("select d from Data d ");
         List<Data> list = query.getResultList();
         entityManager.getTransaction().commit();
-
-
         Map<String,Float> map = new HashMap<>();
         for(Data d : list){
             map.put(d.getName(),d.getGeography().getCoastline().getValue());
@@ -81,66 +79,99 @@ public class GreetingController {
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
 
         sorted_map.putAll(map);
-
-
         List<CountrySort> sorted_country = new LinkedList<>();
         for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-
             CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-//            //Float f =  sorted_map.get(s);
-//            if(sorted_map.get(s) == null){
-//                cs.setValue(0);
-//            }else{
-//                cs.setValue(sorted_map.get(s).floatValue());
-//            }
-//
-//
             sorted_country.add(cs);
-
         }
+        return sorted_country;
+    }
 
+    @GetMapping(value = "/countries/sort/geography/total", produces = "application/json")
+    public List<CountrySort>  sortGeographyTotal() {
+
+        entityManager.getTransaction().begin();
+        Query query =  entityManager.createQuery("select d from Data d ");
+        List<Data> list = query.getResultList();
+        entityManager.getTransaction().commit();
+        Map<String,Float> map = new HashMap<>();
+        for(Data d : list){
+            map.put(d.getName(),d.getGeography().getArea().getTotal().getValue());
+        }
+        ValueComparator bvc = new ValueComparator(map);
+        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
+
+        sorted_map.putAll(map);
+        List<CountrySort> sorted_country = new LinkedList<>();
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
+            sorted_country.add(cs);
+        }
+        return sorted_country;
+    }
+
+    @GetMapping(value = "/countries/sort/geography/land", produces = "application/json")
+    public List<CountrySort>  sortGeographyLand() {
+
+        entityManager.getTransaction().begin();
+        Query query =  entityManager.createQuery("select d from Data d ");
+        List<Data> list = query.getResultList();
+        entityManager.getTransaction().commit();
+        Map<String,Float> map = new HashMap<>();
+        for(Data d : list){
+            if (null == d.getGeography().getArea().getLand()) {
+                map.put(d.getName(),new Float(0));
+            }else {
+                map.put(d.getName(), d.getGeography().getArea().getLand().getValue());
+            }
+        }
+        ValueComparator bvc = new ValueComparator(map);
+        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
+
+        sorted_map.putAll(map);
+        List<CountrySort> sorted_country = new LinkedList<>();
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
+            sorted_country.add(cs);
+        }
+        return sorted_country;
+    }
+    @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
+    public List<CountrySort>  sortGeographyWater() {
+
+        entityManager.getTransaction().begin();
+        Query query =  entityManager.createQuery("select d from Data d ");
+        List<Data> list = query.getResultList();
+        entityManager.getTransaction().commit();
+        Map<String,Float> map = new HashMap<>();
+        for(Data d : list){
+            map.put(d.getName(),d.getGeography().getArea().getWater().getValue());
+        }
+        ValueComparator bvc = new ValueComparator(map);
+        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
+
+        sorted_map.putAll(map);
+        List<CountrySort> sorted_country = new LinkedList<>();
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
+            sorted_country.add(cs);
+        }
         return sorted_country;
     }
 
     public static Object queryOne(String s){
-
-//        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//
-//        Query query =  session.createQuery(s);
-//
-//        Object obj = query.getSingleResult();
-//
-//        session.getTransaction().commit();
-//        session.close();
-
-//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-//        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
         entityManager.getTransaction().begin();
         Query query =  entityManager.createQuery(s);
-
         Object obj = query.getSingleResult();
-
-
         entityManager.getTransaction().commit();
-//        entityManagerFactory.close();
         return obj;
     }
 
     public static List<String> queryList(String s){
-//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-//
-//        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
         entityManager.getTransaction().begin();
         Query query =  entityManager.createQuery(s);
         List<String> list = query.getResultList();
-
-
         entityManager.getTransaction().commit();
-       // entityManagerFactory.close();
         return list;
     }
 
