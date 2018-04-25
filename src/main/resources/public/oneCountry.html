@@ -36,32 +36,27 @@
 
 
         <div class="btn-group">
-            <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="choose_country"  >Choose country!
+            <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="choose_country">Choose country!
     
   </button>
             <ul class="dropdown-menu" id="countries">
 
-
             </ul>
             <!--end split button-->
         </div>
-
     </div>
 
 
 
-    <div id="" class="jumbotron text-center">
-        <p> TABELA </p>
-
-        <table align="center" cellspacing="0" cellpadding="0" border="0">
+    <div id="tableWithGeography" class="jumbotron text-center" style="display: contents">
+        <!--ma wyswietlac sie po wybraniu  href="javascript:showWholeTable('tableWithGeography')"-->
+        <table align="center">
             <tr>
-                <td width="800" id="" class="td_border"  ><a href="javascript:funkcja('id_1')">GEOGRAPHY</a></td>
+                <td width="800" id="" class="td_border"><a href="javascript:showTable('id_1')">GEOGRAPHY(musze zrobic zeby po wybraniu panstwa sie to pojawialo) </a></td>
             </tr>
             <tr>
                 <td>
                     <table id="id_1" cellspacing="0" cellpadding="0" border="0" style="display:none;">
-
-
                         <tr>
                             <td width="400" id="" class="td_border">location</td>
                             <td width="400" id="location" class="td_border"></td>
@@ -99,7 +94,7 @@
 
 
                         <tr>
-                            <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_2')">geographic_coordinates</a></td>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_2')">geographic_coordinates</a></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -118,7 +113,7 @@
 
 
                         <tr>
-                            <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_3')">area</a></td>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_3')">area</a></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -149,26 +144,26 @@
 
 
                         <!--<tr>-->
-                            <!--<td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_4')">land_boundaries!!!</a></td>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_4')">land_boundaries!!!</a></td>-->
                         <!--</tr>-->
                         <!--<tr>-->
-                            <!--<td colspan="2">-->
-                                <!--<table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
-                                    <!--<tr>-->
-                                        <!--<td width="400" id="" class="td_border">total</td>-->
-                                        <!--<td width="400" id="" class="td_border"></td>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                        <!--<td width="400" id="" class="td_border">border_countries</td>-->
-                                        <!--<td width="400" id="" class="td_border"></td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                            <!--</td>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">total</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">border_countries</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
                         <!--</tr>-->
 
 
                         <tr>
-                            <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_5')">elevation</a></td>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_5')">elevation</a></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -178,7 +173,7 @@
                                         <td width="400" id="mean_elevation" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_6')">lowest_point</a></td>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_6')">lowest_point</a></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -195,7 +190,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_7')">highest_point</a></td>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_7')">highest_point</a></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -217,17 +212,17 @@
 
 
                         <tr>
-                            <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_8')">land_use</a></td>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_8')">land_use</a></td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <table id="id_8" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <!--<tr>-->
-                                        <!--<td width="400" id="td_border" class="td_border">date</td>-->
-                                        <!--<td width="400" id="date" class="td_border"></td>-->
+                                    <!--<td width="400" id="td_border" class="td_border">date</td>-->
+                                    <!--<td width="400" id="date" class="td_border"></td>-->
                                     <!--</tr>-->
                                     <tr>
-                                        <td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_9')">by_sector</a></td>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_9')">by_sector</a></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -265,41 +260,41 @@
 
 
                         <!--<tr>-->
-                            <!--<td width="400" id="" class="td_border">natural_hazards!!!</td>-->
-                            <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--<td width="400" id="" class="td_border">natural_hazards!!!</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
                         <!--</tr>-->
 
 
 
                         <!--<tr>-->
-                            <!--<td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_10')">environment</a></td>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_10')">environment</a></td>-->
                         <!--</tr>-->
                         <!--<tr>-->
-                            <!--<td colspan="2">-->
-                                <!--<table id="id_10" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
-                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<td width="400" id="" class="td_border">current_issues</td>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<td width="400" id="current_issues" class="td_border"></td>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-                                    <!--<tr>-->
-                                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:funkcja('id_11')">international_agreements</a></td>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                        <!--<td colspan="2">-->
-                                            <!--<table id="id_11" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
-                                                <!--<tr>-->
-                                                    <!--<td width="400" id="" class="td_border">party_to</td>-->
-                                                    <!--<td width="400" id="party_to" class="td_border"></td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                    <!--<td width="400" id="" class="td_border">signed_but_not_ratified</td>-->
-                                                    <!--<td width="400" id="signed_but_not_ratified" class="td_border"></td>-->
-                                                <!--</tr>-->
-                                            <!--</table>-->
-                                        <!--</td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                            <!--</td>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_10" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="400" id="" class="td_border">current_issues</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="400" id="current_issues" class="td_border"></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--<tr>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_11')">international_agreements</a></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_11" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">party_to</td>-->
+                        <!--<td width="400" id="party_to" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">signed_but_not_ratified</td>-->
+                        <!--<td width="400" id="signed_but_not_ratified" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
                         <!--</tr>-->
 
                         <tr>
@@ -309,8 +304,8 @@
 
 
                         <!--<tr>-->
-                            <!--<td width="400" id="" class="td_border">resources</td>-->
-                            <!--<td width="400" id="resources" class="td_border"></td>-->
+                        <!--<td width="400" id="" class="td_border">resources</td>-->
+                        <!--<td width="400" id="resources" class="td_border"></td>-->
                         <!--</tr>-->
 
                         <tr>
@@ -325,36 +320,39 @@
     </div>
 
 
-<script>
+    <script>
+        var request = new XMLHttpRequest();
+        request.addEventListener("readystatechange", processRequest, false);
+        request.open("GET", "//localhost:8080/countries", true);
+        request.send();
+
+        function processRequest(e) {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = JSON.parse(request.responseText);
 
 
-
-    var request = new XMLHttpRequest();
-    request.addEventListener("readystatechange", processRequest, false);
-    request.open("GET", "//localhost:8080/countries", true);
-    request.send();
-    function processRequest(e) {
-        if (request.readyState == 4 && request.status == 200) {
-            var response = JSON.parse(request.responseText);
-
-
-            var lista;
-            var i;
-            for(i=0; i<response.length;i++){
-                lista += "<li onclick="+"\"loadDoc('"+response[i]+"')\">"+response[i]+"</li>"
+                var lista;
+                var i;
+                for (i = 0; i < response.length; i++) {
+                    lista += "<li onclick=" + "\"loadDoc('" + response[i] + "')\">" + response[i] + "</li>"
+                }
+                document.getElementById("countries").innerHTML = lista;
             }
-            document.getElementById("countries").innerHTML =lista;
         }
-    }
 
-
-</script>
+    </script>
 
 
     <script type="text/javascript">
+        function showWholeTable(id) {
+            if (document.getElementById(id).style.display == "none") {
+                document.getElementById(id).style.display = "contents"
+            } else {
+                document.getElementById(id).style.display == "none"
+            }
+        }
 
-
-        function funkcja(id) {
+        function showTable(id) {
             if (document.getElementById(id).style.display == "inline") {
                 document.getElementById(id).style.display = "none"
             } else {
@@ -362,53 +360,53 @@
             }
         }
 
-        function loadDoc(country){
+        function loadDoc(country) {
             var request = new XMLHttpRequest();
-//            var country = document.getElementById("choose_country").value;
-            document.getElementById("choose_country").innerHTML=country;
-                request.addEventListener("readystatechange", processRequest, false);
-                request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
-                request.send();
+            //            var country = document.getElementById("choose_country").value;
+            document.getElementById("choose_country").innerHTML = country;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
+            request.send();
 
-                function processRequest(e) {
-                    if (request.readyState == 4 && request.status == 200) {
-                        var response = JSON.parse(request.responseText);
-                        document.getElementById("location").innerHTML = response.location;
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    document.getElementById("location").innerHTML = response.location;
 
-                        document.getElementById("map_references").innerHTML = response.map_references;
-                        document.getElementById("climate").innerHTML = response.climate;
-                        document.getElementById("terrain").innerHTML = response.terrain;
-                        document.getElementById("population_distribution").innerHTML = response.population_distribution;
-                        document.getElementById("note").innerHTML = response.note;
+                    document.getElementById("map_references").innerHTML = response.map_references;
+                    document.getElementById("climate").innerHTML = response.climate;
+                    document.getElementById("terrain").innerHTML = response.terrain;
+                    document.getElementById("population_distribution").innerHTML = response.population_distribution;
+                    document.getElementById("note").innerHTML = response.note;
 
-                        document.getElementById("latitude").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
-                            response.geographic_coordinates.latitude.hemisphere;
-                        document.getElementById("longitude").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
-                            response.geographic_coordinates.longitude.hemisphere;
-                        document.getElementById("total").innerHTML = response.area.total.value + " " + response.area.total.units;
-                        document.getElementById("land").innerHTML = response.area.land.value + " " + response.area.land.units;
-                        document.getElementById("water").innerHTML = response.area.water.value + " " + response.area.water.units;
-                        document.getElementById("global_rank").innerHTML = response.area.global_rank;
-                        document.getElementById("comparative").innerHTML = response.area.comparative;
+                    document.getElementById("latitude").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
+                        response.geographic_coordinates.latitude.hemisphere;
+                    document.getElementById("longitude").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
+                        response.geographic_coordinates.longitude.hemisphere;
+                    document.getElementById("total").innerHTML = response.area.total.value + " " + response.area.total.units;
+                    document.getElementById("land").innerHTML = response.area.land.value + " " + response.area.land.units;
+                    document.getElementById("water").innerHTML = response.area.water.value + " " + response.area.water.units;
+                    document.getElementById("global_rank").innerHTML = response.area.global_rank;
+                    document.getElementById("comparative").innerHTML = response.area.comparative;
 
-                        document.getElementById("mean_elevation").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
-                        document.getElementById("lowest_point_name").innerHTML = response.elevation.lowest_point.name;
-                        document.getElementById("lowest_point_elevation").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
-                        document.getElementById("highest_point_name").innerHTML = response.elevation.highest_point.name;
-                        document.getElementById("highest_point_elevation").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+                    document.getElementById("mean_elevation").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+                    document.getElementById("lowest_point_name").innerHTML = response.elevation.lowest_point.name;
+                    document.getElementById("lowest_point_elevation").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+                    document.getElementById("highest_point_name").innerHTML = response.elevation.highest_point.name;
+                    document.getElementById("highest_point_elevation").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
 
-                        document.getElementById("agricultural_land_total").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
-                        document.getElementById("agricultural_land_arable_land").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
-                        document.getElementById("agricultural_land_permanent_crops").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
-                        document.getElementById("agricultural_land_permanent_pasture").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
-                        document.getElementById("forest").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
-                        document.getElementById("other").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
+                    document.getElementById("agricultural_land_total").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+                    document.getElementById("agricultural_land_arable_land").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
+                    document.getElementById("agricultural_land_permanent_crops").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
+                    document.getElementById("agricultural_land_permanent_pasture").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
+                    document.getElementById("forest").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
+                    document.getElementById("other").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
 
 
-                        document.getElementById("coastline").innerHTML = response.coastline.value + " " + response.coastline.units;
-                        document.getElementById("irrigated_land").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
-                    }
+                    document.getElementById("coastline").innerHTML = response.coastline.value + " " + response.coastline.units;
+                    document.getElementById("irrigated_land").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
                 }
+            }
 
         }
 

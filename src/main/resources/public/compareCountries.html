@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- https://www.bootply.com/iLCBse1Ze4 -->
+
 <head>
     <title>Compare</title>
     <meta charset="utf-8">
@@ -21,7 +22,7 @@
 
     <div id="oneCountry" class="jumbotron text-center">
 
-        <div class="centered" id="oneCountry">Compare countries</div>
+        <div class="centered" id="oneCountry">Compare two countries</div>
 
     </div>
 
@@ -32,7 +33,46 @@
                 <div class="col-sm-4" id="countryColumn">
                     <p>choose criterions</p>
 
+                    <div>
+                        <label class="chooseContainer">GEOGRAPHY
+                    <input type="checkbox"id="geographyCheckbox" onclick="showTable('geographyCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
 
+
+                        <label class="chooseContainer">PEOPLE
+                    <input type="checkbox"id="peopleCheckbox" onclick="showTable('peopleCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
+
+                        <label class="chooseContainer">GOVERNMENT
+                    <input type="checkbox" id="governmentCheckbox" onclick="showTable('governmentCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
+
+                        <label class="chooseContainer">ECONOMY
+                    <input type="checkbox"id="economyCheckbox" onclick="showTable('economyCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
+
+                        <label class="chooseContainer">ENERGY
+                    <input type="checkbox" id="energyCheckbox" onclick="showTable('energyCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
+
+                        <label class="chooseContainer">COMMUNICATIONS
+                    <input type="checkbox" id="communicationsCheckbox" onclick="showTable('communicationsCheckbox','aaa')">
+                    <span class="checkmark" ></span>
+                    </label>
+
+
+                        <label class="chooseContainer">TRANSPORTATION
+                    <input type="checkbox" id="transportationCheckbox" onclick="showTable('transportationCheckbox','aaa')">
+                    <span class="checkmark"></span>
+                    </label>
+
+                        <p style="display: none" id="aaa"> to bedzie pokazywalo tabele :) </p>
+                    </div>
                 </div>
 
                 <div class="col-sm-4" id="countryColumn">
@@ -52,11 +92,11 @@
 
                 </div>
 
-                <div class="col-sm-4" id="countryColumn" >
+                <div class="col-sm-4" id="countryColumn">
                     <p>choose second country</p>
                     <div class="btn-group">
 
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="right_choose_country"  value="brak">Choose country!
+                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="right_choose_country" value="brak">Choose country!
     
   </button>
                         <ul class="dropdown-menu" id="right_countries">
@@ -77,37 +117,55 @@
     </div>
 
 
+    <div>
+        <p>
+        </p>
+    </div>
+
+
     <script>
         var request = new XMLHttpRequest();
         request.addEventListener("readystatechange", processRequest, false);
         request.open("GET", "//localhost:8080/countries", true);
         request.send();
+
         function processRequest(e) {
             if (request.readyState == 4 && request.status == 200) {
                 var response = JSON.parse(request.responseText);
                 var lista;
                 var i;
-                for(i=0; i<response.length;i++){
-                    lista += "<li onclick="+"\"changeCountry('"+response[i]+"')\">"+response[i]+"</li>"
+                for (i = 0; i < response.length; i++) {
+                    lista += "<li onclick=" + "\"changeCountry('" + response[i] + "')\">" + response[i] + "</li>"
                 }
-                document.getElementById("left_countries").innerHTML =lista;
+                document.getElementById("left_countries").innerHTML = lista;
                 var lista2;
-                for(i=0; i<response.length;i++){
-                    lista2 += "<li onclick="+"\"changeCountry2('"+response[i]+"')\">"+response[i]+"</li>"
+                for (i = 0; i < response.length; i++) {
+                    lista2 += "<li onclick=" + "\"changeCountry2('" + response[i] + "')\">" + response[i] + "</li>"
                 }
-                document.getElementById("right_countries").innerHTML =lista2;
+                document.getElementById("right_countries").innerHTML = lista2;
             }
         }
 
-        function changeCountry(country){
+        function changeCountry(country) {
             document.getElementById("left_choose_country").innerHTML = country;
             document.getElementById("left_choose_country").value = country;
         }
-        function changeCountry2(country){
+
+        function changeCountry2(country) {
             document.getElementById("right_choose_country").innerHTML = country;
             document.getElementById("right_choose_country").value = country;
         }
 
+
+        function showTable(id, idToShow) {
+            var checkBox = document.getElementById(id);
+            var table = document.getElementById(idToShow);
+            if (checkBox.checked == true) {
+                table.style.display = "block";
+            } else {
+                table.style.display = "none";
+            }
+        }
     </script>
 
 
