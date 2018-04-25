@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="/main.css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -25,27 +31,65 @@
                  <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort" value="brak" onclick="getSortedCountries(this.value)">Sort!
     
   </button>
-        <table style="width:100%" id="countries">
-
-        </table>
+        
 
     </div>
+    <div class="col-sm-3"  id="sort_menu">
+        <p>choose criterion</p>
 
+<nav class="navbar bg-light">
+  <ul class="navbar-nav" >
+    <li class="nav-item">
+      <input type="radio" name="optradio" id="coastline" onclick="checkedFunction(this.id)" >coastline
+    </li>
+    <li class="nav-item">
+      area
+    </li>
+    <li class="nav-item">
+      <input type="radio" name="optradio" id="total" onclick="checkedFunction(this.id)" >total
+    </li>
+      <li class="nav-item">
+      <input type="radio" name="optradio" id="land" onclick="checkedFunction(this.id)" >land
+    </li>
+      <li class="nav-item">
+      <input type="radio" name="optradio" id="water" onclick="checkedFunction(this.id)" >water
+    </li>
+      <li class="nav-item">
+   
+    </li>
+  </ul>
+</nav>
+</div>
+    <div class="col-sm-6">
+    <table style="width:100%" class="table table-striped" id="sort_countries_table">
+ <thead>
+      <tr>
+        <th>Country name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody id="sort_countries">
+        
+        
+        </tbody>
+        </table>
+</div>
+<!--
     <div class="album text-muted">
         <div class="container">
 
             <div class="row">
                 <div class="col-sm-6" id="countryColumn">
                     <p>choose criterion</p>
-                    <table align="center" cellspacing="0" cellpadding="0" border="0">
+                    <table class="table table-dark table-striped">
                     <tr>
-                        <td width="800" id="td_border" class="td_border"  ><a href="javascript:funkcja('id_1')">GEOGRAPHY</a></td>
+                        <td width="800" id="td_border" class="td_border"  >GEOGRAPHY</td>
                     </tr>
                         <tr>
                             <td ><input type="checkbox" id="coastline" onclick="checkedFunction(this.id)" >coastline</td>
                         </tr>
                         <tr>
-                            <td width="800" id="td_border" class="td_border"  >area</a></td>
+                            <td width="800" id="td_border" class="td_border"  >area</td>
                         </tr>
                         <tr>
                             <td ><input type="checkbox" id="total" onclick="checkedFunction(this.id)" >total</td>
@@ -74,16 +118,20 @@
 
         </div>
     </div>
+-->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
+    
 function checkedFunction(id) {
-    var checkBox = document.getElementById(id);
-    if (checkBox.checked == true){
+
+//    var checkBox = document.getElementById(id);
+//    if (checkBox.checked == true){
         document.getElementById("sort").value = id;
-    } else {
-       document.getElementById("sort").value = "brak";
-    }
+//    } else {
+//       document.getElementById("sort").value = "brak";
+//    }
 }
     
     function getSortedCountries(criterion){
@@ -100,12 +148,14 @@ function checkedFunction(id) {
             var response = JSON.parse(request.responseText);
 
 
-            var lista;
+            var list;
             var i;
             for(i=0; i<response.length;i++){
-                lista += "<tr><td> "+response[i].name+"     " + response[i].value+"</td></tr>"
+                list += "<tr><td>"+response[i].name+"</td><td>"+response[i].value+"</td></tr>"
+ 
             }
-            document.getElementById("countries").innerHTML =lista;
+            document.getElementById("sort_countries").innerHTML =list;
+
         }
     }}
     }

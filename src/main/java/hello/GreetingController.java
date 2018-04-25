@@ -64,6 +64,8 @@ public class GreetingController {
         return lista;
     }
 
+
+    //////////////////////////////////////////////////////////////////////////////////////--------------------------SORT--------------------------------------
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
     public List<CountrySort>  sortGeographyCoastline() {
 
@@ -136,6 +138,7 @@ public class GreetingController {
         }
         return sorted_country;
     }
+
     @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
     public List<CountrySort>  sortGeographyWater() {
 
@@ -145,7 +148,11 @@ public class GreetingController {
         entityManager.getTransaction().commit();
         Map<String,Float> map = new HashMap<>();
         for(Data d : list){
-            map.put(d.getName(),d.getGeography().getArea().getWater().getValue());
+            if (null == d.getGeography().getArea().getWater()) {
+                map.put(d.getName(),new Float(0));
+            }else {
+                map.put(d.getName(), d.getGeography().getArea().getWater().getValue());
+            }
         }
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
@@ -158,6 +165,38 @@ public class GreetingController {
         }
         return sorted_country;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static Object queryOne(String s){
         entityManager.getTransaction().begin();
