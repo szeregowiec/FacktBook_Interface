@@ -58,15 +58,26 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
+        //d.getGeography().getCoastline().getValue()
+
+//        Query query =  entityManager.createQuery("select d.name, c.value from Data d, Geography g, ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
+//        List<Object[]> list = query.getResultList();
+//
+//
+//        for(Object[] o :list){
+//            System.out.println("nazwa panstwa "+o[0] +" wartosc "+o[1]);
+//        }
+
+
 
 
 //        Query query =  entityManager.createQuery("select d.name from Data d, Geography g where g.map_references='Europe' and d.geography=g.id");
 //        List<String> list = query.getResultList();
 //
-   addA(entityManager,result);
-        addB(entityManager,result);
-        addC(entityManager,result);
-  addD(entityManager,result);
+//   addA(entityManager,result);
+//        addB(entityManager,result);
+//        addC(entityManager,result);
+//  addD(entityManager,result);
 //        addE(entityManager,result);
 //        addF(entityManager,result);
 //        addG(entityManager,result);

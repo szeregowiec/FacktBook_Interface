@@ -79,13 +79,15 @@ public class GreetingController {
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
     public List<CountrySort>  sortGeographyCoastline() {
 
+
+
         entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d from Data d ");
-        List<Data> list = query.getResultList();
+        Query query =  entityManager.createQuery("select d.name, c.value from Data d, Geography g, ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
+        List<Object[]> list = query.getResultList();
         entityManager.getTransaction().commit();
         Map<String,Float> map = new HashMap<>();
-        for(Data d : list){
-            map.put(d.getName(),d.getGeography().getCoastline().getValue());
+        for(Object[] o :list){
+            map.put((String)o[0],(Float)o[1]);
         }
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
@@ -103,12 +105,13 @@ public class GreetingController {
     public List<CountrySort>  sortGeographyTotal() {
 
         entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d from Data d ");
-        List<Data> list = query.getResultList();
+        Query query =  entityManager.createQuery("select d.name, t.value from Data d, Geography g, Area a, ValueAndUnits t " +
+                                                   "where d.geography=g.id and g.area=a.id and a.total=t.id ");
+        List<Object[]> list = query.getResultList();
         entityManager.getTransaction().commit();
         Map<String,Float> map = new HashMap<>();
-        for(Data d : list){
-            map.put(d.getName(),d.getGeography().getArea().getTotal().getValue());
+        for(Object[] o :list){
+            map.put((String)o[0],(Float)o[1]);
         }
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
@@ -126,16 +129,13 @@ public class GreetingController {
     public List<CountrySort>  sortGeographyLand() {
 
         entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d from Data d ");
-        List<Data> list = query.getResultList();
+        Query query =  entityManager.createQuery("select d.name, l.value from Data d, Geography g, Area a, ValueAndUnits l " +
+                "where d.geography=g.id and g.area=a.id and a.land=l.id ");
+        List<Object[]> list = query.getResultList();
         entityManager.getTransaction().commit();
         Map<String,Float> map = new HashMap<>();
-        for(Data d : list){
-            if (null == d.getGeography().getArea().getLand()) {
-                map.put(d.getName(),new Float(0));
-            }else {
-                map.put(d.getName(), d.getGeography().getArea().getLand().getValue());
-            }
+        for(Object[] o :list){
+            map.put((String)o[0],(Float)o[1]);
         }
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
@@ -153,21 +153,19 @@ public class GreetingController {
     public List<CountrySort>  sortGeographyWater() {
 
         entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d from Data d ");
-        List<Data> list = query.getResultList();
+            Query query =  entityManager.createQuery("select d.name, w.value from Data d, Geography g, Area a, ValueAndUnits w " +
+                    "where d.geography=g.id and g.area=a.id and a.water=w.id ");
+            List<Object[]> list = query.getResultList();
         entityManager.getTransaction().commit();
+
         Map<String,Float> map = new HashMap<>();
-        for(Data d : list){
-            if (null == d.getGeography().getArea().getWater()) {
-                map.put(d.getName(),new Float(0));
-            }else {
-                map.put(d.getName(), d.getGeography().getArea().getWater().getValue());
+            for(Object[] o :list){
+                map.put((String)o[0],(Float)o[1]);
             }
-        }
         ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
-
         sorted_map.putAll(map);
+
         List<CountrySort> sorted_country = new LinkedList<>();
         for(Map.Entry<String,Float> e : sorted_map.entrySet()){
             CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
