@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import database.Data;
 import database.Geographic_coordinates;
 import database.Geography;
+import database.People;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -40,10 +41,19 @@ public class GreetingController {
 
     @GetMapping(value = "/countries/{country}/geography", produces = "application/json")
     public Geography geography(@PathVariable("country") String country) {
-        Object obj = queryOne("select d from Data d where d.name='"+country+"'");
-        Data data = (Data) obj;
-        return data.getGeography();
+        Object obj = queryOne("select g from Geography g, Data d where d.name='"+country+"' and d.geography=g.id");
+        Geography data = (Geography) obj;
+        return data;
     }
+
+    @GetMapping(value = "/countries/{country}/people", produces = "application/json")
+    public People people(@PathVariable("country") String country) {
+        Object obj = queryOne("select p from People p, Data d where d.name='"+country+"' and d.people=p.id");
+        People data = (People) obj;
+        return data;
+    }
+
+
 
     @GetMapping(value = "/continents", produces = "application/json")
     public Set<String> continents() {

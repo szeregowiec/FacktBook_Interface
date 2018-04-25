@@ -18,9 +18,9 @@ public class Data {
     @JoinColumn(name = "id")
     private Geography geography;
 
-//    @Transient
-//   // @OneToOne(cascade = {CascadeType.ALL})
-//    private People people;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    private People people;
 //    @Transient
 //   // @OneToOne(cascade = {CascadeType.ALL})
 //    private Government government;
@@ -60,10 +60,10 @@ public class Data {
         return geography;
     }
 
-//    public People getPeople() {
-//        return people;
-//    }
-//
+    public People getPeople() {
+        return people;
+    }
+
 //    public Government getGovernment() {
 //        return government;
 //    }

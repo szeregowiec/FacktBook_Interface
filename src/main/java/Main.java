@@ -94,8 +94,7 @@ public class Main {
         result.getCountries().getAfghanistan().getData().getGeography().setName("afghanistan");
         result.getCountries().getAfghanistan().setName("afghanistan");
 
-        result.getCountries().getAfghanistan().getData().setName("afghanistan");
-        entityManager.persist(result.getCountries().getAfghanistan().getData().getGeography());
+        entityManager.persist(result.getCountries().getAfghanistan());
        // entityManager.persist(result.getCountries().getAfghanistan());
 
 //        for(Border_countries bc : result.getCountries().getAfghanistan().getData().getGeography().getLand_boundaries().getBorder_countries()){
