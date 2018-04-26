@@ -28,7 +28,7 @@ public class GreetingController {
 
 
     @GetMapping("/countries")
-    public List<String> greeting(@RequestParam(value="name", defaultValue="World")String id) {
+    public List<String> countries() {
         List<String> lista = queryList("select d.name from Data d");
         JSONObject json = new JSONObject();
         try {

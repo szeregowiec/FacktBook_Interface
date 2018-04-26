@@ -342,7 +342,7 @@
                                     </tr>
                                     <tr>
                                         <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="global_rank" class="td_border"></td>
+                                        <td width="400" id="population_global_rank" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -368,6 +368,7 @@
                             </td>
                         </tr>
 
+                        <!--jeszcze language :)-->
 
                         <!------   tu ma być ethnic_groups
                         zawiera ethnicity  i note
@@ -927,6 +928,7 @@
                 var i;
                 for (i = 0; i < response.length; i++) {
                     lista += "<li onclick=" + "\"loadDoc('" + response[i] + "')\">" + response[i] + "</li>"
+                    //lista += "<li onclick=" + "\"loadDoc('" + response[i] + "');loadPeople('" + response[i] + "');\">" + response[i] + "</li>"
                 //    lista += "<li onclick=" + "\"loadDoc2('" + response[i] + "')\">" + response[i] + "</li>" // to dodalam
                 }
                 document.getElementById("countries").innerHTML = lista;
@@ -936,6 +938,10 @@
 
 
     <script type="text/javascript">
+
+
+
+
         function showWholeTable(id) {
             if (document.getElementById(id).style.display == "none") {
                 document.getElementById(id).style.display = "contents"
@@ -959,6 +965,7 @@
             request.addEventListener("readystatechange", processRequest, false);
             request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
             request.send();
+
 
             function processRequest(e) {
                 if (request.readyState == 4 && request.status == 200) {
@@ -997,14 +1004,15 @@
 
                     document.getElementById("coastline").innerHTML = response.coastline.value + " " + response.coastline.units;
                     document.getElementById("irrigated_land").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
+                    loadPeople(country);
                 }
             }
 
         }
 
-        /* to dodalam
 
-        function loadDoc(country) {
+
+        function loadPeople(country) {
             var request = new XMLHttpRequest();
             //            var country = document.getElementById("choose_country").value;
             document.getElementById("choose_country").innerHTML = country;
@@ -1019,95 +1027,96 @@
                     document.getElementById("total_population").innerHTML = response.population.total;
 
                     document.getElementById("population_global_rank").innerHTML = response.population.global_rank;
-                    document.getElementById("noun").innerHTML = response.climate;
-                    document.getElementById("adjective").innerHTML = response.terrain;
-                    document.getElementById("age_0_to_14_percent").innerHTML = response.population_distribution;
-                    document.getElementById("age_0_to_14_males").innerHTML = response.note;
+                    document.getElementById("noun").innerHTML = response.nationality.noun;
+                    document.getElementById("adjective").innerHTML = response.nationality.adjective;
+                    document.getElementById("age_0_to_14_percent").innerHTML = response.age_structure.age_0_to_14.percent;
+                    document.getElementById("age_0_to_14_males").innerHTML = response.age_structure.age_0_to_14.males;
+                    document.getElementById("age_0_to_14_females").innerHTML = response.age_structure.age_0_to_14.females;
 
-                    document.getElementById("age_0_to_14_females").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
-                        response.geographic_coordinates.latitude.hemisphere;
-                    document.getElementById("age_15_to_24_percent").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
-                        response.geographic_coordinates.longitude.hemisphere;
-                    document.getElementById("age_15_to_24_males").innerHTML = response.area.total.value + " " + response.area.total.units;
-                    document.getElementById("age_15_to_24_females").innerHTML = response.area.land.value + " " + response.area.land.units;
-                    document.getElementById("age_25_to_54_percent").innerHTML = response.area.water.value + " " + response.area.water.units;
-                    document.getElementById("age_25_to_54_males").innerHTML = response.area.global_rank;
-                    document.getElementById("age_25_to_54_females").innerHTML = response.area.comparative;
-
-                    document.getElementById("age_55_to_64_percent").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
-                    document.getElementById("age_55_to_64_males").innerHTML = response.elevation.lowest_point.name;
-                    document.getElementById("age_55_to_64_females").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
-                    document.getElementById("age_65_and_over_percent").innerHTML = response.elevation.highest_point.name;
-                    document.getElementById("age_65_and_over_males").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
-
-                    document.getElementById("age_65_and_over_females").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
-                    document.getElementById("total_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
-                    document.getElementById("youth_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
-                    document.getElementById("elderly_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
-                    document.getElementById("potential_support_ratio").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
-                    document.getElementById("median_age_total").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
-
-
-                    document.getElementById("median_age_male").innerHTML = response.coastline.value + " " + response.coastline.units;
-                    document.getElementById("median_age_female").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
-
-
-
-                    document.getElementById("median_age_global_rank").innerHTML = response.location;
-
-                    document.getElementById("population_growth_rate").innerHTML = response.map_references;
-                    document.getElementById("population_growth_rate_global_rank").innerHTML = response.climate;
-                    document.getElementById("births_per_1000_population").innerHTML = response.terrain;
-                    document.getElementById("birth_rate_global_rank").innerHTML = response.population_distribution;
-                    document.getElementById("deaths_per_1000_population").innerHTML = response.note;
-
-                    document.getElementById("death_rate_global_rank").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
-                        response.geographic_coordinates.latitude.hemisphere;
-                    document.getElementById("deaths_per_1000_population").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
-                        response.geographic_coordinates.longitude.hemisphere;
-                    document.getElementById("net_migration_rate_global_rank").innerHTML = response.area.total.value + " " + response.area.total.units;
-                    document.getElementById("population_distribution").innerHTML = response.area.land.value + " " + response.area.land.units;
-                    document.getElementById("urban_population").innerHTML = response.area.water.value + " " + response.area.water.units;
-                    document.getElementById("rate_of_urbanization").innerHTML = response.area.global_rank;
-                    document.getElementById("total_population").innerHTML = response.area.comparative;
-
-                    document.getElementById("by_age_at_birth").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
-                    document.getElementById("by_age_age_0_to_14_years").innerHTML = response.elevation.lowest_point.name;
-                    document.getElementById("by_age_age_15_to_24_years").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
-                    document.getElementById("by_age_age_25_to_54_years").innerHTML = response.elevation.highest_point.name;
-                    document.getElementById("by_age_age_55_to_64_years").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
-
-                    document.getElementById("by_age_age_65_years_and_over").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
-                    document.getElementById("mothers_mean_age_at_first_birth").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
-                    document.getElementById("deaths_per_100k_live_births").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
-                    document.getElementById("maternal_mortality_rate_global_rank").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
-                    document.getElementById("infant_mortality_rate_total").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
-                    document.getElementById("infant_mortality_rate_male").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
-
-
-                    document.getElementById("infant_mortality_rate_female").innerHTML = response.coastline.value + " " + response.coastline.units;
-                    document.getElementById("infant_mortality_rate_global_rank").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
-
-
-
-                    document.getElementById("life_expectancy_at_birth_total_population").innerHTML = response.area.land.value + " " + response.area.land.units;
-                    document.getElementById("life_expectancy_at_birth_male").innerHTML = response.area.water.value + " " + response.area.water.units;
-                    document.getElementById("life_expectancy_at_birth_female").innerHTML = response.area.global_rank;
-                    document.getElementById("life_expectancy_at_birth_global_rank").innerHTML = response.area.comparative;
-
-                    document.getElementById("children_born_per_woman").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
-                    document.getElementById("total_fertility_rate_global_rank").innerHTML = response.elevation.lowest_point.name;
-                    document.getElementById("health_expenditures_percent_of_gdp").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
-                    document.getElementById("health_expenditures_global_rank").innerHTML = response.elevation.highest_point.name;
-                    document.getElementById("physicians_per_1000_population").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
-
-                    document.getElementById("hospital_bed_density").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+//                    document.getElementById("age_0_to_14_females").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
+//                        response.geographic_coordinates.latitude.hemisphere;
+//                    document.getElementById("age_15_to_24_percent").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
+//                        response.geographic_coordinates.longitude.hemisphere;
+//                    document.getElementById("age_15_to_24_males").innerHTML = response.area.total.value + " " + response.area.total.units;
+//                    document.getElementById("age_15_to_24_females").innerHTML = response.area.land.value + " " + response.area.land.units;
+//                    document.getElementById("age_25_to_54_percent").innerHTML = response.area.water.value + " " + response.area.water.units;
+//                    document.getElementById("age_25_to_54_males").innerHTML = response.area.global_rank;
+//                    document.getElementById("age_25_to_54_females").innerHTML = response.area.comparative;
+//
+//                    document.getElementById("age_55_to_64_percent").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+//                    document.getElementById("age_55_to_64_males").innerHTML = response.elevation.lowest_point.name;
+//                    document.getElementById("age_55_to_64_females").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+//                    document.getElementById("age_65_and_over_percent").innerHTML = response.elevation.highest_point.name;
+//                    document.getElementById("age_65_and_over_males").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+//
+//                    document.getElementById("age_65_and_over_females").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+//                    document.getElementById("total_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
+//                    document.getElementById("youth_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
+//                    document.getElementById("elderly_dependency_ratio").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
+//                    document.getElementById("potential_support_ratio").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
+//                    document.getElementById("median_age_total").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
+//
+//
+//                    document.getElementById("median_age_male").innerHTML = response.coastline.value + " " + response.coastline.units;
+//                    document.getElementById("median_age_female").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
+//
+//
+//
+//                    document.getElementById("median_age_global_rank").innerHTML = response.location;
+//
+//                    document.getElementById("population_growth_rate").innerHTML = response.map_references;
+//                    document.getElementById("population_growth_rate_global_rank").innerHTML = response.climate;
+//                    document.getElementById("births_per_1000_population").innerHTML = response.terrain;
+//                    document.getElementById("birth_rate_global_rank").innerHTML = response.population_distribution;
+//                    document.getElementById("deaths_per_1000_population").innerHTML = response.note;
+//
+//                    document.getElementById("death_rate_global_rank").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
+//                        response.geographic_coordinates.latitude.hemisphere;
+//                    document.getElementById("deaths_per_1000_population").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
+//                        response.geographic_coordinates.longitude.hemisphere;
+//                    document.getElementById("net_migration_rate_global_rank").innerHTML = response.area.total.value + " " + response.area.total.units;
+//                    document.getElementById("population_distribution").innerHTML = response.area.land.value + " " + response.area.land.units;
+//                    document.getElementById("urban_population").innerHTML = response.area.water.value + " " + response.area.water.units;
+//                    document.getElementById("rate_of_urbanization").innerHTML = response.area.global_rank;
+//                    document.getElementById("total_population").innerHTML = response.area.comparative;
+//
+//                    document.getElementById("by_age_at_birth").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+//                    document.getElementById("by_age_age_0_to_14_years").innerHTML = response.elevation.lowest_point.name;
+//                    document.getElementById("by_age_age_15_to_24_years").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+//                    document.getElementById("by_age_age_25_to_54_years").innerHTML = response.elevation.highest_point.name;
+//                    document.getElementById("by_age_age_55_to_64_years").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+//
+//                    document.getElementById("by_age_age_65_years_and_over").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+//                    document.getElementById("mothers_mean_age_at_first_birth").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
+//                    document.getElementById("deaths_per_100k_live_births").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
+//                    document.getElementById("maternal_mortality_rate_global_rank").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
+//                    document.getElementById("infant_mortality_rate_total").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
+//                    document.getElementById("infant_mortality_rate_male").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
+//
+//
+//                    document.getElementById("infant_mortality_rate_female").innerHTML = response.coastline.value + " " + response.coastline.units;
+//                    document.getElementById("infant_mortality_rate_global_rank").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
+//
+//
+//
+//                    document.getElementById("life_expectancy_at_birth_total_population").innerHTML = response.area.land.value + " " + response.area.land.units;
+//                    document.getElementById("life_expectancy_at_birth_male").innerHTML = response.area.water.value + " " + response.area.water.units;
+//                    document.getElementById("life_expectancy_at_birth_female").innerHTML = response.area.global_rank;
+//                    document.getElementById("life_expectancy_at_birth_global_rank").innerHTML = response.area.comparative;
+//
+//                    document.getElementById("children_born_per_woman").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+//                    document.getElementById("total_fertility_rate_global_rank").innerHTML = response.elevation.lowest_point.name;
+//                    document.getElementById("health_expenditures_percent_of_gdp").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+//                    document.getElementById("health_expenditures_global_rank").innerHTML = response.elevation.highest_point.name;
+//                    document.getElementById("physicians_per_1000_population").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+//
+//                    document.getElementById("hospital_bed_density").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
 
 
                 }
             }
 
-        }*/
+        }
     </script>
 
 

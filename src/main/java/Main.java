@@ -2,6 +2,7 @@
 import database.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import hello.IndexAlgorithm;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,79 +19,80 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        IndexAlgorithm.geography();
+        IndexAlgorithm.getEntry("winters,");
 
 
 
-
-        Json result = null;
-        BufferedReader br = null;
-
-        try {
-            br = new BufferedReader(new FileReader("/home/szergowiec/IdeaProjects/parser/src/main/java/pl/edu/agh/dane.json"));
-             result = new Gson().fromJson(br, Json.class);
-
-
-
-            System.out.println("yhmy");
-           // System.out.println(result.getCountries().getWorld().getData().getName());
-            // System.out.println(result.getCountries().getPoland().getData().getName());
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
+//        Json result = null;
+//        BufferedReader br = null;
+//
+//        try {
+//            br = new BufferedReader(new FileReader("/home/szergowiec/IdeaProjects/parser/src/main/java/pl/edu/agh/dane.json"));
+//             result = new Gson().fromJson(br, Json.class);
+//
+//
+//
+//            System.out.println("yhmy");
+//           // System.out.println(result.getCountries().getWorld().getData().getName());
+//            // System.out.println(result.getCountries().getPoland().getData().getName());
+//
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (br != null) {
+//                try {
+//                    br.close();
+//                } catch (IOException e) {
+//                    // TODO Auto-generated catch block
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
 
 //        JsonElement gson = new Gson().toJsonTree(result.getCountries().getDenmark().getData(),Data.class);
 //        System.out.println("yhmy");
 
 
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
-        //d.getGeography().getCoastline().getValue()
-
-//        Query query =  entityManager.createQuery("select d.name, c.value from Data d, Geography g, ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
-//        List<Object[]> list = query.getResultList();
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 //
+//        entityManager.getTransaction().begin();
+//        //d.getGeography().getCoastline().getValue()
 //
-//        for(Object[] o :list){
-//            System.out.println("nazwa panstwa "+o[0] +" wartosc "+o[1]);
-//        }
-
-
-
-
-//        Query query =  entityManager.createQuery("select d.name from Data d, Geography g where g.map_references='Europe' and d.geography=g.id");
-//        List<String> list = query.getResultList();
-//
-//   addA(entityManager,result);
-//        addB(entityManager,result);
-//        addC(entityManager,result);
-//  addD(entityManager,result);
-//        addE(entityManager,result);
-//        addF(entityManager,result);
-//        addG(entityManager,result);
-//        addH(entityManager,result);
-//        addI(entityManager,result);
-//        addJ(entityManager,result);
-//        addK(entityManager,result);
+////        Query query =  entityManager.createQuery("select d.name, c.value from Data d, Geography g, ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
+////        List<Object[]> list = query.getResultList();
+////
+////
+////        for(Object[] o :list){
+////            System.out.println("nazwa panstwa "+o[0] +" wartosc "+o[1]);
+////        }
 //
 //
 //
 //
-        entityManager.getTransaction().commit();
-        entityManagerFactory.close();
+////        Query query =  entityManager.createQuery("select d.name from Data d, Geography g where g.map_references='Europe' and d.geography=g.id");
+////        List<String> list = query.getResultList();
+////
+////   addA(entityManager,result);
+////        addB(entityManager,result);
+////        addC(entityManager,result);
+////  addD(entityManager,result);
+////        addE(entityManager,result);
+////        addF(entityManager,result);
+////        addG(entityManager,result);
+////        addH(entityManager,result);
+////        addI(entityManager,result);
+////        addJ(entityManager,result);
+////        addK(entityManager,result);
+////
+////
+////
+////
+//        entityManager.getTransaction().commit();
+//        entityManagerFactory.close();
 
 
     }
