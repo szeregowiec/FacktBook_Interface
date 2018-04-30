@@ -56,10 +56,10 @@ public class IndexAlgorithm {
     public static void getEntry(String key){
 
         List<Index> entries = mapIndex.get(key);
-        System.out.println("wynik dla winters " +entries.toString());
+        System.out.println("result for winters " +entries.toString());
         for(Index i : entries){
             String result = transaction("select g.climate from "+i.table+" g where g.id = "+i.id);
-            System.out.println("wpis -> " +result);
+            System.out.println("entry -> " +result);
         }
 
 

@@ -2,14 +2,8 @@ package hello;
 
 import java.util.*;
 
-import com.google.gson.Gson;
-import database.Data;
-import database.Geographic_coordinates;
 import database.Geography;
 import database.People;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
@@ -76,108 +70,62 @@ public class GreetingController {
 
 
     //////////////////////////////////////////////////////////////////////////////////////--------------------------SORT--------------------------------------
+    //rozwązac poroblem z wysyłaniem HashMapy ! problem z konwersją na json ?
+
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
     public List<CountrySort>  sortGeographyCoastline() {
 
-
-
-        entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d.name, c.value from Data d, Geography g, ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
-        List<Object[]> list = query.getResultList();
-        entityManager.getTransaction().commit();
-        Map<String,Float> map = new HashMap<>();
-        for(Object[] o :list){
-            map.put((String)o[0],(Float)o[1]);
-        }
-        ValueComparator bvc = new ValueComparator(map);
-        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
-
-        sorted_map.putAll(map);
-        List<CountrySort> sorted_country = new LinkedList<>();
-        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-            sorted_country.add(cs);
-        }
-        return sorted_country;
+        return sortCountries("select d.name, c.value from Data d, Geography g, " +
+                "ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/total", produces = "application/json")
     public List<CountrySort>  sortGeographyTotal() {
 
-        entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d.name, t.value from Data d, Geography g, Area a, ValueAndUnits t " +
-                                                   "where d.geography=g.id and g.area=a.id and a.total=t.id ");
-        List<Object[]> list = query.getResultList();
-        entityManager.getTransaction().commit();
-        Map<String,Float> map = new HashMap<>();
-        for(Object[] o :list){
-            map.put((String)o[0],(Float)o[1]);
-        }
-        ValueComparator bvc = new ValueComparator(map);
-        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
-
-        sorted_map.putAll(map);
-        List<CountrySort> sorted_country = new LinkedList<>();
-        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-            sorted_country.add(cs);
-        }
-        return sorted_country;
+        return sortCountries("select d.name, t.value from Data d, Geography g, Area a, ValueAndUnits t " +
+                "where d.geography=g.id and g.area=a.id and a.total=t.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/land", produces = "application/json")
     public List<CountrySort>  sortGeographyLand() {
 
-        entityManager.getTransaction().begin();
-        Query query =  entityManager.createQuery("select d.name, l.value from Data d, Geography g, Area a, ValueAndUnits l " +
+          return sortCountries("select d.name, l.value from Data d, Geography g, Area a, ValueAndUnits l " +
                 "where d.geography=g.id and g.area=a.id and a.land=l.id ");
-        List<Object[]> list = query.getResultList();
-        entityManager.getTransaction().commit();
-        Map<String,Float> map = new HashMap<>();
-        for(Object[] o :list){
-            map.put((String)o[0],(Float)o[1]);
-        }
-        ValueComparator bvc = new ValueComparator(map);
-        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
-
-        sorted_map.putAll(map);
-        List<CountrySort> sorted_country = new LinkedList<>();
-        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-            sorted_country.add(cs);
-        }
-        return sorted_country;
     }
 
     @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
     public List<CountrySort>  sortGeographyWater() {
 
-        entityManager.getTransaction().begin();
-            Query query =  entityManager.createQuery("select d.name, w.value from Data d, Geography g, Area a, ValueAndUnits w " +
-                    "where d.geography=g.id and g.area=a.id and a.water=w.id ");
-            List<Object[]> list = query.getResultList();
-        entityManager.getTransaction().commit();
 
-        Map<String,Float> map = new HashMap<>();
-            for(Object[] o :list){
-                map.put((String)o[0],(Float)o[1]);
-            }
-        ValueComparator bvc = new ValueComparator(map);
-        TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
-        sorted_map.putAll(map);
-
-        List<CountrySort> sorted_country = new LinkedList<>();
-        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-            sorted_country.add(cs);
-        }
-        return sorted_country;
+        return sortCountries("select d.name, w.value from Data d, Geography g, Area a, ValueAndUnits w " +
+                "where d.geography=g.id and g.area=a.id and a.water=w.id ");
     }
 
 
+public static List<CountrySort> sortCountries(String queryText){
 
+    entityManager.getTransaction().begin();
+    Query query =  entityManager.createQuery(queryText);
+    List<Object[]> list = query.getResultList();
+    entityManager.getTransaction().commit();
 
+    Map<String,Float> map = new HashMap<>();
+    for(Object[] o :list){
+        map.put((String)o[0],(Float)o[1]);
+    }
+    ValueComparator bvc = new ValueComparator(map);
+    TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
+    sorted_map.putAll(map);
 
+    List<CountrySort> sorted_country = new LinkedList<>();
+    for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+        CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
+        sorted_country.add(cs);
+    }
+    return sorted_country;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

@@ -17,7 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-public class Main {
+public class Database_Controller {
     public static void main(String[] args) {
         IndexAlgorithm.geography();
         IndexAlgorithm.getEntry("winters,");
