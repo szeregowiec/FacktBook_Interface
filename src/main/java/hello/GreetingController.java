@@ -95,10 +95,32 @@ public class GreetingController {
 
     @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
     public List<CountrySort>  sortGeographyWater() {
-
-
         return sortCountries("select d.name, w.value from Data d, Geography g, Area a, ValueAndUnits w " +
                 "where d.geography=g.id and g.area=a.id and a.water=w.id ");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/land_boundaries", produces = "application/json")
+    public List<CountrySort>  sortGeographyLand_Boundaries() {
+        return sortCountries("select d.name, t.value from Data d, Geography g, Land_boundaries lb, ValueAndUnits t " +
+                "where d.geography=g.id and g.land_boundaries=lb.id and lb.total=t.id ");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/mean_elevation", produces = "application/json")
+    public List<CountrySort>  sortGeographyMean_Elevation() {
+        return sortCountries("select d.name, m.value from Data d, Geography g, Elevation e, ValueAndUnits m " +
+                "where d.geography=g.id and g.elevation=e.id and e.mean_elevation=m.id ");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/lowest_point", produces = "application/json")
+    public List<CountrySort>  sortGeographyLowest_Point() {
+        return sortCountries("select d.name, p.value from Data d, Geography g, Elevation e, Point lp, ValueAndUnits p " +
+                "where d.geography=g.id and g.elevation=e.id and e.lowest_point=lp.id and lp.elevation=p.id");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/highest_point", produces = "application/json")
+    public List<CountrySort>  sortGeographyHighest_Point() {
+        return sortCountries("select d.name, p.value from Data d, Geography g, Elevation e, Point hp, ValueAndUnits p " +
+                "where d.geography=g.id and g.elevation=e.id and e.highest_point=hp.id and hp.elevation=p.id");
     }
 
 

@@ -12,6 +12,7 @@ public class Point {
     private int id;
     @Column(length = 5000)
     private String name;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits elevation;
 

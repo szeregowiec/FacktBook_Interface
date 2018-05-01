@@ -51,8 +51,10 @@ public class Geography {
     private Area area;
     @OneToOne(cascade = {CascadeType.ALL})
     private Land_boundaries land_boundaries;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Elevation elevation;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Land_use land_use;
 

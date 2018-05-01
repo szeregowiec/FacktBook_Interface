@@ -12,8 +12,10 @@ public class Elevation {
     private int id;
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits mean_elevation;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Point lowest_point;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Point highest_point;
 
