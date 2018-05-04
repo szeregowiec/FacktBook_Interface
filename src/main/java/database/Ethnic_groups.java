@@ -14,6 +14,7 @@ public class Ethnic_groups{
 
     @ElementCollection
     private List<NameAndPercent> ethnicity;
+
     @Transient
     @Column( length=50000)
     private String note;

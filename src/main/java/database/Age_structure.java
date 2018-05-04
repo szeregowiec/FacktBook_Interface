@@ -12,6 +12,7 @@ public class Age_structure{
     private int id;
     @OneToOne(cascade = {CascadeType.ALL})
     private MalesAndFemales age_0_to_14;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private MalesAndFemales age_15_to_24;
     @OneToOne(cascade = {CascadeType.ALL})

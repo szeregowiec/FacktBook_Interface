@@ -47,38 +47,159 @@
                     <nav class="navbar bg-light">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="coastline" onclick="checkedFunction(this.id)">coastline
+                                <input type="radio" name="optradio" id="geography/coastline" onclick="checkedFunction(this.id)">coastline
                             </li>
                             <li class="nav-item">
                                 area
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="total" onclick="checkedFunction(this.id)">total
+                                <input type="radio" name="optradio" id="geography/total" onclick="checkedFunction(this.id)">total
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="land" onclick="checkedFunction(this.id)">land
+                                <input type="radio" name="optradio" id="geography/land" onclick="checkedFunction(this.id)">land
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="water" onclick="checkedFunction(this.id)">water
+                                <input type="radio" name="optradio" id="geography/water" onclick="checkedFunction(this.id)">water
                             </li>
                             <li class="nav-item">
                             <li class="nav-item">
                                 Land boundaries
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="land_boundaries" onclick="checkedFunction(this.id)">total
+                                <input type="radio" name="optradio" id="geography/land_boundaries" onclick="checkedFunction(this.id)">total
                             </li>
                             <li class="nav-item">
                                 Elevation
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="mean_elevation" onclick="checkedFunction(this.id)">mean
+                                <input type="radio" name="optradio" id="geography/mean_elevation" onclick="checkedFunction(this.id)">mean
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="lowest_point" onclick="checkedFunction(this.id)">lowest point
+                                <input type="radio" name="optradio" id="geography/lowest_point" onclick="checkedFunction(this.id)">lowest point
                             </li>
                             <li class="nav-item">
-                                <input type="radio" name="optradio" id="highest_point" onclick="checkedFunction(this.id)">highest point
+                                <input type="radio" name="optradio" id="geography/highest_point" onclick="checkedFunction(this.id)">highest point
+                            </li>
+                            <li class="nav-item">
+                                Land use
+                            </li>
+                            <li class="nav-item">
+                                By sector
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="geography/agricultural_land_total" onclick="checkedFunction(this.id)">agricultural land total
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="geography/agricultural_land_arable_land" onclick="checkedFunction(this.id)">agricultural land arable land
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="geography/agricultural_land_permanent_pasture" onclick="checkedFunction(this.id)">agricultural land permanent pasture
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="geography/agricultural_land_permanent_crops" onclick="checkedFunction(this.id)">agricultural land permanent crops
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="geography/forest" onclick="checkedFunction(this.id)">forest
+                            </li>
+                            <li class="nav-item">
+                                PEOPLE
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/population" onclick="checkedFunction(this.id)">population
+                            </li>
+                            <li class="nav-item">
+                                Age structure
+                            </li>
+                            <li class="nav-item">
+                                age 0 to 14
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_0_to_14/percent" onclick="checkedFunction(this.id)">percent
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_0_to_14/males" onclick="checkedFunction(this.id)">males
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_0_to_14/females" onclick="checkedFunction(this.id)">females
+                            </li>
+                            <li class="nav-item">
+                                age_15_to_24
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_15_to_24/percent" onclick="checkedFunction(this.id)">percent
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_15_to_24/males" onclick="checkedFunction(this.id)">males
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_15_to_24/females" onclick="checkedFunction(this.id)">females
+                            </li>
+                            <li class="nav-item">
+                                age_25_to_54
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_25_to_54/percent" onclick="checkedFunction(this.id)">percent
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_25_to_54/males" onclick="checkedFunction(this.id)">males
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_25_to_54/females" onclick="checkedFunction(this.id)">females
+                            </li>
+                            <li class="nav-item">
+                                age_55_to_64
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_55_to_64/percent" onclick="checkedFunction(this.id)">percent
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_55_to_64/males" onclick="checkedFunction(this.id)">males
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_55_to_64/females" onclick="checkedFunction(this.id)">females
+                            </li>
+                            <li class="nav-item">
+                                age_65_and_over
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_65_and_over/percent" onclick="checkedFunction(this.id)">percent
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_65_and_over/males" onclick="checkedFunction(this.id)">males
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/age_structure/age_65_and_over/females" onclick="checkedFunction(this.id)">females
+                            </li>
+                            <li class="nav-item">
+                                dependency ratios
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/total_dependency_ratio" onclick="checkedFunction(this.id)">total_dependency_ratio
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/youth_dependency_ratio" onclick="checkedFunction(this.id)">youth_dependency_ratio
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/elderly_dependency_ratio" onclick="checkedFunction(this.id)">elderly_dependency_ratio
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/potential_support_ratio" onclick="checkedFunction(this.id)">potential_support_ratio
+                            </li>
+                            <li class="nav-item">
+                                median age
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/median_age/total" onclick="checkedFunction(this.id)">total
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/median_age/male" onclick="checkedFunction(this.id)">male
+                            </li>
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/median_age/female" onclick="checkedFunction(this.id)">female
+                            </li>
+
+                            <li class="nav-item">
+                                <input type="radio" name="optradio" id="people/population_growth_rate" onclick="checkedFunction(this.id)">population_growth_rate
                             </li>
 
                             </li>
@@ -167,7 +288,7 @@
                 var request = new XMLHttpRequest();
                 request.addEventListener("readystatechange", processRequest, false);
                 //if(criterion=="coastline"){
-                request.open("GET", "http://localhost:8080/countries/sort/geography/" + criterion, true);
+                request.open("GET", "http://localhost:8080/countries/sort/" + criterion, true);
                 //}
 
                 request.send();

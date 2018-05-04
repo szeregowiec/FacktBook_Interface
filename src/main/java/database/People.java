@@ -13,66 +13,96 @@ public class People {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private Population population;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Nationality nationality;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Ethnic_groups ethnic_groups;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Languages languages;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Religions religions;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Age_structure age_structure;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Dependency_ratios dependency_ratios;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Median_age median_age;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Population_growth_rate population_growth_rate;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Birth_rate birth_rate;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Death_rate death_rate;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Net_migration_rate net_migration_rate;
+
     @Column(length = 5000)
     private String population_distribution;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Urbanization urbanization;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Major_urban_areas major_urban_areas;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Sex_ratio sex_ratio;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Mothers_mean_age_at_first_birth mothers_mean_age_at_first_birth;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Maternal_mortality_rate maternal_mortality_rate;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Infant_mortality_rate infant_mortality_rate;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Life_expectancy_at_birth life_expectancy_at_birth;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Total_fertility_rate total_fertility_rate;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Health_expenditures health_expenditures;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Physicians_density physicians_density;
     @OneToOne(cascade = {CascadeType.ALL})
+
     private Hospital_bed_density hospital_bed_density;
     @OneToOne(cascade = {CascadeType.ALL})
     private Drinking_water_source drinking_water_source;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Sanitation_facility_access sanitation_facility_access;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Major_infectious_diseases major_infectious_diseases;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Adult_obesity adult_obesity;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Education_expenditures education_expenditures;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Literacy literacy;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private School_life_expectancy school_life_expectancy;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Youth_unemployment youth_unemployment;
 

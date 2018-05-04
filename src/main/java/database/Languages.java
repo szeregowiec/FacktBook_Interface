@@ -11,8 +11,10 @@ public class Languages{
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
+
     @ElementCollection
     private List<NameAndPercent> language;
+
     @Transient
     @Column( length=50000)
     private String note;
