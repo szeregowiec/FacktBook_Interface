@@ -14,10 +14,10 @@ public class Population{
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
 
-    private int total;
+    private float total;
     private int global_rank;
 
-    public int getTotal() {
+    public float getTotal() {
         return total;
     }
 

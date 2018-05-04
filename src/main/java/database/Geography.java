@@ -47,8 +47,10 @@ public class Geography {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private Geographic_coordinates geographic_coordinates;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Area area;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Land_boundaries land_boundaries;
 
@@ -71,6 +73,7 @@ public class Geography {
     @Transient
     @ElementCollection
     private List<String> resources;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits irrigated_land;
 //    private Maritime_claims maritime_claims;

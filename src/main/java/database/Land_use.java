@@ -14,6 +14,7 @@ public class Land_use {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private By_sector by_sector;
+
     @Column(length = 5000)
     private String date;
 

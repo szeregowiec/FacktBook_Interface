@@ -123,6 +123,128 @@ public class GreetingController {
                 "where d.geography=g.id and g.elevation=e.id and e.highest_point=hp.id and hp.elevation=p.id");
     }
 
+    @GetMapping(value = "/countries/sort/geography/agricultural_land_total", produces = "application/json")
+    public List<CountrySort>  sortGeographyAgricultural_land_total() {
+        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+                "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_total=alt.id");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/agricultural_land_arable_land", produces = "application/json")
+    public List<CountrySort>  sortGeographyAgricultural_land_arable_land() {
+        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+                "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_arable_land=alt.id");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_crops", produces = "application/json")
+    public List<CountrySort>  sortGeographyAgricultural_land_permanent_crops() {
+        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+                "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_crops=alt.id");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_pasture", produces = "application/json")
+    public List<CountrySort>  sortGeographyAgricultural_land_permanent_pasture() {
+        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+                "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_pasture=alt.id");
+    }
+
+    @GetMapping(value = "/countries/sort/geography/forest", produces = "application/json")
+    public List<CountrySort>  sortGeographyForest() {
+        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+                "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.forest=alt.id");
+    }
+///////////////////////PEOPLE sort
+    @GetMapping(value = "/countries/sort/people/population", produces = "application/json")
+    public List<CountrySort>  sortGeographyPopulation() {
+        return sortCountries("select d.name, po.total from Data d, People p,  Population po " +
+                "where d.people=p.id and p.population=po.id ");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/percent", produces = "application/json")
+    public List<CountrySort>  sortGeographyAge_0_to_14_percent() {
+        return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/males", produces = "application/json")
+    public List<CountrySort>  sortGeographyAge_0_to_14_males() {
+        return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/females", produces = "application/json")
+    public List<CountrySort>  sortGeographyAge_0_to_14_females() {
+        return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/percent", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_15_to_24_percent() {
+        return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/males", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_15_to_24_males() {
+        return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/females", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_15_to_24_females() {
+        return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/percent", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_25_to_54_percent() {
+        return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/males", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_25_to_54_males() {
+        return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/females", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_25_to_54_females() {
+        return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/percent", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_55_to_64_percent() {
+        return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/males", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_55_to_64_males() {
+        return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/females", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_55_to_64_females() {
+        return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/percent", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_65_and_over_percent() {
+        return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/males", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_65_and_over_males() {
+        return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
+    }
+    @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/females", produces = "application/json")
+    public List<CountrySort>  sortGeographyage_65_and_over_females() {
+        return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
+                "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/total_dependency_ratio", produces = "application/json")
+    public List<CountrySort>  sortGeographytotal_dependency_ratio() {
+        return sortCountries("select d.name, vau.value from Data d, People p,  Ratios r, ValueAndUnits vau " +
+                "where d.people=p.id and p.dependency_ratios=r.id and r.total_dependency_ratio=vau.id");
+    }
+
+
 
 public static List<CountrySort> sortCountries(String queryText){
 
