@@ -75,81 +75,81 @@ public class GreetingController {
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
     public List<CountrySort>  sortGeographyCoastline() {
 
-        return sortCountries("select d.name, c.value from Data d, Geography g, " +
+        return sortCountries("select d.name, c.value, c.units from Data d, Geography g, " +
                 "ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/total", produces = "application/json")
     public List<CountrySort>  sortGeographyTotal() {
 
-        return sortCountries("select d.name, t.value from Data d, Geography g, Area a, ValueAndUnits t " +
+        return sortCountries("select d.name, t.value, t.units from Data d, Geography g, Area a, ValueAndUnits t " +
                 "where d.geography=g.id and g.area=a.id and a.total=t.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/land", produces = "application/json")
     public List<CountrySort>  sortGeographyLand() {
 
-          return sortCountries("select d.name, l.value from Data d, Geography g, Area a, ValueAndUnits l " +
+          return sortCountries("select d.name, l.value, l.units from Data d, Geography g, Area a, ValueAndUnits l " +
                 "where d.geography=g.id and g.area=a.id and a.land=l.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
     public List<CountrySort>  sortGeographyWater() {
-        return sortCountries("select d.name, w.value from Data d, Geography g, Area a, ValueAndUnits w " +
+        return sortCountries("select d.name, w.value, w.units from Data d, Geography g, Area a, ValueAndUnits w " +
                 "where d.geography=g.id and g.area=a.id and a.water=w.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/land_boundaries", produces = "application/json")
     public List<CountrySort>  sortGeographyLand_Boundaries() {
-        return sortCountries("select d.name, t.value from Data d, Geography g, Land_boundaries lb, ValueAndUnits t " +
+        return sortCountries("select d.name, t.value, t.units from Data d, Geography g, Land_boundaries lb, ValueAndUnits t " +
                 "where d.geography=g.id and g.land_boundaries=lb.id and lb.total=t.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/mean_elevation", produces = "application/json")
     public List<CountrySort>  sortGeographyMean_Elevation() {
-        return sortCountries("select d.name, m.value from Data d, Geography g, Elevation e, ValueAndUnits m " +
+        return sortCountries("select d.name, m.value, m.units from Data d, Geography g, Elevation e, ValueAndUnits m " +
                 "where d.geography=g.id and g.elevation=e.id and e.mean_elevation=m.id ");
     }
 
     @GetMapping(value = "/countries/sort/geography/lowest_point", produces = "application/json")
     public List<CountrySort>  sortGeographyLowest_Point() {
-        return sortCountries("select d.name, p.value from Data d, Geography g, Elevation e, Point lp, ValueAndUnits p " +
+        return sortCountries("select d.name, p.value, p.units from Data d, Geography g, Elevation e, Point lp, ValueAndUnits p " +
                 "where d.geography=g.id and g.elevation=e.id and e.lowest_point=lp.id and lp.elevation=p.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/highest_point", produces = "application/json")
     public List<CountrySort>  sortGeographyHighest_Point() {
-        return sortCountries("select d.name, p.value from Data d, Geography g, Elevation e, Point hp, ValueAndUnits p " +
+        return sortCountries("select d.name, p.value, p.units from Data d, Geography g, Elevation e, Point hp, ValueAndUnits p " +
                 "where d.geography=g.id and g.elevation=e.id and e.highest_point=hp.id and hp.elevation=p.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/agricultural_land_total", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_total() {
-        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+        return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_total=alt.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/agricultural_land_arable_land", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_arable_land() {
-        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+        return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_arable_land=alt.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_crops", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_permanent_crops() {
-        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+        return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_crops=alt.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_pasture", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_permanent_pasture() {
-        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+        return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_pasture=alt.id");
     }
 
     @GetMapping(value = "/countries/sort/geography/forest", produces = "application/json")
     public List<CountrySort>  sortGeographyForest() {
-        return sortCountries("select d.name, alt.value from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
+        return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.forest=alt.id");
     }
 ///////////////////////PEOPLE sort
@@ -240,10 +240,48 @@ public class GreetingController {
 
     @GetMapping(value = "/countries/sort/people/total_dependency_ratio", produces = "application/json")
     public List<CountrySort>  sortGeographytotal_dependency_ratio() {
-        return sortCountries("select d.name, vau.value from Data d, People p,  Ratios r, ValueAndUnits vau " +
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
                 "where d.people=p.id and p.dependency_ratios=r.id and r.total_dependency_ratio=vau.id");
     }
 
+    @GetMapping(value = "/countries/sort/people/youth_dependency_ratio", produces = "application/json")
+    public List<CountrySort>  sortGeographyyouth_dependency_ratio() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
+                "where d.people=p.id and p.dependency_ratios=r.id and r.youth_dependency_ratio=vau.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/elderly_dependency_ratio", produces = "application/json")
+    public List<CountrySort>  sortGeographyelderly_dependency_ratio() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
+                "where d.people=p.id and p.dependency_ratios=r.id and r.elderly_dependency_ratio=vau.id");
+    }
+    @GetMapping(value = "/countries/sort/people/potential_support_ratio", produces = "application/json")
+    public List<CountrySort>  sortGeographypotential_support_ratio() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
+                "where d.people=p.id and p.dependency_ratios=r.id and r.potential_support_ratio=vau.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/median_age/total", produces = "application/json")
+    public List<CountrySort>  sortPeopleMedianAgeTotal() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
+                "where d.people=p.id and p.median_age=ma.id and ma.total=vau.id");
+    }
+    @GetMapping(value = "/countries/sort/people/median_age/male", produces = "application/json")
+    public List<CountrySort>  sortPeopleMedianAgeMale() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
+                "where d.people=p.id and p.median_age=ma.id and ma.male=vau.id");
+    }
+    @GetMapping(value = "/countries/sort/people/median_age/female", produces = "application/json")
+    public List<CountrySort>  sortPeopleMedianAgeFemale() {
+        return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
+                "where d.people=p.id and p.median_age=ma.id and ma.female=vau.id");
+    }
+
+    @GetMapping(value = "/countries/sort/people/population_growth_rate", produces = "application/json")
+    public List<CountrySort>  sortPeoplepopulation_growth_rate() {
+        return sortCountries("select d.name, pgr.growth_rate from Data d, People p,  Population_growth_rate pgr " +
+                "where d.people=p.id and p.population_growth_rate=pgr.id ");
+    }
 
 
 public static List<CountrySort> sortCountries(String queryText){
@@ -262,10 +300,20 @@ public static List<CountrySort> sortCountries(String queryText){
     sorted_map.putAll(map);
 
     List<CountrySort> sorted_country = new LinkedList<>();
-    for(Map.Entry<String,Float> e : sorted_map.entrySet()){
-        CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue());
-        sorted_country.add(cs);
+
+    if(list.get(0).length==3){
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue(),(String)list.get(0)[2]);
+            sorted_country.add(cs);
+        }
+    }else{
+        for(Map.Entry<String,Float> e : sorted_map.entrySet()){
+            CountrySort cs = new CountrySort(e.getKey(),e.getValue().floatValue(),"");
+            sorted_country.add(cs);
+        }
     }
+
+
     return sorted_country;
 }
 
@@ -338,9 +386,20 @@ class CountrySort{
 
     String name;
     float value;
-    CountrySort(String name, float f){
+    String units;
+
+    public String getUnits() {
+        return units;
+    }
+
+    public void setUnits(String units) {
+        this.units = units;
+    }
+
+    CountrySort(String name, float f, String units){
         this.name=name;
         value=f;
+        this.units=units;
 
     }
         }

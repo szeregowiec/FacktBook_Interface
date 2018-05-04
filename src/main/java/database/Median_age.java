@@ -12,10 +12,13 @@ public class Median_age{
     private int id;
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits total;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits male;
+
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits female;
+
     private int global_rank;
 
     public ValueAndUnits getTotal() {
