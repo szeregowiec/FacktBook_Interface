@@ -193,89 +193,42 @@ a:active {
     border-bottom: 1px solid #ddd;
 }
 
-
-/**
-
-.container-fluid {
-    padding: 60px 50px;
+#left_countries {
+    width: 320px;
+    text-align: center;
+    font-size: 15px;
+    /* height: 200px; */
+    overflow: auto;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }
 
-p {
-    font-size: 18px;
+#right_countries {
+    width: 320px;
+    text-align: center;
+    font-size: 15px;
+    /* height: 200px; */
+    overflow: auto;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }
 
-th {
-    font-size: 18px;
+#left_choose_country {
+    width: 320px;
 }
 
-td {
-    font-size: 16px;
+#right_choose_country {
+    width: 320px;
 }
 
-#kontakt {
-    background-color: ghostwhite;
-}
-
-
-
-
-.sidebar-nav-fixed {
-    width: %;
-}
-
-#pasek {
-    background-color: skyblue;
-}
-
-#tresc {
-    padding-top: 110px;
-}
-
-#coverId {
-    width: 300px;
-    height: 400px;
+.nav-item {
+    text-align: left;
 }
 
 
-#divFormLogIn {
-    width: 350px;
+#labelCriterion {
+    text-align: center;
+
 }
-
-
-#divFormSignUp {
-    width: 350px;
-}
-
-#divFormAddBook {
-    width: 350px;
-}
-
-#divFormSignUpEmployee {
-    width: 350px;
-}
-
-#divFormAddBook {
-    width: 350px;
-}
-
-#noBooks {
-    color: #b92c28;
-}
-
-
-#changeLabel {
-    display: block;
-    margin-bottom: 3px;
-    padding-left: 15px;
-    text-indent: -15px;
-}
-
-#wrongPassword {
-    color: red;
-}
-
-#bookDiv {
-    width: 300px;
-    height: 500px;
-}
-*/

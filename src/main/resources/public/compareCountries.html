@@ -26,102 +26,1268 @@
 
     </div>
 
-    <div class="album text-muted">
-        <div class="container">
 
-            <div class="row">
-                <div class="col-sm-4" id="countryColumn">
-                    <p>choose criterions</p>
+    <div class="container" id="countryColumn">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <p>choose criterions</p>
 
-                    <div>
-                        <label class="chooseContainer">GEOGRAPHY
-                    <input type="checkbox"id="geographyCheckbox" onclick="showTable('geographyCheckbox','aaa')">
+            <div>
+                <label class="chooseContainer">GEOGRAPHY
+                    <input type="checkbox" id="geographyCheckbox" onclick="showTablea('geographyCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
 
-                        <label class="chooseContainer">PEOPLE
-                    <input type="checkbox"id="peopleCheckbox" onclick="showTable('peopleCheckbox','aaa')">
+                <label class="chooseContainer">PEOPLE
+                    <input type="checkbox" id="peopleCheckbox" onclick="showTablea('peopleCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
-                        <label class="chooseContainer">GOVERNMENT
-                    <input type="checkbox" id="governmentCheckbox" onclick="showTable('governmentCheckbox','aaa')">
+                <label class="chooseContainer">GOVERNMENT
+                    <input type="checkbox" id="governmentCheckbox" onclick="showTablea('governmentCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
-                        <label class="chooseContainer">ECONOMY
-                    <input type="checkbox"id="economyCheckbox" onclick="showTable('economyCheckbox','aaa')">
+                <label class="chooseContainer">ECONOMY
+                    <input type="checkbox" id="economyCheckbox" onclick="showTablea('economyCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
-                        <label class="chooseContainer">ENERGY
-                    <input type="checkbox" id="energyCheckbox" onclick="showTable('energyCheckbox','aaa')">
+                <label class="chooseContainer">ENERGY
+                    <input type="checkbox" id="energyCheckbox" onclick="showTablea('energyCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
-                        <label class="chooseContainer">COMMUNICATIONS
-                    <input type="checkbox" id="communicationsCheckbox" onclick="showTable('communicationsCheckbox','aaa')">
+                <label class="chooseContainer">COMMUNICATIONS
+                    <input type="checkbox" id="communicationsCheckbox" onclick="showTablea('communicationsCheckbox','aaa')">
                     <span class="checkmark" ></span>
                     </label>
 
 
-                        <label class="chooseContainer">TRANSPORTATION
-                    <input type="checkbox" id="transportationCheckbox" onclick="showTable('transportationCheckbox','aaa')">
+                <label class="chooseContainer">TRANSPORTATION
+                    <input type="checkbox" id="transportationCheckbox" onclick="showTablea('transportationCheckbox','aaa')">
                     <span class="checkmark"></span>
                     </label>
 
-                        <p style="display: none" id="aaa"> to bedzie pokazywalo tabele :) </p>
-                    </div>
-                </div>
+                <p style="display: none" id="aaa"> to bedzie pokazywalo tabele :) </p>
+                <p>
+                    .
 
-                <div class="col-sm-4" id="countryColumn">
-                    <p>choose first country</p>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="left_choose_country" value="brak">Choose country!
-    
-  </button>
-                        <ul class="dropdown-menu" id="left_countries">
-                            <li><a href="#">country 1</a></li>
-                            <li><a href="#">country 2</a></li>
-                            <li><a href="#">country 3</a></li>
-
-                        </ul>
-                        <!--end split button-->
-                    </div>
-
-                </div>
-
-                <div class="col-sm-4" id="countryColumn">
-                    <p>choose second country</p>
-                    <div class="btn-group">
-
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="right_choose_country" value="brak">Choose country!
-    
-  </button>
-                        <ul class="dropdown-menu" id="right_countries">
-                            <li><a href="#">country 1</a></li>
-                            <li><a href="#">country 2</a></li>
-                            <li><a href="#">country 3</a></li>
-
-                        </ul>
-                        <!--end split button-->
-                    </div>
-
-
-                </div>
-
+                </p>
             </div>
-
+            <div class="col-sm-4"></div>
         </div>
     </div>
 
+    <div class="container">
+        <div class="col-sm-6" id="countryColumn">
+            <p>choose first country</p>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="left_choose_country" value="brak">Choose country!
+    
+  </button>
+                <ul class="dropdown-menu" id="left_countries">
 
-    <div>
-        <p>
-        </p>
+                </ul>
+                <!--end split button-->
+            </div>
+
+        </div>
+
+        <div class="col-sm-6" id="countryColumn">
+            <p>choose second country</p>
+            <div class="btn-group">
+
+                <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="right_choose_country" value="brak">Choose country!
+    
+  </button>
+                <ul class="dropdown-menu" id="right_countries">
+
+                </ul>
+                <!--end split button-->
+            </div>
+        </div>
+
+
+
     </div>
 
+
+    <div class="jumbotron text-center" id="tables" style="display: contents">
+        <!--ma wyswietlac sie po wybraniu  href="javascript:showWholeTable('tableWithGeography')"-->
+        <table align="center" id="tableWithGeography">
+            <tr>
+                <td width="800" id="" class="td_border"><a href="javascript:showTable('id_1')">GEOGRAPHY<span id="id_1+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="id_1" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                        <tr>
+                            <td width="400" id="" class="td_border">location</td>
+                            <td width="400" id="location" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">map_references</td>
+                            <td width="400" id="map_references" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">climate</td>
+                            <td width="400" id="climate" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">terrain</td>
+                            <td width="400" id="terrain" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">population_distribution</td>
+                            <td width="400" id="geography_population_distribution" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">note</td>
+                            <td width="400" id="note" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_2')">geographic_coordinates<span id="id_2+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_2" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">latitude</td>
+                                        <td width="400" id="latitude" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">longitude</td>
+                                        <td width="400" id="longitude" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_3')">area<span id="id_3+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_3" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total</td>
+                                        <td width="400" id="total" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">land</td>
+                                        <td width="400" id="land" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">water</td>
+                                        <td width="400" id="water" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="global_rank" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">comparative</td>
+                                        <td width="400" id="comparative" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <!--<tr>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_4')">land_boundaries!!!<span id="id_4+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">total</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">border_countries</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_5')">elevation<span id="id_5+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_5" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">mean_elevation</td>
+                                        <td width="400" id="mean_elevation" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_6')">lowest_point<span id="id_6+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_6" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">name</td>
+                                                    <td width="400" id="lowest_point_name" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">elevation</td>
+                                                    <td width="400" id="lowest_point_elevation" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_7')">highest_point<span id="id_7+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_7" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">name</td>
+                                                    <td width="400" id="highest_point_name" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">elevation</td>
+                                                    <td width="400" id="highest_point_elevation" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_8')">land_use<span id="id_8+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_8" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <!--<tr>-->
+                                    <!--<td width="400" id="td_border" class="td_border">date</td>-->
+                                    <!--<td width="400" id="date" class="td_border"></td>-->
+                                    <!--</tr>-->
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_9')">by_sector<span id="id_9+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_9" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">agricultural_land_total</td>
+                                                    <td width="400" id="agricultural_land_total" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">agricultural_land_arable_land</td>
+                                                    <td width="400" id="agricultural_land_arable_land" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">agricultural_land_permanent_crops</td>
+                                                    <td width="400" id="agricultural_land_permanent_crops" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">agricultural_land_permanent_pasture</td>
+                                                    <td width="400" id="agricultural_land_permanent_pasture" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">forest</td>
+                                                    <td width="400" id="forest" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">other</td>
+                                                    <td width="400" id="other" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">natural_hazards!!!</td>-->
+                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--</tr>-->
+
+
+
+                        <!--<tr>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_10')">environment<span id="id_10+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_10" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="400" id="" class="td_border">current_issues</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="400" id="current_issues" class="td_border"></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--<tr>-->
+                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_11')">international_agreements<span id="id_11+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td colspan="2">-->
+                        <!--<table id="id_11" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">party_to</td>-->
+                        <!--<td width="400" id="party_to" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">signed_but_not_ratified</td>-->
+                        <!--<td width="400" id="signed_but_not_ratified" class="td_border"></td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</table>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+
+                        <tr>
+                            <td width="400" id="" class="td_border">coastline</td>
+                            <td width="400" id="coastline" class="td_border"></td>
+                        </tr>
+
+
+                        <!--<tr>-->
+                        <!--<td width="400" id="" class="td_border">resources</td>-->
+                        <!--<td width="400" id="resources" class="td_border"></td>-->
+                        <!--</tr>-->
+
+                        <tr>
+                            <td width="400" id="" class="td_border">irrigated_land</td>
+                            <td width="400" id="irrigated_land" class="td_border"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <!--ma wyswietlac sie po wybraniu  href="javascript:showWholeTable('tableWithPeople')"-->
+        <table align="center" id="tableWithPeople">
+            <tr>
+                <td width="800" id="" class="td_border"><a href="javascript:showTable('id_12')">PEOPLE<span id="id_12+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="id_12" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_13')">population<span id="id_13+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_13" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total_population</td>
+                                        <td width="400" id="total_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="population_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_14')">nationality<span id="id_14+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_14" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">noun</td>
+                                        <td width="400" id="noun" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">adjective</td>
+                                        <td width="400" id="adjective" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!--jeszcze language :)-->
+
+                        <!------   tu ma być ethnic_groups
+                zawiera ethnicity  i note
+                        a to zawiera liste name i percent
+-->
+
+                        <!------   tu ma być languages
+                zawiera language  i note
+                        a to zawiera liste name i percent
+-->
+                        <!------   tu ma być religions
+                zawiera religion  i note
+                        a to zawiera liste name i percent i breakdown
+-->
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_15')">age_structure<span id="id_15+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_15" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <!--    <tr>
+                                <td width="400" id="" class="td_border">mean_elevation</td>
+                                <td width="400" id="mean_elevation" class="td_border"></td>
+                            </tr>
+
+                            -->
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_16')">age_0_to_14<span id="id_16+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_16" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">percent</td>
+                                                    <td width="400" id="age_0_to_14_percent" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">males</td>
+                                                    <td width="400" id="age_0_to_14_males" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">females</td>
+                                                    <td width="400" id="age_0_to_14_females" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_17')">age_15_to_24<span id="id_17+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_17" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">percent</td>
+                                                    <td width="400" id="age_15_to_24_percent" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">males</td>
+                                                    <td width="400" id="age_15_to_24_males" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">females</td>
+                                                    <td width="400" id="age_15_to_24_females" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_18')">age_25_to_54<span id="id_18+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_18" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">percent</td>
+                                                    <td width="400" id="age_25_to_54_percent" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">males</td>
+                                                    <td width="400" id="age_25_to_54_males" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">females</td>
+                                                    <td width="400" id="age_25_to_54_females" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_19')">age_55_to_64<span id="id_19+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_19" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">percent</td>
+                                                    <td width="400" id="age_55_to_64_percent" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">males</td>
+                                                    <td width="400" id="age_55_to_64_males" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">females</td>
+                                                    <td width="400" id="age_55_to_64_females" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_20')">age_65_and_over<span id="id_20+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_20" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">percent</td>
+                                                    <td width="400" id="age_65_and_over_percent" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">males</td>
+                                                    <td width="400" id="age_65_and_over_males" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">females</td>
+                                                    <td width="400" id="age_65_and_over_females" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_21')">dependency_ratios<span id="id_21+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_21" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total_dependency_ratio</td>
+                                        <td width="400" id="total_dependency_ratio" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">youth_dependency_ratio</td>
+                                        <td width="400" id="youth_dependency_ratio" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">elderly_dependency_ratio</td>
+                                        <td width="400" id="elderly_dependency_ratio" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">potential_support_ratio</td>
+                                        <td width="400" id="potential_support_ratio" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_22')">median_age<span id="id_22+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_22" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total</td>
+                                        <td width="400" id="median_age_total" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="median_age_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="median_age_female" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="median_age_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_23')">population_growth_rate<span id="id_23+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_23" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">growth_rate</td>
+                                        <td width="400" id="population_growth_rate" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="population_growth_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_24')">birth_rate<span id="id_24+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_24" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">births_per_1000_population</td>
+                                        <td width="400" id="births_per_1000_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="birth_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_25')">death_rate<span id="id_25+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_25" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">deaths_per_1000_population</td>
+                                        <td width="400" id="deaths_per_1000_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="death_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_26')">net_migration_rate<span id="id_26+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_26" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">migrants_per_1000_population</td>
+                                        <td width="400" id="migrants_per_1000_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="net_migration_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">population_distribution</td>
+                            <td width="400" id="people_population_distribution" class="td_border"></td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_27')">urbanization<span id="id_27+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_27" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">urban_population</td>
+                                        <td width="400" id="urban_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">rate_of_urbanization</td>
+                                        <td width="400" id="rate_of_urbanization" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+                        <!------   tu ma być major_urban_areas
+                zawiera places
+                        a to zawiera liste place i population i is_capital
+-->
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_28')">sex_ratio<span id="id_28+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_28" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total_population</td>
+                                        <td width="400" id="sex_ratio_total_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_29')">by_age<span id="id_29+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_29" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">at_birth</td>
+                                                    <td width="400" id="by_age_at_birth" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">age_0_to_14_years</td>
+                                                    <td width="400" id="by_age_age_0_to_14_years" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">age_15_to_24_years</td>
+                                                    <td width="400" id="by_age_age_15_to_24_years" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">age_25_to_54_years</td>
+                                                    <td width="400" id="by_age_age_25_to_54_years" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">age_55_to_64_years</td>
+                                                    <td width="400" id="by_age_age_55_to_64_years" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">age_65_years_and_over</td>
+                                                    <td width="400" id="by_age_age_65_years_and_over" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td width="400" id="" class="td_border">mothers_mean_age_at_first_birth</td>
+                            <td width="400" id="mothers_mean_age_at_first_birth" class="td_border"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_30')">maternal_mortality_rate<span id="id_30+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_30" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">deaths_per_100k_live_births</td>
+                                        <td width="400" id="deaths_per_100k_live_births" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="maternal_mortality_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_31')">infant_mortality_rate<span id="id_31+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_31" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total</td>
+                                        <td width="400" id="infant_mortality_rate_total" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="infant_mortality_rate_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="infant_mortality_rate_female" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="infant_mortality_rate_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_32')">life_expectancy_at_birth<span id="id_32+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_32" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total_population</td>
+                                        <td width="400" id="life_expectancy_at_birth_total_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="life_expectancy_at_birth_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="life_expectancy_at_birth_female" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="life_expectancy_at_birth_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_33')">total_fertility_rate<span id="id_33+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_33" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">children_born_per_woman</td>
+                                        <td width="400" id="children_born_per_woman" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="total_fertility_rate_global_rank" class="td_border"></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_34')">health_expenditures<span id="id_34+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_34" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">percent_of_gdp</td>
+                                        <td width="400" id="health_expenditures_percent_of_gdp" class="td_border"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="health_expenditures_global_rank" class="td_border"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_35')">physicians_density<span id="id_35+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_35" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">physicians_per_1000_population</td>
+                                        <td width="400" id="physicians_per_1000_population" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">hospital_bed_density</td>
+                                        <td width="400" id="hospital_bed_density" class="td_border"></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_36')">drinking_water_source<span id="id_36+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_36" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_37')">improved<span id="id_37+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_37" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">urban</td>
+                                                    <td width="400" id="drinking_water_source_improved_urban" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">rural</td>
+                                                    <td width="400" id="drinking_water_source_improved_rural" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">total</td>
+                                                    <td width="400" id="drinking_water_source_improved_total" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_38')">unimproved<span id="id_38+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_38" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">urban</td>
+                                                    <td width="400" id="drinking_water_source_unimproved_urban" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">rural</td>
+                                                    <td width="400" id="drinking_water_source_unimproved_rural" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">total</td>
+                                                    <td width="400" id="drinking_water_source_unimproved_total" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_39')">sanitation_facility_access<span id="id_39+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_39" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_40')">improved<span id="id_40+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_40" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">urban</td>
+                                                    <td width="400" id="sanitation_facility_access_improved_urban" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">rural</td>
+                                                    <td width="400" id="sanitation_facility_access_improved_rural" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">total</td>
+                                                    <td width="400" id="sanitation_facility_access_improved_total" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_41')">unimproved<span id="id_41+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table id="id_41" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">urban</td>
+                                                    <td width="400" id="sanitation_facility_access_unimproved_urban" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">rural</td>
+                                                    <td width="400" id="sanitation_facility_access_unimproved_rural" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="400" id="" class="td_border">total</td>
+                                                    <td width="400" id="sanitation_facility_access_unimproved_total" class="td_border"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_42')">major_indectious_diseases<span id="id_42+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_42" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">degree_of_risk</td>
+                                        <td width="400" id="degree_of_risk" class="td_border"></td>
+                                    </tr>
+                                    <!--  lista vectorborne_diseases -->
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_43')">adult_obesity<span id="id_43+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_43" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">percent_of_adults</td>
+                                        <td width="400" id="adult_obesity_percent_of_adults" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="adult_obesity_global_rank" class="td_border"></td>
+                                    </tr>
+                                    <!--  lista vectorborne_diseases -->
+                                </table>
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_44')">education_expenditures<span id="id_44+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_44" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">percent_of_gdp</td>
+                                        <td width="400" id="education_expenditures_percent_of_gdp" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">global_rank</td>
+                                        <td width="400" id="education_expenditures_global_rank" class="td_border"></td>
+                                    </tr>
+                                    <!--  lista vectorborne_diseases -->
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_45')">literacy<span id="id_45+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_45" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">definition</td>
+                                        <td width="400" id="literacy_definition" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total_population</td>
+                                        <td width="400" id="literacy_total_population" class="td_border"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="literacy_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="literacy_female" class="td_border"></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_46')">school_life_expectancy<span id="id_46+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_46" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total</td>
+                                        <td width="400" id="school_life_expectancy_total" class="td_border"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="school_life_expectancy_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="school_life_expectancy_female" class="td_border"></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_47')">youth_unemployment<span id="id_47+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table id="id_47" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                    <tr>
+                                        <td width="400" id="" class="td_border">total</td>
+                                        <td width="400" id="youth_unemployment_total" class="td_border"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="400" id="" class="td_border">male</td>
+                                        <td width="400" id="youth_unemployment_male" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="400" id="" class="td_border">female</td>
+                                        <td width="400" id="youth_unemployment_female" class="td_border"></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+        function showWholeTable(id) {
+            if (document.getElementById(id).style.display == "none") {
+                document.getElementById(id).style.display = "contents"
+            } else {
+                document.getElementById(id).style.display == "none"
+            }
+        }
+
+        function showTable(id) {
+            var glyp = id.concat("+strzalka");
+            if (document.getElementById(id).style.display == "inline") {
+                document.getElementById(id).style.display = "none";
+                document.getElementById(glyp).className = 'glyphicon glyphicon-triangle-bottom';
+            } else {
+                document.getElementById(id).style.display = "inline";
+                document.getElementById(glyp).className = 'glyphicon glyphicon-triangle-top';
+            }
+        }
+    </script>
+
+
+
+
+    <script>
+        function filterFunctionLeft() {
+            var input, filter, ul, li, a, i, div;
+            input = document.getElementById("search_input");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("left_countries");
+            li = div.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function filterFunctionRight() {
+            var input, filter, ul, li, a, i, div;
+            input = document.getElementById("search_input");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("right_countries");
+            li = div.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
     <script>
         var request = new XMLHttpRequest();
@@ -132,32 +1298,39 @@
         function processRequest(e) {
             if (request.readyState == 4 && request.status == 200) {
                 var response = JSON.parse(request.responseText);
-                var lista;
+                var lista = "";
+                lista += "<input type=\"text\" placeholder=\"Search...\" id=\"search_input\" onkeyup=\"filterFunctionLeft()\">";
                 var i;
                 for (i = 0; i < response.length; i++) {
-                    lista += "<li onclick=" + "\"changeCountry('" + response[i] + "')\">" + response[i] + "</li>"
+                    lista += "<li onclick=" + "\"changeCountry('" + response[i] + "')\">" + response[i].toUpperCase() + "</li>"
                 }
+                document.getElementById("left_countries").innerHTML = "";
                 document.getElementById("left_countries").innerHTML = lista;
-                var lista2;
+
+                var lista2 = "";
+                lista2 += "<input type=\"text\" placeholder=\"Search...\" id=\"search_input\" onkeyup=\"filterFunctionRight()\">";
                 for (i = 0; i < response.length; i++) {
-                    lista2 += "<li onclick=" + "\"changeCountry2('" + response[i] + "')\">" + response[i] + "</li>"
+                    lista2 += "<li onclick=" + "\"changeCountry2('" + response[i] + "')\">" + response[i].toUpperCase() + "</li>"
                 }
+                document.getElementById("right_countries").innerHTML = "";
                 document.getElementById("right_countries").innerHTML = lista2;
             }
         }
 
         function changeCountry(country) {
-            document.getElementById("left_choose_country").innerHTML = country;
+            var countryUpper = country.toUpperCase();
+            document.getElementById("left_choose_country").innerHTML = countryUpper;
             document.getElementById("left_choose_country").value = country;
         }
 
         function changeCountry2(country) {
-            document.getElementById("right_choose_country").innerHTML = country;
+            var countryUpper = country.toUpperCase();
+            document.getElementById("right_choose_country").innerHTML = countryUpper;
             document.getElementById("right_choose_country").value = country;
         }
 
 
-        function showTable(id, idToShow) {
+        function showTablea(id, idToShow) {
             var checkBox = document.getElementById(id);
             var table = document.getElementById(idToShow);
             if (checkBox.checked == true) {

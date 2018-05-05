@@ -5,15 +5,14 @@
     <title>Sort</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
     <link rel="stylesheet" type="text/css" href="/main.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -22,6 +21,7 @@
         <a href="mainSite.html" title="" id="">
             <div class="centered" id="mainLogoText">Comparison</div>
         </a>
+
     </div>
 
 
@@ -30,11 +30,9 @@
 
         <div class="centered" id="oneCountry">Sort countries</div>
 
-        <button type="button" class="btn btn-secondary btn-lg" id="sort" value="brak" onclick="getSortedCountries(this.value)">Sort!
+        <button type="button" class="btn btn-lg" id="sort" value="brak" onclick="getSortedCountries(this.value)">Sort!
     
   </button>
-
-
 
     </div>
 
@@ -46,11 +44,14 @@
 
                     <nav class="navbar bg-light">
                         <ul class="navbar-nav">
+                            <li class="nav-item" id="labelCriterion">
+                                **GEOGRAPHY**
+                            </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/coastline" onclick="checkedFunction(this.id)">coastline
                             </li>
-                            <li class="nav-item">
-                                area
+                            <li class="nav-item" id="labelCriterion">
+                                AREA
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/total" onclick="checkedFunction(this.id)">total
@@ -61,15 +62,15 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/water" onclick="checkedFunction(this.id)">water
                             </li>
-                            <li class="nav-item">
-                            <li class="nav-item">
-                                Land boundaries
+
+                            <li class="nav-item" id="labelCriterion">
+                                LAND BOUNDARIES
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/land_boundaries" onclick="checkedFunction(this.id)">total
                             </li>
-                            <li class="nav-item">
-                                Elevation
+                            <li class="nav-item" id="labelCriterion">
+                                ELEVATION
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/mean_elevation" onclick="checkedFunction(this.id)">mean
@@ -80,11 +81,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/highest_point" onclick="checkedFunction(this.id)">highest point
                             </li>
-                            <li class="nav-item">
-                                Land use
-                            </li>
-                            <li class="nav-item">
-                                By sector
+                            <li class="nav-item" id="labelCriterion">
+                                LAND USE
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/agricultural_land_total" onclick="checkedFunction(this.id)">agricultural land total
@@ -101,17 +99,17 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="geography/forest" onclick="checkedFunction(this.id)">forest
                             </li>
-                            <li class="nav-item">
-                                PEOPLE
+                            <li class="nav-item" id="labelCriterion">
+                                **PEOPLE**
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/population" onclick="checkedFunction(this.id)">population
                             </li>
-                            <li class="nav-item">
-                                Age structure
+                            <li class="nav-item" id="labelCriterion">
+                                AGE STRUCTURE
                             </li>
-                            <li class="nav-item">
-                                age 0 to 14
+                            <li class="nav-item" id="labelCriterion">
+                                AGE 0 TO 14
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_0_to_14/percent" onclick="checkedFunction(this.id)">percent
@@ -122,8 +120,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_0_to_14/females" onclick="checkedFunction(this.id)">females
                             </li>
-                            <li class="nav-item">
-                                age_15_to_24
+                            <li class="nav-item" id="labelCriterion">
+                                AGE 15 TO 24
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_15_to_24/percent" onclick="checkedFunction(this.id)">percent
@@ -134,8 +132,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_15_to_24/females" onclick="checkedFunction(this.id)">females
                             </li>
-                            <li class="nav-item">
-                                age_25_to_54
+                            <li class="nav-item" id="labelCriterion">
+                                AGE 25 TO 54
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_25_to_54/percent" onclick="checkedFunction(this.id)">percent
@@ -146,8 +144,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_25_to_54/females" onclick="checkedFunction(this.id)">females
                             </li>
-                            <li class="nav-item">
-                                age_55_to_64
+                            <li class="nav-item" id="labelCriterion">
+                                AGE 55 TO 64
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_55_to_64/percent" onclick="checkedFunction(this.id)">percent
@@ -158,8 +156,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_55_to_64/females" onclick="checkedFunction(this.id)">females
                             </li>
-                            <li class="nav-item">
-                                age_65_and_over
+                            <li class="nav-item" id="labelCriterion">
+                                AGE 65 AND OVER
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_65_and_over/percent" onclick="checkedFunction(this.id)">percent
@@ -170,8 +168,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/age_structure/age_65_and_over/females" onclick="checkedFunction(this.id)">females
                             </li>
-                            <li class="nav-item">
-                                dependency ratios
+                            <li class="nav-item" id="labelCriterion">
+                                DEPENDENCY RATIOS
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/total_dependency_ratio" onclick="checkedFunction(this.id)">total_dependency_ratio
@@ -185,8 +183,8 @@
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/potential_support_ratio" onclick="checkedFunction(this.id)">potential_support_ratio
                             </li>
-                            <li class="nav-item">
-                                median age
+                            <li class="nav-item" id="labelCriterion">
+                                MEDIAN AGE
                             </li>
                             <li class="nav-item">
                                 <input type="radio" name="optradio" id="people/median_age/total" onclick="checkedFunction(this.id)">total
@@ -202,16 +200,17 @@
                                 <input type="radio" name="optradio" id="people/population_growth_rate" onclick="checkedFunction(this.id)">population_growth_rate
                             </li>
 
-                            </li>
+
                         </ul>
                     </nav>
+
                 </div>
                 <div class="col-sm-8">
                     <table style="width:100%" class="table table-striped" id="sort_countries_table">
                         <thead>
                             <tr>
                                 <th>Country name</th>
-                                <th>Value</th>
+                                <th id="units">Value</th>
                             </tr>
                         </thead>
                         <tbody id="sort_countries">
@@ -298,18 +297,21 @@
                         var response = JSON.parse(request.responseText);
 
 
-                        var list;
+                        var list = "";
                         var i;
                         for (i = 0; i < response.length; i++) {
-                            list += "<tr><td>" + response[i].name + "</td><td>" + response[i].value + "</td></tr>"
+                            list += "<tr><td>" + response[i].name.toUpperCase() + "</td><td>" + response[i].value + "</td></tr>"
 
                         }
+                        document.getElementById("units").innerHTML = "Value [" + response[0].units + "]";
+                        document.getElementById("sort_countries").innerHTML = "";
                         document.getElementById("sort_countries").innerHTML = list;
 
                     }
                 }
             }
         }
+
     </script>
 
 
