@@ -56,6 +56,10 @@
 
 }
 
+#choose_country {
+    width: 320px;
+}
+
 table {
     float: center;
     padding: 0;
@@ -142,6 +146,49 @@ tr {
     transform: rotate(45deg);
 }
 
+
+
+/* do linkow ! */
+
+a:link {
+    color: black;
+}
+
+/* visited link */
+
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+
+a:hover {
+    color: darksalmon;
+}
+
+/* selected link */
+
+a:active {
+    color: black;
+}
+
+/* do linkow ! */
+
+#dropdown_countries {
+    width: 320px;
+    text-align: center;
+    font-size: 15px;
+    height: 200px;
+    overflow: auto;
+}
+
+#search_input {
+    text-align: center;
+    background-position: center;
+    font-size: 15px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
 
 
 /**
