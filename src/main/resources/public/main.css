@@ -178,8 +178,11 @@ a:active {
     width: 320px;
     text-align: center;
     font-size: 15px;
-    height: 200px;
+    /* height: 200px; */
     overflow: auto;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }
 
 #search_input {
