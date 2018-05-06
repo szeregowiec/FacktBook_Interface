@@ -11,10 +11,12 @@ public class International_agreements {
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
-    @Transient
+
+
     @ElementCollection
     private List<String> party_to;
-    @Transient
+
+
     @ElementCollection
     private List<String> signed_but_not_ratified;
 

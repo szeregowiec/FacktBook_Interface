@@ -1,23 +1,16 @@
 package database;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 
 @Embeddable
-public class Natural_hazard implements Serializable {
+public class Natural_hazard {
 
 
-//    @Id
-//    @GeneratedValue(generator = "incrementator")
-//    @GenericGenerator(name="incrementator", strategy ="increment")
-//    private int id;
 
-
-//    @ManyToOne
-//    private Geography geographyID;
-@Column(length = 5000)
+@Column(length = 50000)
     private String description;
-    @Column(length = 5000)
+    @Column(length = 50000)
     private String type;
 
     public String getDescription() {
@@ -26,5 +19,13 @@ public class Natural_hazard implements Serializable {
 
     public String getType() {
         return type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

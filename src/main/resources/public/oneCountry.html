@@ -142,23 +142,33 @@ i ma być ładniejsza oczywiście
                         </tr>
 
 
+                        <tr>
+                        <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_4')">land_boundaries!!!<span id="id_4+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                        </tr>
+                        <tr>
+                        <td colspan="2">
+                        <table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                        <tr>
+                        <td width="400" id="" class="td_border">total</td>
+                        <td width="400" id="land_boundaries_total" class="td_border"></td>
+                        </tr>
                         <!--<tr>-->
-                        <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_4')">land_boundaries!!!<span id="id_4+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>-->
+                            <!--<td width="400" id="" class="td_border">border_countries</td>-->
+                            <!--<td width="400" id="border_countries" class="td_border"></td>-->
                         <!--</tr>-->
-                        <!--<tr>-->
-                        <!--<td colspan="2">-->
-                        <!--<table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
-                        <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">total</td>-->
-                        <!--<td width="400" id="" class="td_border"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">border_countries</td>-->
-                        <!--<td width="400" id="" class="td_border"></td>-->
-                        <!--</tr>-->
-                        <!--</table>-->
-                        <!--</td>-->
-                        <!--</tr>-->
+                            <tr>
+                                <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_border_countries')">border_countries<span id="id_border_countries+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table id="id_border_countries" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        </td>
+                        </tr>
 
 
                         <tr>
@@ -1197,7 +1207,6 @@ i ma być ładniejsza oczywiście
             if (request.readyState == 4 && request.status == 200) {
                 var response = JSON.parse(request.responseText);
 
-
                 var lista = "";
                 lista += "<input type=\"text\" placeholder=\"Search...\" id=\"search_input\" onkeyup=\"filterFunction()\">";
                 var i;
@@ -1221,7 +1230,7 @@ i ma być ładniejsza oczywiście
             if (document.getElementById(id).style.display == "none") {
                 document.getElementById(id).style.display = "contents"
             } else {
-                document.getElementById(id).style.display == "none"
+                document.getElementById(id).style.display == "none";
             }
         }
 
@@ -1245,9 +1254,9 @@ i ma być ładniejsza oczywiście
             request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
             request.send();
 
-
             function processRequest(e) {
                 if (request.readyState == 4 && request.status == 200) {
+
                     showWholeTable('tables');
                     var response = JSON.parse(request.responseText);
                     document.getElementById("location").innerHTML = response.location;
@@ -1267,6 +1276,28 @@ i ma być ładniejsza oczywiście
                     document.getElementById("water").innerHTML = response.area.water.value + " " + response.area.water.units;
                     document.getElementById("global_rank").innerHTML = response.area.global_rank;
                     document.getElementById("comparative").innerHTML = response.area.comparative;
+
+                    document.getElementById("land_boundaries_total").innerHTML = response.land_boundaries.total.value+ " " + response.land_boundaries.total.units;
+
+                    var i;
+                    var lista = "";
+                    for (i = 0; i < response.land_boundaries.border_countries.length; i++) {
+                        lista += "<tr> " +
+                                 "<td width=\"400\" id=\"\" class=\"td_border\">"+response.land_boundaries.border_countries[i].country+"</td>"+
+                                 "<td width=\"400\" id=\"\" class=\"td_border\">"+response.land_boundaries.border_countries[i].border+ " " + response.land_boundaries.border_countries[i].units+"</td>"+
+                                "</tr>"
+
+                    }
+
+                    document.getElementById("id_border_countries").innerHTML = lista;
+
+//                <tr>
+//                    <td width="400" id="" class="td_border">name</td>
+//                        <td width="400" id="lowest_point_name" class="td_border"></td>
+//                        </tr>
+
+
+
 
                     document.getElementById("mean_elevation").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
                     document.getElementById("lowest_point_name").innerHTML = response.elevation.lowest_point.name;

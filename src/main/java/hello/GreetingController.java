@@ -2,6 +2,7 @@ package hello;
 
 import java.util.*;
 
+import com.sun.org.apache.regexp.internal.RE;
 import database.Geography;
 import database.People;
 import org.json.JSONException;
@@ -18,8 +19,17 @@ public class GreetingController {
 
    static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
     static EntityManager entityManager = entityManagerFactory.createEntityManager();
+    static{
+        IndexAlgorithm.geography(entityManager);
+    }
 
 
+    @GetMapping("/countries/index/{tmp}")
+    public ArrayList<Result> index(@PathVariable("tmp") String tmp) {
+
+        return IndexAlgorithm.getEntries(entityManager,tmp);
+
+    }
 
     @GetMapping("/countries")
     public List<String> countries() {

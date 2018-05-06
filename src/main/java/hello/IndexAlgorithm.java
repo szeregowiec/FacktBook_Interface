@@ -1,5 +1,7 @@
 package hello;
 
+import clojure.lang.Obj;
+import com.sun.org.apache.regexp.internal.RE;
 import database.Geography;
 import database.In;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,12 +13,12 @@ import javax.persistence.Query;
 import java.util.*;
 
 public class IndexAlgorithm {
-    static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
-    static EntityManager entityManager = entityManagerFactory.createEntityManager();
-    static Map<String,List<Index>> mapIndex = new HashMap<>();
+//    static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
+//    static EntityManager entityManager = entityManagerFactory.createEntityManager();
+    static Map<String,Set<Index>> mapIndex = new HashMap<>();
 
 
-    public static void geography() {
+    public static void geography(EntityManager entityManager) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("select g from Geography g");
         List<Geography> list = query.getResultList();
@@ -24,65 +26,119 @@ public class IndexAlgorithm {
 
 
         String s;
+        StringTokenizer st;
         for(Geography g : list){
-            s= g.getClimate().replaceAll(";","");
-            StringTokenizer st = new StringTokenizer(s);
+            s= g.getClimate().replaceAll("[^a-zA-Z]"," ");
+            st = new StringTokenizer(s);
+            addIndex(st,"Geography", g.getId(), "climate", "select g.climate, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
+
+            s = g.getLocation().replaceAll("[^a-zA-Z]"," ");
+            st = new StringTokenizer(s);
+            addIndex(st,"Geography", g.getId(), "location","select g.location, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
 
 
 
-            System.out.println("=========== " +s);
-            String token;
-            while(st.hasMoreTokens()){
-                token = st.nextToken();
-                //System.out.println(token);
-                if(mapIndex.keySet().contains(token)){
-                    //System.out.println("1111111111111111111111");
-                    mapIndex.get(token).add(new Index("Geography",g.getId(),"climate"));
-                }else{
 
-                    List<Index> tmp = new LinkedList<>();
-                    tmp.add(new Index("Geography",g.getId(),"climate"));
-                    mapIndex.put(token,tmp);
-                }
 
-            }
 
         }
         System.out.println(mapIndex);
 
     }
 
+    public static void addIndex(StringTokenizer st, String table, int id, String column, String query){
+        String token;
+        while(st.hasMoreTokens()){
+            token = st.nextToken();
+            if(mapIndex.keySet().contains(token)){
+                mapIndex.get(token).add(new Index(table,id,column,query));
+            }else{
 
-    public static void getEntry(String key){
+                Set<Index> tmp = new HashSet<>();
+                tmp.add(new Index(table,id ,column,query));
+                mapIndex.put(token,tmp);
+            }
 
-        List<Index> entries = mapIndex.get(key);
-        System.out.println("result for winters " +entries.toString());
-        for(Index i : entries){
-            String result = transaction("select g.climate from "+i.table+" g where g.id = "+i.id);
-            System.out.println("entry -> " +result);
+        }
+    }
+
+    public static ArrayList<Result> getEntries(EntityManager entityManager,String key){
+
+        StringTokenizer st = new StringTokenizer(key);
+        ArrayList<Index> first = new ArrayList<>();
+        first.addAll(mapIndex.get(st.nextToken()));
+
+//        System.out.println("first length "+first.size());
+//        System.out.println(first);
+        ArrayList<Index> second = new ArrayList<>();
+        while(st.hasMoreTokens()){
+            second.addAll(mapIndex.get(st.nextToken()));
+            first.retainAll(second);
+           // System.out.println("second length "+second.size());
         }
 
 
 
+        ArrayList<Result> result = new ArrayList<>();
+        List<Object[]>list;
+
+        for(Index i : first){
+            list = transaction(entityManager,i.getQuery());
+            System.out.println(list.get(0)[0]);
+            result.add(new Result(i.getTable(),list.get(0)[1].toString(),i.getColumn(),list.get(0)[0].toString() ));
+        }
+
+        ArrayList<Result> endResult = new ArrayList<>();
+        for(Result r : result){
+            if(r.getResult().contains(key)){
+                endResult.add(r);
+            }
+        }
+
+        for(Result r : endResult){
+            System.out.println(r);
+        }
+
+        System.out.println("this is the end");
+
+return endResult;
     }
 
-    private static String transaction(String str){
+
+
+    private static List<Object[]> transaction(EntityManager entityManager, String str){
         entityManager.getTransaction().begin();
             Query query = entityManager.createQuery(str);
-            String obj = (String) query.getSingleResult();
+            List<Object[]> list = query.getResultList();
         entityManager.getTransaction().commit();
-        return obj;
+        return list;
     }
 
-    static class Index{
+
+
+    static class Index implements Comparator<Index>{
         String table;
         int id;
         String column;
+        String query;
 
-        Index(String table, int id, String column){
+        Index(String table, int id, String column, String query){
             this.table=table;
             this.id=id;
             this.column=column;
+            this.query=query;
+        }
+
+//        Index(String query){
+//            this.query=query;
+//        }
+
+        public String getQuery() {
+            return query;
+        }
+
+        public void setQuery(String query) {
+            this.query = query;
         }
 
         public String getTable() {
@@ -110,7 +166,30 @@ public class IndexAlgorithm {
         }
 
         public String toString(){
-            return table+" "+id+" "+column+ " \n";
+            return table+" "+id+" "+column+ " "+query;
+        }
+
+        @Override
+        public int compare(Index index1, Index index2) {
+            if(index1.query.equals(index2.query)){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+        @Override
+        public boolean equals(Object obj){
+            if(this == obj) return true;
+            if(obj == null) return false;
+            if(this.getClass() != obj.getClass()) return false;
+            Index index = (Index) obj;
+
+
+            if(this.query.equals(index.query)){
+                return true;
+            }else {
+                return false;
+            }
         }
     }
 

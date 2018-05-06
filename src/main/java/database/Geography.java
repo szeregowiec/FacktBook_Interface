@@ -70,7 +70,7 @@ public class Geography {
     @OneToOne(cascade = {CascadeType.ALL})
     private ValueAndUnits coastline;
 
-    @Transient
+
     @ElementCollection
     private List<String> resources;
 
