@@ -34,13 +34,13 @@
 
             <div>
                 <label class="chooseContainer">GEOGRAPHY
-                    <input type="checkbox" id="geographyCheckbox" onclick="showTablea('geographyCheckbox','aaa')">
+                    <input type="checkbox" id="geographyCheckbox" onclick="showTablea('geographyCheckbox','tableWithGeography')">
                     <span class="checkmark" ></span>
                     </label>
 
 
                 <label class="chooseContainer">PEOPLE
-                    <input type="checkbox" id="peopleCheckbox" onclick="showTablea('peopleCheckbox','aaa')">
+                    <input type="checkbox" id="peopleCheckbox" onclick="showTablea('peopleCheckbox','tableWithPeople')">
                     <span class="checkmark" ></span>
                     </label>
 
@@ -116,46 +116,65 @@
 
     <div class="jumbotron text-center" id="tables" style="display: contents">
         <!--ma wyswietlac sie po wybraniu  href="javascript:showWholeTable('tableWithGeography')"-->
-        <table align="center" id="tableWithGeography">
+        <table align="center" class="text-center" id="tableWithGeography" style="display: none">
             <tr>
-                <td width="800" id="" class="td_border"><a href="javascript:showTable('id_1')">GEOGRAPHY<span id="id_1+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                <td width="1200" id="" class="td_border"><a href="javascript:showTable('id_1')">GEOGRAPHY<span id="id_1+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
             </tr>
             <tr>
                 <td>
                     <table id="id_1" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+
                         <tr>
-                            <td width="400" id="" class="td_border">location</td>
-                            <td width="400" id="location" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">location</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="location" class="td_border"></td>
+                            <td width="600" id="location2" class="td_border"></td>
                         </tr>
 
 
                         <tr>
-                            <td width="400" id="" class="td_border">map_references</td>
-                            <td width="400" id="map_references" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">map_references</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="map_references" class="td_border"></td>
+                            <td width="600" id="map_references2" class="td_border"></td>
                         </tr>
 
 
                         <tr>
-                            <td width="400" id="" class="td_border">climate</td>
-                            <td width="400" id="climate" class="td_border"></td>
+                            <td colspan="2" width="600" id="600" class="td_border">climate</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="climate" class="td_border"></td>
+                            <td width="600" id="climate2" class="td_border"></td>
                         </tr>
 
 
                         <tr>
-                            <td width="400" id="" class="td_border">terrain</td>
-                            <td width="400" id="terrain" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">terrain</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="terrain" class="td_border"></td>
+                            <td width="600" id="terrain2" class="td_border"></td>
                         </tr>
 
 
                         <tr>
-                            <td width="400" id="" class="td_border">population_distribution</td>
-                            <td width="400" id="geography_population_distribution" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">population_distribution</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="geography_population_distribution" class="td_border"></td>
+                            <td width="600" id="geography_population_distribution2" class="td_border"></td>
                         </tr>
 
 
                         <tr>
-                            <td width="400" id="" class="td_border">note</td>
-                            <td width="400" id="note" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">note</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="note" class="td_border"></td>
+                            <td width="600" id="note2" class="td_border"></td>
                         </tr>
 
 
@@ -165,13 +184,20 @@
                         <tr>
                             <td colspan="2">
                                 <table id="id_2" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+
                                     <tr>
-                                        <td width="400" id="" class="td_border">latitude</td>
-                                        <td width="400" id="latitude" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">latitude</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">longitude</td>
-                                        <td width="400" id="longitude" class="td_border"></td>
+                                        <td width="600" id="latitude" class="td_border"></td>
+                                        <td width="600" id="latitude2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">longitude</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="longitude" class="td_border"></td>
+                                        <td width="600" id="longitude2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -185,24 +211,39 @@
                             <td colspan="2">
                                 <table id="id_3" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total</td>
-                                        <td width="400" id="total" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">land</td>
-                                        <td width="400" id="land" class="td_border"></td>
+                                        <td width="600" id="total" class="td_border"></td>
+                                        <td width="600" id="total2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">water</td>
-                                        <td width="400" id="water" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">land</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="global_rank" class="td_border"></td>
+                                        <td width="600" id="land" class="td_border"></td>
+                                        <td width="600" id="land2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">comparative</td>
-                                        <td width="400" id="comparative" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">water</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="water" class="td_border"></td>
+                                        <td width="600" id="water2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="global_rank" class="td_border"></td>
+                                        <td width="600" id="global_rank2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">comparative</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="comparative" class="td_border"></td>
+                                        <td width="600" id="comparative2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -216,12 +257,12 @@
                         <!--<td colspan="2">-->
                         <!--<table id="id_4" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">total</td>-->
-                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">total</td>-->
+                        <!--<td width="600" id="" class="td_border"></td>-->
                         <!--</tr>-->
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">border_countries</td>-->
-                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">border_countries</td>-->
+                        <!--<td width="600" id="" class="td_border"></td>-->
                         <!--</tr>-->
                         <!--</table>-->
                         <!--</td>-->
@@ -235,8 +276,11 @@
                             <td colspan="2">
                                 <table id="id_5" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">mean_elevation</td>
-                                        <td width="400" id="mean_elevation" class="td_border"></td>
+                                        <td width="600" colspan="2" id="" class="td_border">mean_elevation</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="mean_elevation" class="td_border"></td>
+                                        <td width="600" id="mean_elevation2" class="td_border"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_6')">lowest_point<span id="id_6+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
@@ -245,12 +289,18 @@
                                         <td colspan="2">
                                             <table id="id_6" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">name</td>
-                                                    <td width="400" id="lowest_point_name" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">name</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">elevation</td>
-                                                    <td width="400" id="lowest_point_elevation" class="td_border"></td>
+                                                    <td width="600" id="lowest_point_name" class="td_border"></td>
+                                                    <td width="600" id="lowest_point_name2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">elevation</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="lowest_point_elevation" class="td_border"></td>
+                                                    <td width="600" id="lowest_point_elevation2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -262,12 +312,18 @@
                                         <td colspan="2">
                                             <table id="id_7" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">name</td>
-                                                    <td width="400" id="highest_point_name" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">name</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">elevation</td>
-                                                    <td width="400" id="highest_point_elevation" class="td_border"></td>
+                                                    <td width="600" id="highest_point_name" class="td_border"></td>
+                                                    <td width="600" id="highest_point_name2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">elevation</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="highest_point_elevation" class="td_border"></td>
+                                                    <td width="600" id="highest_point_elevation2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -284,8 +340,8 @@
                             <td colspan="2">
                                 <table id="id_8" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <!--<tr>-->
-                                    <!--<td width="400" id="td_border" class="td_border">date</td>-->
-                                    <!--<td width="400" id="date" class="td_border"></td>-->
+                                    <!--<td width="600" id="td_border" class="td_border">date</td>-->
+                                    <!--<td width="600" id="date" class="td_border"></td>-->
                                     <!--</tr>-->
                                     <tr>
                                         <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_9')">by_sector<span id="id_9+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
@@ -294,28 +350,46 @@
                                         <td colspan="2">
                                             <table id="id_9" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">agricultural_land_total</td>
-                                                    <td width="400" id="agricultural_land_total" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">agricultural_land_total</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">agricultural_land_arable_land</td>
-                                                    <td width="400" id="agricultural_land_arable_land" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_total" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_total2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">agricultural_land_permanent_crops</td>
-                                                    <td width="400" id="agricultural_land_permanent_crops" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">agricultural_land_arable_land</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">agricultural_land_permanent_pasture</td>
-                                                    <td width="400" id="agricultural_land_permanent_pasture" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_arable_land" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_arable_land2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">forest</td>
-                                                    <td width="400" id="forest" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">agricultural_land_permanent_crops</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">other</td>
-                                                    <td width="400" id="other" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_permanent_crops" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_permanent_crops2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">agricultural_land_permanent_pasture</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="agricultural_land_permanent_pasture" class="td_border"></td>
+                                                    <td width="600" id="agricultural_land_permanent_pasture2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">forest</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="forest" class="td_border"></td>
+                                                    <td width="600" id="forest2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">other</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="other" class="td_border"></td>
+                                                    <td width="600" id="other2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -326,8 +400,8 @@
 
 
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">natural_hazards!!!</td>-->
-                        <!--<td width="400" id="" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">natural_hazards!!!</td>-->
+                        <!--<td width="600" id="" class="td_border"></td>-->
                         <!--</tr>-->
 
 
@@ -339,8 +413,8 @@
                         <!--<td colspan="2">-->
                         <!--<table id="id_10" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
                         <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<td width="400" id="" class="td_border">current_issues</td>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<td width="400" id="current_issues" class="td_border"></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="600" id="" class="td_border">current_issues</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td width="600" id="current_issues" class="td_border"></td>&ndash;&gt;-->
                         <!--&lt;!&ndash;</tr>&ndash;&gt;-->
                         <!--<tr>-->
                         <!--<td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_11')">international_agreements<span id="id_11+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>-->
@@ -349,12 +423,12 @@
                         <!--<td colspan="2">-->
                         <!--<table id="id_11" cellspacing="0" cellpadding="0" border="0" style="display:none;">-->
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">party_to</td>-->
-                        <!--<td width="400" id="party_to" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">party_to</td>-->
+                        <!--<td width="600" id="party_to" class="td_border"></td>-->
                         <!--</tr>-->
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">signed_but_not_ratified</td>-->
-                        <!--<td width="400" id="signed_but_not_ratified" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">signed_but_not_ratified</td>-->
+                        <!--<td width="600" id="signed_but_not_ratified" class="td_border"></td>-->
                         <!--</tr>-->
                         <!--</table>-->
                         <!--</td>-->
@@ -364,19 +438,25 @@
                         <!--</tr>-->
 
                         <tr>
-                            <td width="400" id="" class="td_border">coastline</td>
-                            <td width="400" id="coastline" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">coastline</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="coastline" class="td_border"></td>
+                            <td width="600" id="coastline2" class="td_border"></td>
                         </tr>
 
 
                         <!--<tr>-->
-                        <!--<td width="400" id="" class="td_border">resources</td>-->
-                        <!--<td width="400" id="resources" class="td_border"></td>-->
+                        <!--<td width="600" id="" class="td_border">resources</td>-->
+                        <!--<td width="600" id="resources" class="td_border"></td>-->
                         <!--</tr>-->
 
                         <tr>
-                            <td width="400" id="" class="td_border">irrigated_land</td>
-                            <td width="400" id="irrigated_land" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">irrigated_land</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="irrigated_land" class="td_border"></td>
+                            <td width="600" id="irrigated_land2" class="td_border"></td>
                         </tr>
                     </table>
                 </td>
@@ -387,9 +467,9 @@
 
 
         <!--ma wyswietlac sie po wybraniu  href="javascript:showWholeTable('tableWithPeople')"-->
-        <table align="center" id="tableWithPeople">
+        <table align="center"  id="tableWithPeople" style="display: none">
             <tr>
-                <td width="800" id="" class="td_border"><a href="javascript:showTable('id_12')">PEOPLE<span id="id_12+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
+                <td width="1200" id="" class="td_border"><a href="javascript:showTable('id_12')">PEOPLE<span id="id_12+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
             </tr>
             <tr>
                 <td>
@@ -403,12 +483,18 @@
                             <td colspan="2">
                                 <table id="id_13" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total_population</td>
-                                        <td width="400" id="total_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="population_global_rank" class="td_border"></td>
+                                        <td width="600" id="total_population" class="td_border"></td>
+                                        <td width="600" id="total_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="population_global_rank" class="td_border"></td>
+                                        <td width="600" id="population_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -422,13 +508,20 @@
                         <tr>
                             <td colspan="2">
                                 <table id="id_14" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+
                                     <tr>
-                                        <td width="400" id="" class="td_border">noun</td>
-                                        <td width="400" id="noun" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">noun</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">adjective</td>
-                                        <td width="400" id="adjective" class="td_border"></td>
+                                        <td width="600" id="noun" class="td_border"></td>
+                                        <td width="600" id="noun2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">adjective</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="adjective" class="td_border"></td>
+                                        <td width="600" id="adjective2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -460,8 +553,8 @@
                             <td colspan="2">
                                 <table id="id_15" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <!--    <tr>
-                                <td width="400" id="" class="td_border">mean_elevation</td>
-                                <td width="400" id="mean_elevation" class="td_border"></td>
+                                <td width="600" id="" class="td_border">mean_elevation</td>
+                                <td width="600" id="mean_elevation" class="td_border"></td>
                             </tr>
 
                             -->
@@ -473,16 +566,25 @@
                                         <td colspan="2">
                                             <table id="id_16" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">percent</td>
-                                                    <td width="400" id="age_0_to_14_percent" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">percent</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">males</td>
-                                                    <td width="400" id="age_0_to_14_males" class="td_border"></td>
+                                                    <td width="600" id="age_0_to_14_percent" class="td_border"></td>
+                                                    <td width="600" id="age_0_to_14_percent2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">females</td>
-                                                    <td width="400" id="age_0_to_14_females" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">males</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_0_to_14_males" class="td_border"></td>
+                                                    <td width="600" id="age_0_to_14_males2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">females</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_0_to_14_females" class="td_border"></td>
+                                                    <td width="600" id="age_0_to_14_females2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -497,16 +599,25 @@
                                         <td colspan="2">
                                             <table id="id_17" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">percent</td>
-                                                    <td width="400" id="age_15_to_24_percent" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">percent</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">males</td>
-                                                    <td width="400" id="age_15_to_24_males" class="td_border"></td>
+                                                    <td width="600" id="age_15_to_24_percent" class="td_border"></td>
+                                                    <td width="600" id="age_15_to_24_percent2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">females</td>
-                                                    <td width="400" id="age_15_to_24_females" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">males</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_15_to_24_males" class="td_border"></td>
+                                                    <td width="600" id="age_15_to_24_males2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">females</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_15_to_24_females" class="td_border"></td>
+                                                    <td width="600" id="age_15_to_24_females2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -520,16 +631,25 @@
                                         <td colspan="2">
                                             <table id="id_18" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">percent</td>
-                                                    <td width="400" id="age_25_to_54_percent" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">percent</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">males</td>
-                                                    <td width="400" id="age_25_to_54_males" class="td_border"></td>
+                                                    <td width="600" id="age_25_to_54_percent" class="td_border"></td>
+                                                    <td width="600" id="age_25_to_54_percent2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">females</td>
-                                                    <td width="400" id="age_25_to_54_females" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">males</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_25_to_54_males" class="td_border"></td>
+                                                    <td width="600" id="age_25_to_54_males2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">females</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_25_to_54_females" class="td_border"></td>
+                                                    <td width="600" id="age_25_to_54_females2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -544,16 +664,25 @@
                                         <td colspan="2">
                                             <table id="id_19" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">percent</td>
-                                                    <td width="400" id="age_55_to_64_percent" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">percent</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">males</td>
-                                                    <td width="400" id="age_55_to_64_males" class="td_border"></td>
+                                                    <td width="600" id="age_55_to_64_percent" class="td_border"></td>
+                                                    <td width="600" id="age_55_to_64_percent2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">females</td>
-                                                    <td width="400" id="age_55_to_64_females" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">males</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_55_to_64_males" class="td_border"></td>
+                                                    <td width="600" id="age_55_to_64_males2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">females</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_55_to_64_females" class="td_border"></td>
+                                                    <td width="600" id="age_55_to_64_females2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -569,16 +698,25 @@
                                         <td colspan="2">
                                             <table id="id_20" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">percent</td>
-                                                    <td width="400" id="age_65_and_over_percent" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">percent</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">males</td>
-                                                    <td width="400" id="age_65_and_over_males" class="td_border"></td>
+                                                    <td width="600" id="age_65_and_over_percent" class="td_border"></td>
+                                                    <td width="600" id="age_65_and_over_percent2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">females</td>
-                                                    <td width="400" id="age_65_and_over_females" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">males</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_65_and_over_males" class="td_border"></td>
+                                                    <td width="600" id="age_65_and_over_males2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">females</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="age_65_and_over_females" class="td_border"></td>
+                                                    <td width="600" id="age_65_and_over_females2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -599,20 +737,33 @@
                             <td colspan="2">
                                 <table id="id_21" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total_dependency_ratio</td>
-                                        <td width="400" id="total_dependency_ratio" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total_dependency_ratio</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="600" id="total_dependency_ratio" class="td_border"></td>
+                                        <td width="600" id="total_dependency_ratio2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">youth_dependency_ratio</td>
-                                        <td width="400" id="youth_dependency_ratio" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">youth_dependency_ratio</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">elderly_dependency_ratio</td>
-                                        <td width="400" id="elderly_dependency_ratio" class="td_border"></td>
+                                        <td width="600" id="youth_dependency_ratio" class="td_border"></td>
+                                        <td width="600" id="youth_dependency_ratio2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">potential_support_ratio</td>
-                                        <td width="400" id="potential_support_ratio" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">elderly_dependency_ratio</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="elderly_dependency_ratio" class="td_border"></td>
+                                        <td width="600" id="elderly_dependency_ratio2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">potential_support_ratio</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="potential_support_ratio" class="td_border"></td>
+                                        <td width="600" id="potential_support_ratio2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -627,20 +778,32 @@
                             <td colspan="2">
                                 <table id="id_22" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total</td>
-                                        <td width="400" id="median_age_total" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="median_age_male" class="td_border"></td>
+                                        <td width="600" id="median_age_total" class="td_border"></td>
+                                        <td width="600" id="median_age_total2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="median_age_female" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="median_age_global_rank" class="td_border"></td>
+                                        <td width="600" id="median_age_male" class="td_border"></td>
+                                        <td width="600" id="median_age_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="median_age_female" class="td_border"></td>
+                                        <td width="600" id="median_age_female2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="median_age_global_rank" class="td_border"></td>
+                                        <td width="600" id="median_age_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -655,12 +818,18 @@
                             <td colspan="2">
                                 <table id="id_23" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">growth_rate</td>
-                                        <td width="400" id="population_growth_rate" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">growth_rate</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="population_growth_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="population_growth_rate" class="td_border"></td>
+                                        <td width="600" id="population_growth_rate2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="population_growth_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="population_growth_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -674,12 +843,18 @@
                             <td colspan="2">
                                 <table id="id_24" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">births_per_1000_population</td>
-                                        <td width="400" id="births_per_1000_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">births_per_1000_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="birth_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="births_per_1000_population" class="td_border"></td>
+                                        <td width="600" id="births_per_1000_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="birth_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="birth_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -693,12 +868,18 @@
                             <td colspan="2">
                                 <table id="id_25" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">deaths_per_1000_population</td>
-                                        <td width="400" id="deaths_per_1000_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">deaths_per_1000_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="death_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="deaths_per_1000_population" class="td_border"></td>
+                                        <td width="600" id="deaths_per_1000_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="death_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="death_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -712,12 +893,18 @@
                             <td colspan="2">
                                 <table id="id_26" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">migrants_per_1000_population</td>
-                                        <td width="400" id="migrants_per_1000_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">migrants_per_1000_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="net_migration_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="migrants_per_1000_population" class="td_border"></td>
+                                        <td width="600" id="migrants_per_1000_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="net_migration_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="net_migration_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -725,10 +912,12 @@
 
 
 
-
                         <tr>
-                            <td width="400" id="" class="td_border">population_distribution</td>
-                            <td width="400" id="people_population_distribution" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">population_distribution</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="people_population_distribution" class="td_border"></td>
+                            <td width="600" id="people_population_distribution2" class="td_border"></td>
                         </tr>
 
 
@@ -741,12 +930,18 @@
                             <td colspan="2">
                                 <table id="id_27" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">urban_population</td>
-                                        <td width="400" id="urban_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">urban_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">rate_of_urbanization</td>
-                                        <td width="400" id="rate_of_urbanization" class="td_border"></td>
+                                        <td width="600" id="urban_population" class="td_border"></td>
+                                        <td width="600" id="urban_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">rate_of_urbanization</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="rate_of_urbanization" class="td_border"></td>
+                                        <td width="600" id="rate_of_urbanization2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -769,8 +964,11 @@
                             <td colspan="2">
                                 <table id="id_28" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total_population</td>
-                                        <td width="400" id="sex_ratio_total_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total_population</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="sex_ratio_total_population" class="td_border"></td>
+                                        <td width="600" id="sex_ratio_total_population2" class="td_border"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" id="" class="td_border"><a href="javascript:showTable('id_29')">by_age<span id="id_29+strzalka" class='glyphicon glyphicon-triangle-bottom'></span></a></td>
@@ -779,28 +977,46 @@
                                         <td colspan="2">
                                             <table id="id_29" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">at_birth</td>
-                                                    <td width="400" id="by_age_at_birth" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">at_birth</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">age_0_to_14_years</td>
-                                                    <td width="400" id="by_age_age_0_to_14_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_at_birth" class="td_border"></td>
+                                                    <td width="600" id="by_age_at_birth2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">age_15_to_24_years</td>
-                                                    <td width="400" id="by_age_age_15_to_24_years" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">age_0_to_14_years</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">age_25_to_54_years</td>
-                                                    <td width="400" id="by_age_age_25_to_54_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_0_to_14_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_0_to_14_years2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">age_55_to_64_years</td>
-                                                    <td width="400" id="by_age_age_55_to_64_years" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">age_15_to_24_years</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">age_65_years_and_over</td>
-                                                    <td width="400" id="by_age_age_65_years_and_over" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_15_to_24_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_15_to_24_years2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">age_25_to_54_years</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="by_age_age_25_to_54_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_25_to_54_years2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">age_55_to_64_years</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="by_age_age_55_to_64_years" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_55_to_64_years2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">age_65_years_and_over</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="by_age_age_65_years_and_over" class="td_border"></td>
+                                                    <td width="600" id="by_age_age_65_years_and_over2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -813,10 +1029,12 @@
 
 
 
-
                         <tr>
-                            <td width="400" id="" class="td_border">mothers_mean_age_at_first_birth</td>
-                            <td width="400" id="mothers_mean_age_at_first_birth" class="td_border"></td>
+                            <td colspan="2" width="600" id="" class="td_border">mothers_mean_age_at_first_birth</td>
+                        </tr>
+                        <tr>
+                            <td width="600" id="mothers_mean_age_at_first_birth" class="td_border"></td>
+                            <td width="600" id="mothers_mean_age_at_first_birth2" class="td_border"></td>
                         </tr>
 
 
@@ -827,12 +1045,18 @@
                             <td colspan="2">
                                 <table id="id_30" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">deaths_per_100k_live_births</td>
-                                        <td width="400" id="deaths_per_100k_live_births" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">deaths_per_100k_live_births</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="maternal_mortality_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="deaths_per_100k_live_births" class="td_border"></td>
+                                        <td width="600" id="deaths_per_100k_live_births2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="maternal_mortality_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="maternal_mortality_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -846,20 +1070,33 @@
                             <td colspan="2">
                                 <table id="id_31" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total</td>
-                                        <td width="400" id="infant_mortality_rate_total" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="infant_mortality_rate_male" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_total" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_total2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="infant_mortality_rate_female" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="infant_mortality_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_male" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="infant_mortality_rate_female" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_female2" class="td_border"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="infant_mortality_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="infant_mortality_rate_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -873,20 +1110,32 @@
                             <td colspan="2">
                                 <table id="id_32" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total_population</td>
-                                        <td width="400" id="life_expectancy_at_birth_total_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="life_expectancy_at_birth_male" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_total_population" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_total_population2" class="td_border"></td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="life_expectancy_at_birth_female" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="life_expectancy_at_birth_global_rank" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_male" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="life_expectancy_at_birth_female" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_female2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="life_expectancy_at_birth_global_rank" class="td_border"></td>
+                                        <td width="600" id="life_expectancy_at_birth_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -902,12 +1151,18 @@
                             <td colspan="2">
                                 <table id="id_33" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">children_born_per_woman</td>
-                                        <td width="400" id="children_born_per_woman" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">children_born_per_woman</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="total_fertility_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="children_born_per_woman" class="td_border"></td>
+                                        <td width="600" id="children_born_per_woman2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="total_fertility_rate_global_rank" class="td_border"></td>
+                                        <td width="600" id="total_fertility_rate_global_rank2" class="td_border"></td>
                                     </tr>
 
                                 </table>
@@ -924,13 +1179,19 @@
                             <td colspan="2">
                                 <table id="id_34" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">percent_of_gdp</td>
-                                        <td width="400" id="health_expenditures_percent_of_gdp" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">percent_of_gdp</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="health_expenditures_percent_of_gdp" class="td_border"></td>
+                                        <td width="600" id="health_expenditures_percent_of_gdp2" class="td_border"></td>
                                     </tr>
 
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="health_expenditures_global_rank" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="health_expenditures_global_rank" class="td_border"></td>
+                                        <td width="600" id="health_expenditures_global_rank2" class="td_border"></td>
                                     </tr>
                                 </table>
                             </td>
@@ -944,12 +1205,18 @@
                             <td colspan="2">
                                 <table id="id_35" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">physicians_per_1000_population</td>
-                                        <td width="400" id="physicians_per_1000_population" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">physicians_per_1000_population</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">hospital_bed_density</td>
-                                        <td width="400" id="hospital_bed_density" class="td_border"></td>
+                                        <td width="600" id="physicians_per_1000_population" class="td_border"></td>
+                                        <td width="600" id="physicians_per_1000_population2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">hospital_bed_density</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="hospital_bed_density" class="td_border"></td>
+                                        <td width="600" id="hospital_bed_density2" class="td_border"></td>
                                     </tr>
 
                                 </table>
@@ -972,16 +1239,25 @@
                                         <td colspan="2">
                                             <table id="id_37" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">urban</td>
-                                                    <td width="400" id="drinking_water_source_improved_urban" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">urban</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">rural</td>
-                                                    <td width="400" id="drinking_water_source_improved_rural" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_improved_urban" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_improved_urban2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">total</td>
-                                                    <td width="400" id="drinking_water_source_improved_total" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="drinking_water_source_improved_rural" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_improved_rural2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="drinking_water_source_improved_total" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_improved_total2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -997,16 +1273,25 @@
                                         <td colspan="2">
                                             <table id="id_38" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">urban</td>
-                                                    <td width="400" id="drinking_water_source_unimproved_urban" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">urban</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">rural</td>
-                                                    <td width="400" id="drinking_water_source_unimproved_rural" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_unimproved_urban" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_unimproved_urban2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">total</td>
-                                                    <td width="400" id="drinking_water_source_unimproved_total" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="drinking_water_source_unimproved_rural" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_unimproved_rural2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="drinking_water_source_unimproved_total" class="td_border"></td>
+                                                    <td width="600" id="drinking_water_source_unimproved_total2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -1033,16 +1318,25 @@
                                         <td colspan="2">
                                             <table id="id_40" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">urban</td>
-                                                    <td width="400" id="sanitation_facility_access_improved_urban" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">urban</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">rural</td>
-                                                    <td width="400" id="sanitation_facility_access_improved_rural" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_improved_urban" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_improved_urban2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">total</td>
-                                                    <td width="400" id="sanitation_facility_access_improved_total" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="sanitation_facility_access_improved_rural" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_improved_rural2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="sanitation_facility_access_improved_total" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_improved_total2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -1058,16 +1352,25 @@
                                         <td colspan="2">
                                             <table id="id_41" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">urban</td>
-                                                    <td width="400" id="sanitation_facility_access_unimproved_urban" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">urban</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">rural</td>
-                                                    <td width="400" id="sanitation_facility_access_unimproved_rural" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_urban" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_urban2" class="td_border"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="400" id="" class="td_border">total</td>
-                                                    <td width="400" id="sanitation_facility_access_unimproved_total" class="td_border"></td>
+                                                    <td colspan="2" width="600" id="" class="td_border">rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_rural" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_rural2" class="td_border"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" width="600" id="" class="td_border">total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_total" class="td_border"></td>
+                                                    <td width="600" id="sanitation_facility_access_unimproved_total2" class="td_border"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -1090,8 +1393,11 @@
                             <td colspan="2">
                                 <table id="id_42" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">degree_of_risk</td>
-                                        <td width="400" id="degree_of_risk" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">degree_of_risk</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="degree_of_risk" class="td_border"></td>
+                                        <td width="600" id="degree_of_risk2" class="td_border"></td>
                                     </tr>
                                     <!--  lista vectorborne_diseases -->
                                 </table>
@@ -1107,12 +1413,18 @@
                             <td colspan="2">
                                 <table id="id_43" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">percent_of_adults</td>
-                                        <td width="400" id="adult_obesity_percent_of_adults" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">percent_of_adults</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="adult_obesity_global_rank" class="td_border"></td>
+                                        <td width="600" id="adult_obesity_percent_of_adults" class="td_border"></td>
+                                        <td width="600" id="adult_obesity_percent_of_adults2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="adult_obesity_global_rank" class="td_border"></td>
+                                        <td width="600" id="adult_obesity_global_rank2" class="td_border"></td>
                                     </tr>
                                     <!--  lista vectorborne_diseases -->
                                 </table>
@@ -1131,12 +1443,18 @@
                             <td colspan="2">
                                 <table id="id_44" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">percent_of_gdp</td>
-                                        <td width="400" id="education_expenditures_percent_of_gdp" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">percent_of_gdp</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">global_rank</td>
-                                        <td width="400" id="education_expenditures_global_rank" class="td_border"></td>
+                                        <td width="600" id="education_expenditures_percent_of_gdp" class="td_border"></td>
+                                        <td width="600" id="education_expenditures_percent_of_gdp2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">global_rank</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="education_expenditures_global_rank" class="td_border"></td>
+                                        <td width="600" id="education_expenditures_global_rank2" class="td_border"></td>
                                     </tr>
                                     <!--  lista vectorborne_diseases -->
                                 </table>
@@ -1151,21 +1469,33 @@
                             <td colspan="2">
                                 <table id="id_45" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">definition</td>
-                                        <td width="400" id="literacy_definition" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">definition</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">total_population</td>
-                                        <td width="400" id="literacy_total_population" class="td_border"></td>
+                                        <td width="600" id="literacy_definition" class="td_border"></td>
+                                        <td width="600" id="literacy_definition2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">total_population</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="literacy_total_population" class="td_border"></td>
+                                        <td width="600" id="literacy_total_population2" class="td_border"></td>
                                     </tr>
 
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="literacy_male" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="literacy_female" class="td_border"></td>
+                                        <td width="600" id="literacy_male" class="td_border"></td>
+                                        <td width="600" id="literacy_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="literacy_female" class="td_border"></td>
+                                        <td width="600" id="literacy_female2" class="td_border"></td>
                                     </tr>
 
                                 </table>
@@ -1180,17 +1510,26 @@
                             <td colspan="2">
                                 <table id="id_46" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total</td>
-                                        <td width="400" id="school_life_expectancy_total" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="school_life_expectancy_total" class="td_border"></td>
+                                        <td width="600" id="school_life_expectancy_total2" class="td_border"></td>
                                     </tr>
 
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="school_life_expectancy_male" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="school_life_expectancy_female" class="td_border"></td>
+                                        <td width="600" id="school_life_expectancy_male" class="td_border"></td>
+                                        <td width="600" id="school_life_expectancy_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="school_life_expectancy_female" class="td_border"></td>
+                                        <td width="600" id="school_life_expectancy_female2" class="td_border"></td>
                                     </tr>
 
                                 </table>
@@ -1205,17 +1544,26 @@
                             <td colspan="2">
                                 <table id="id_47" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                     <tr>
-                                        <td width="400" id="" class="td_border">total</td>
-                                        <td width="400" id="youth_unemployment_total" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">total</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="youth_unemployment_total" class="td_border"></td>
+                                        <td width="600" id="youth_unemployment_total2" class="td_border"></td>
                                     </tr>
 
                                     <tr>
-                                        <td width="400" id="" class="td_border">male</td>
-                                        <td width="400" id="youth_unemployment_male" class="td_border"></td>
+                                        <td colspan="2" width="600" id="" class="td_border">male</td>
                                     </tr>
                                     <tr>
-                                        <td width="400" id="" class="td_border">female</td>
-                                        <td width="400" id="youth_unemployment_female" class="td_border"></td>
+                                        <td width="600" id="youth_unemployment_male" class="td_border"></td>
+                                        <td width="600" id="youth_unemployment_male2" class="td_border"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="600" id="" class="td_border">female</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="600" id="youth_unemployment_female" class="td_border"></td>
+                                        <td width="600" id="youth_unemployment_female2" class="td_border"></td>
                                     </tr>
 
                                 </table>
@@ -1318,23 +1666,416 @@
         }
 
         function changeCountry(country) {
+            var request = new XMLHttpRequest();
             var countryUpper = country.toUpperCase();
             document.getElementById("left_choose_country").innerHTML = countryUpper;
             document.getElementById("left_choose_country").value = country;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
+            request.send();
+
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    // showWholeTable('tables');
+                    var response = JSON.parse(request.responseText);
+                    document.getElementById("location").innerHTML = response.location;
+
+                    document.getElementById("map_references").innerHTML = response.map_references;
+                    document.getElementById("climate").innerHTML = response.climate;
+                    document.getElementById("terrain").innerHTML = response.terrain;
+                    document.getElementById("geography_population_distribution").innerHTML = response.population_distribution;
+                    document.getElementById("note").innerHTML = response.note;
+
+                    document.getElementById("latitude").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
+                        response.geographic_coordinates.latitude.hemisphere;
+                    document.getElementById("longitude").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
+                        response.geographic_coordinates.longitude.hemisphere;
+                    document.getElementById("total").innerHTML = response.area.total.value + " " + response.area.total.units;
+                    document.getElementById("land").innerHTML = response.area.land.value + " " + response.area.land.units;
+                    document.getElementById("water").innerHTML = response.area.water.value + " " + response.area.water.units;
+                    document.getElementById("global_rank").innerHTML = response.area.global_rank;
+                    document.getElementById("comparative").innerHTML = response.area.comparative;
+
+                    document.getElementById("mean_elevation").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+                    document.getElementById("lowest_point_name").innerHTML = response.elevation.lowest_point.name;
+                    document.getElementById("lowest_point_elevation").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+                    document.getElementById("highest_point_name").innerHTML = response.elevation.highest_point.name;
+                    document.getElementById("highest_point_elevation").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+
+                    document.getElementById("agricultural_land_total").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+                    document.getElementById("agricultural_land_arable_land").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
+                    document.getElementById("agricultural_land_permanent_crops").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
+                    document.getElementById("agricultural_land_permanent_pasture").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
+                    document.getElementById("forest").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
+                    document.getElementById("other").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
+
+
+                    document.getElementById("coastline").innerHTML = response.coastline.value + " " + response.coastline.units;
+                    document.getElementById("irrigated_land").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
+                    loadPeople(country);
+                }
+
+            }
         }
 
+        function loadPeople(country) {
+            var request = new XMLHttpRequest();
+            var countryUpper = country.toUpperCase();
+            //            var country = document.getElementById("choose_country").value;
+            document.getElementById("left_choose_country").innerHTML = countryUpper;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/" + country + "/people", true);
+            request.send();
+
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+
+                    document.getElementById("total_population").innerHTML = response.population.total;
+
+                    document.getElementById("population_global_rank").innerHTML = response.population.global_rank;
+                    document.getElementById("noun").innerHTML = response.nationality.noun;
+                    document.getElementById("adjective").innerHTML = response.nationality.adjective;
+                    document.getElementById("age_0_to_14_percent").innerHTML = response.age_structure.age_0_to_14.percent;
+                    document.getElementById("age_0_to_14_males").innerHTML = response.age_structure.age_0_to_14.males;
+                    document.getElementById("age_0_to_14_females").innerHTML = response.age_structure.age_0_to_14.females;
+
+                    document.getElementById("age_15_to_24_percent").innerHTML = response.age_structure.age_15_to_24.percent;
+                    document.getElementById("age_15_to_24_males").innerHTML = response.age_structure.age_15_to_24.males;
+                    document.getElementById("age_15_to_24_females").innerHTML = response.age_structure.age_15_to_24.females;
+
+                    document.getElementById("age_25_to_54_percent").innerHTML = response.age_structure.age_25_to_54.percent;
+                    document.getElementById("age_25_to_54_males").innerHTML = response.age_structure.age_25_to_54.males;
+                    document.getElementById("age_25_to_54_females").innerHTML = response.age_structure.age_25_to_54.females;
+
+                    document.getElementById("age_55_to_64_percent").innerHTML = response.age_structure.age_55_to_64.percent;
+                    document.getElementById("age_55_to_64_males").innerHTML = response.age_structure.age_55_to_64.males;
+                    document.getElementById("age_55_to_64_females").innerHTML = response.age_structure.age_55_to_64.females;
+
+                    document.getElementById("age_65_and_over_percent").innerHTML = response.age_structure.age_65_and_over.percent;
+                    document.getElementById("age_65_and_over_males").innerHTML = response.age_structure.age_65_and_over.males;
+                    document.getElementById("age_65_and_over_females").innerHTML = response.age_structure.age_65_and_over.females;
+
+                    document.getElementById("total_dependency_ratio").innerHTML = response.dependency_ratios.ratios.total_dependency_ratio.value + " " + response.dependency_ratios.ratios.total_dependency_ratio.units;
+                    document.getElementById("youth_dependency_ratio").innerHTML = response.dependency_ratios.ratios.youth_dependency_ratio.value + " " + response.dependency_ratios.ratios.youth_dependency_ratio.units;
+                    document.getElementById("elderly_dependency_ratio").innerHTML = response.dependency_ratios.ratios.elderly_dependency_ratio.value + " " + response.dependency_ratios.ratios.elderly_dependency_ratio.units;
+                    document.getElementById("potential_support_ratio").innerHTML = response.dependency_ratios.ratios.potential_support_ratio.value + " " + response.dependency_ratios.ratios.potential_support_ratio.units;
+
+                    document.getElementById("median_age_total").innerHTML = response.median_age.total.value + " " + response.median_age.total.units;
+                    document.getElementById("median_age_male").innerHTML = response.median_age.male.value + " " + response.median_age.male.units;
+                    document.getElementById("median_age_female").innerHTML = response.median_age.female.value + " " + response.median_age.female.units;
+                    document.getElementById("median_age_global_rank").innerHTML = response.median_age.global_rank;
+
+                    document.getElementById("population_growth_rate").innerHTML = response.population_growth_rate.growth_rate;
+                    document.getElementById("population_growth_rate_global_rank").innerHTML = response.population_growth_rate.global_rank;
+
+                    document.getElementById("births_per_1000_population").innerHTML = response.birth_rate.births_per_1000_population;
+                    document.getElementById("birth_rate_global_rank").innerHTML = response.birth_rate.global_rank;
+
+                    document.getElementById("deaths_per_1000_population").innerHTML = response.death_rate.deaths_per_1000_population;
+                    document.getElementById("death_rate_global_rank").innerHTML = response.death_rate.global_rank;
+
+                    document.getElementById("migrants_per_1000_population").innerHTML = response.net_migration_rate.migrants_per_1000_population;
+                    document.getElementById("net_migration_rate_global_rank").innerHTML = response.net_migration_rate.global_rank;
+
+                    document.getElementById("people_population_distribution").innerHTML = response.population_distribution;
+
+                    document.getElementById("urban_population").innerHTML = response.urbanization.urban_population.value + " " + response.urbanization.urban_population.units;
+                    document.getElementById("rate_of_urbanization").innerHTML = response.urbanization.rate_of_urbanization.value + " " + response.urbanization.rate_of_urbanization.units;
+
+
+                    document.getElementById("sex_ratio_total_population").innerHTML = response.sex_ratio.total_population.value + " " + response.sex_ratio.total_population.units;
+                    document.getElementById("by_age_at_birth").innerHTML = response.sex_ratio.by_age.at_birth.value + " " + response.sex_ratio.by_age.at_birth.units;
+                    document.getElementById("by_age_age_0_to_14_years").innerHTML = response.sex_ratio.by_age.age_0_to_14_years.value + " " + response.sex_ratio.by_age.age_0_to_14_years.units;
+                    document.getElementById("by_age_age_15_to_24_years").innerHTML = response.sex_ratio.by_age.age_15_to_24_years.value + " " + response.sex_ratio.by_age.age_15_to_24_years.units;
+                    document.getElementById("by_age_age_25_to_54_years").innerHTML = response.sex_ratio.by_age.age_25_to_54_years.value + " " + response.sex_ratio.by_age.age_25_to_54_years.units;
+                    document.getElementById("by_age_age_55_to_64_years").innerHTML = response.sex_ratio.by_age.age_55_to_64_years.value + " " + response.sex_ratio.by_age.age_55_to_64_years.units;
+                    document.getElementById("by_age_age_65_years_and_over").innerHTML = response.sex_ratio.by_age.age_65_years_and_over.value + " " + response.sex_ratio.by_age.age_65_years_and_over.units;
+
+                    document.getElementById("mothers_mean_age_at_first_birth").innerHTML = response.mothers_mean_age_at_first_birth.age;
+
+                    document.getElementById("deaths_per_100k_live_births").innerHTML = response.maternal_mortality_rate.deaths_per_100k_live_births;
+                    document.getElementById("maternal_mortality_rate_global_rank").innerHTML = response.maternal_mortality_rate.global_rank;
+
+                    document.getElementById("infant_mortality_rate_total").innerHTML = response.infant_mortality_rate.total.value + " " + response.infant_mortality_rate.total.units;
+                    document.getElementById("infant_mortality_rate_male").innerHTML = response.infant_mortality_rate.male.value + " " + response.infant_mortality_rate.male.units;
+                    document.getElementById("infant_mortality_rate_female").innerHTML = response.infant_mortality_rate.female.value + " " + response.infant_mortality_rate.female.units;
+                    document.getElementById("infant_mortality_rate_global_rank").innerHTML = response.infant_mortality_rate.global_rank;
+
+                    document.getElementById("life_expectancy_at_birth_total_population").innerHTML = response.life_expectancy_at_birth.total_population.value + " " + response.life_expectancy_at_birth.total_population.units;
+                    document.getElementById("life_expectancy_at_birth_male").innerHTML = response.life_expectancy_at_birth.male.value + " " + response.life_expectancy_at_birth.male.units;
+                    document.getElementById("life_expectancy_at_birth_female").innerHTML = response.life_expectancy_at_birth.female.value + " " + response.life_expectancy_at_birth.female.units;
+                    document.getElementById("life_expectancy_at_birth_global_rank").innerHTML = response.life_expectancy_at_birth.global_rank;
+
+                    document.getElementById("children_born_per_woman").innerHTML = response.total_fertility_rate.children_born_per_woman;
+                    document.getElementById("total_fertility_rate_global_rank").innerHTML = response.total_fertility_rate.global_rank;
+
+                    document.getElementById("health_expenditures_percent_of_gdp").innerHTML = response.health_expenditures.percent_of_gdp;
+                    document.getElementById("health_expenditures_global_rank").innerHTML = response.health_expenditures.global_rank;
+
+                    document.getElementById("physicians_per_1000_population").innerHTML = response.physicians_density.physicians_per_1000_population;
+
+                    document.getElementById("hospital_bed_density").innerHTML = response.hospital_bed_density.beds_per_1000_population;
+
+
+                    document.getElementById("drinking_water_source_improved_urban").innerHTML = response.drinking_water_source.improved.urban.value + " " + response.drinking_water_source.improved.urban.units;
+                    document.getElementById("drinking_water_source_improved_rural").innerHTML = response.drinking_water_source.improved.rural.value + " " + response.drinking_water_source.improved.rural.units;
+                    document.getElementById("drinking_water_source_improved_total").innerHTML = response.drinking_water_source.improved.total.value + " " + response.drinking_water_source.improved.total.units;
+
+                    document.getElementById("drinking_water_source_unimproved_urban").innerHTML = response.drinking_water_source.unimproved.urban.value + " " + response.drinking_water_source.unimproved.urban.units;
+                    document.getElementById("drinking_water_source_unimproved_rural").innerHTML = response.drinking_water_source.unimproved.rural.value + " " + response.drinking_water_source.unimproved.rural.units;
+                    document.getElementById("drinking_water_source_unimproved_total").innerHTML = response.drinking_water_source.unimproved.total.value + " " + response.drinking_water_source.unimproved.total.units;
+
+
+                    document.getElementById("sanitation_facility_access_improved_urban").innerHTML = response.sanitation_facility_access.improved.urban.value + " " + response.sanitation_facility_access.improved.urban.units;
+                    document.getElementById("sanitation_facility_access_improved_rural").innerHTML = response.sanitation_facility_access.improved.rural.value + " " + response.sanitation_facility_access.improved.rural.units;
+                    document.getElementById("sanitation_facility_access_improved_total").innerHTML = response.sanitation_facility_access.improved.total.value + " " + response.sanitation_facility_access.improved.total.units;
+
+                    document.getElementById("sanitation_facility_access_unimproved_urban").innerHTML = response.sanitation_facility_access.unimproved.urban.value + " " + response.sanitation_facility_access.unimproved.urban.units;
+                    document.getElementById("sanitation_facility_access_unimproved_rural").innerHTML = response.sanitation_facility_access.unimproved.rural.value + " " + response.sanitation_facility_access.unimproved.rural.units;
+                    document.getElementById("sanitation_facility_access_unimproved_total").innerHTML = response.sanitation_facility_access.unimproved.total.value + " " + response.sanitation_facility_access.unimproved.total.units;
+
+
+                    document.getElementById("degree_of_risk").innerHTML = response.major_infectious_diseases.degree_of_risk;
+
+                    document.getElementById("adult_obesity_percent_of_adults").innerHTML = response.adult_obesity.percent_of_adults;
+                    document.getElementById("adult_obesity_global_rank").innerHTML = response.adult_obesity.global_rank;
+
+                    document.getElementById("education_expenditures_percent_of_gdp").innerHTML = response.education_expenditures.percent_of_gdp;
+                    document.getElementById("education_expenditures_global_rank").innerHTML = response.education_expenditures.global_rank;
+
+                    document.getElementById("literacy_definition").innerHTML = response.literacy.definition;
+                    document.getElementById("literacy_total_population").innerHTML = response.literacy.total_population.value + " " + response.literacy.total_population.units;
+                    document.getElementById("literacy_male").innerHTML = response.literacy.male.value + " " + response.literacy.male.units;
+                    document.getElementById("literacy_female").innerHTML = response.literacy.female.value + " " + response.literacy.female.units;
+
+                    document.getElementById("school_life_expectancy_total").innerHTML = response.school_life_expectancy.total.value + " " + response.school_life_expectancy.total.units;
+                    document.getElementById("school_life_expectancy_male").innerHTML = response.school_life_expectancy.male.value + " " + response.school_life_expectancy.male.units;
+                    document.getElementById("school_life_expectancy_female").innerHTML = response.school_life_expectancy.female.value + " " + response.school_life_expectancy.female.units;
+
+
+                    document.getElementById("youth_unemployment_total").innerHTML = response.youth_unemployment.total.value + " " + response.youth_unemployment.total.units;
+                    document.getElementById("youth_unemployment_male").innerHTML = response.youth_unemployment.male.value + " " + response.youth_unemployment.male.units;
+                    document.getElementById("youth_unemployment_female").innerHTML = response.youth_unemployment.female.value + " " + response.youth_unemployment.female.units;
+
+
+                }
+            }
+
+        }
+
+
         function changeCountry2(country) {
+            var request = new XMLHttpRequest();
             var countryUpper = country.toUpperCase();
             document.getElementById("right_choose_country").innerHTML = countryUpper;
             document.getElementById("right_choose_country").value = country;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/" + country + "/geography", true);
+            request.send();
+
+
+
+
+
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    //showWholeTable('tables');
+                    var response = JSON.parse(request.responseText);
+                    document.getElementById("location2").innerHTML = response.location;
+
+                    document.getElementById("map_references2").innerHTML = response.map_references;
+                    document.getElementById("climate2").innerHTML = response.climate;
+                    document.getElementById("terrain2").innerHTML = response.terrain;
+                    document.getElementById("geography_population_distribution2").innerHTML = response.population_distribution;
+                    document.getElementById("note2").innerHTML = response.note;
+
+                    document.getElementById("latitude2").innerHTML = response.geographic_coordinates.latitude.degrees + "'" + response.geographic_coordinates.latitude.minutes +
+                        response.geographic_coordinates.latitude.hemisphere;
+                    document.getElementById("longitude2").innerHTML = response.geographic_coordinates.longitude.degrees + "'" + response.geographic_coordinates.longitude.minutes +
+                        response.geographic_coordinates.longitude.hemisphere;
+                    document.getElementById("total2").innerHTML = response.area.total.value + " " + response.area.total.units;
+                    document.getElementById("land2").innerHTML = response.area.land.value + " " + response.area.land.units;
+                    document.getElementById("water2").innerHTML = response.area.water.value + " " + response.area.water.units;
+                    document.getElementById("global_rank2").innerHTML = response.area.global_rank;
+                    document.getElementById("comparative2").innerHTML = response.area.comparative;
+
+                    document.getElementById("mean_elevation2").innerHTML = response.elevation.mean_elevation.value + " " + response.elevation.mean_elevation.units;
+                    document.getElementById("lowest_point_name2").innerHTML = response.elevation.lowest_point.name;
+                    document.getElementById("lowest_point_elevation2").innerHTML = response.elevation.lowest_point.elevation.value + " " + response.elevation.lowest_point.elevation.units;
+                    document.getElementById("highest_point_name2").innerHTML = response.elevation.highest_point.name;
+                    document.getElementById("highest_point_elevation2").innerHTML = response.elevation.highest_point.elevation.value + " " + response.elevation.highest_point.elevation.units;
+
+                    document.getElementById("agricultural_land_total2").innerHTML = response.land_use.by_sector.agricultural_land_total.value + " " + response.land_use.by_sector.agricultural_land_total.units;
+                    document.getElementById("agricultural_land_arable_land2").innerHTML = response.land_use.by_sector.agricultural_land_arable_land.value + " " + response.land_use.by_sector.agricultural_land_arable_land.units;
+                    document.getElementById("agricultural_land_permanent_crops2").innerHTML = response.land_use.by_sector.agricultural_land_permanent_crops.value + " " + response.land_use.by_sector.agricultural_land_permanent_crops.units;
+                    document.getElementById("agricultural_land_permanent_pasture2").innerHTML = response.land_use.by_sector.agricultural_land_permanent_pasture.value + " " + response.land_use.by_sector.agricultural_land_permanent_pasture.units;
+                    document.getElementById("forest2").innerHTML = response.land_use.by_sector.forest.value + " " + response.land_use.by_sector.forest.units;
+                    document.getElementById("other2").innerHTML = response.land_use.by_sector.other.value + " " + response.land_use.by_sector.other.units;
+
+
+                    document.getElementById("coastline2").innerHTML = response.coastline.value + " " + response.coastline.units;
+                    document.getElementById("irrigated_land2").innerHTML = response.irrigated_land.value + " " + response.irrigated_land.units;
+                    loadPeople2(country);
+                }
+            }
+
         }
+
+
+        function loadPeople2(country) {
+            var request = new XMLHttpRequest();
+            var countryUpper = country.toUpperCase();
+            //            var country = document.getElementById("choose_country").value;
+            document.getElementById("right_choose_country").innerHTML = countryUpper;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/" + country + "/people", true);
+            request.send();
+
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+
+                    document.getElementById("total_population2").innerHTML = response.population.total;
+
+                    document.getElementById("population_global_rank2").innerHTML = response.population.global_rank;
+                    document.getElementById("noun2").innerHTML = response.nationality.noun;
+                    document.getElementById("adjective2").innerHTML = response.nationality.adjective;
+                    document.getElementById("age_0_to_14_percent2").innerHTML = response.age_structure.age_0_to_14.percent;
+                    document.getElementById("age_0_to_14_males2").innerHTML = response.age_structure.age_0_to_14.males;
+                    document.getElementById("age_0_to_14_females2").innerHTML = response.age_structure.age_0_to_14.females;
+
+                    document.getElementById("age_15_to_24_percent2").innerHTML = response.age_structure.age_15_to_24.percent;
+                    document.getElementById("age_15_to_24_males2").innerHTML = response.age_structure.age_15_to_24.males;
+                    document.getElementById("age_15_to_24_females2").innerHTML = response.age_structure.age_15_to_24.females;
+
+                    document.getElementById("age_25_to_54_percent2").innerHTML = response.age_structure.age_25_to_54.percent;
+                    document.getElementById("age_25_to_54_males2").innerHTML = response.age_structure.age_25_to_54.males;
+                    document.getElementById("age_25_to_54_females2").innerHTML = response.age_structure.age_25_to_54.females;
+
+                    document.getElementById("age_55_to_64_percent2").innerHTML = response.age_structure.age_55_to_64.percent;
+                    document.getElementById("age_55_to_64_males2").innerHTML = response.age_structure.age_55_to_64.males;
+                    document.getElementById("age_55_to_64_females2").innerHTML = response.age_structure.age_55_to_64.females;
+
+                    document.getElementById("age_65_and_over_percent2").innerHTML = response.age_structure.age_65_and_over.percent;
+                    document.getElementById("age_65_and_over_males2").innerHTML = response.age_structure.age_65_and_over.males;
+                    document.getElementById("age_65_and_over_females2").innerHTML = response.age_structure.age_65_and_over.females;
+
+                    document.getElementById("total_dependency_ratio2").innerHTML = response.dependency_ratios.ratios.total_dependency_ratio.value + " " + response.dependency_ratios.ratios.total_dependency_ratio.units;
+                    document.getElementById("youth_dependency_ratio2").innerHTML = response.dependency_ratios.ratios.youth_dependency_ratio.value + " " + response.dependency_ratios.ratios.youth_dependency_ratio.units;
+                    document.getElementById("elderly_dependency_ratio2").innerHTML = response.dependency_ratios.ratios.elderly_dependency_ratio.value + " " + response.dependency_ratios.ratios.elderly_dependency_ratio.units;
+                    document.getElementById("potential_support_ratio2").innerHTML = response.dependency_ratios.ratios.potential_support_ratio.value + " " + response.dependency_ratios.ratios.potential_support_ratio.units;
+
+                    document.getElementById("median_age_total2").innerHTML = response.median_age.total.value + " " + response.median_age.total.units;
+                    document.getElementById("median_age_male2").innerHTML = response.median_age.male.value + " " + response.median_age.male.units;
+                    document.getElementById("median_age_female2").innerHTML = response.median_age.female.value + " " + response.median_age.female.units;
+                    document.getElementById("median_age_global_rank2").innerHTML = response.median_age.global_rank;
+
+                    document.getElementById("population_growth_rate2").innerHTML = response.population_growth_rate.growth_rate;
+                    document.getElementById("population_growth_rate_global_rank2").innerHTML = response.population_growth_rate.global_rank;
+
+                    document.getElementById("births_per_1000_population2").innerHTML = response.birth_rate.births_per_1000_population;
+                    document.getElementById("birth_rate_global_rank2").innerHTML = response.birth_rate.global_rank;
+
+                    document.getElementById("deaths_per_1000_population2").innerHTML = response.death_rate.deaths_per_1000_population;
+                    document.getElementById("death_rate_global_rank2").innerHTML = response.death_rate.global_rank;
+
+                    document.getElementById("migrants_per_1000_population2").innerHTML = response.net_migration_rate.migrants_per_1000_population;
+                    document.getElementById("net_migration_rate_global_rank2").innerHTML = response.net_migration_rate.global_rank;
+
+                    document.getElementById("people_population_distribution2").innerHTML = response.population_distribution;
+
+                    document.getElementById("urban_population2").innerHTML = response.urbanization.urban_population.value + " " + response.urbanization.urban_population.units;
+                    document.getElementById("rate_of_urbanization2").innerHTML = response.urbanization.rate_of_urbanization.value + " " + response.urbanization.rate_of_urbanization.units;
+
+
+                    document.getElementById("sex_ratio_total_population2").innerHTML = response.sex_ratio.total_population.value + " " + response.sex_ratio.total_population.units;
+                    document.getElementById("by_age_at_birth2").innerHTML = response.sex_ratio.by_age.at_birth.value + " " + response.sex_ratio.by_age.at_birth.units;
+                    document.getElementById("by_age_age_0_to_14_years2").innerHTML = response.sex_ratio.by_age.age_0_to_14_years.value + " " + response.sex_ratio.by_age.age_0_to_14_years.units;
+                    document.getElementById("by_age_age_15_to_24_years2").innerHTML = response.sex_ratio.by_age.age_15_to_24_years.value + " " + response.sex_ratio.by_age.age_15_to_24_years.units;
+                    document.getElementById("by_age_age_25_to_54_years2").innerHTML = response.sex_ratio.by_age.age_25_to_54_years.value + " " + response.sex_ratio.by_age.age_25_to_54_years.units;
+                    document.getElementById("by_age_age_55_to_64_years2").innerHTML = response.sex_ratio.by_age.age_55_to_64_years.value + " " + response.sex_ratio.by_age.age_55_to_64_years.units;
+                    document.getElementById("by_age_age_65_years_and_over2").innerHTML = response.sex_ratio.by_age.age_65_years_and_over.value + " " + response.sex_ratio.by_age.age_65_years_and_over.units;
+
+                    document.getElementById("mothers_mean_age_at_first_birth2").innerHTML = response.mothers_mean_age_at_first_birth.age;
+
+                    document.getElementById("deaths_per_100k_live_births2").innerHTML = response.maternal_mortality_rate.deaths_per_100k_live_births;
+                    document.getElementById("maternal_mortality_rate_global_rank2").innerHTML = response.maternal_mortality_rate.global_rank;
+
+                    document.getElementById("infant_mortality_rate_total2").innerHTML = response.infant_mortality_rate.total.value + " " + response.infant_mortality_rate.total.units;
+                    document.getElementById("infant_mortality_rate_male2").innerHTML = response.infant_mortality_rate.male.value + " " + response.infant_mortality_rate.male.units;
+                    document.getElementById("infant_mortality_rate_female2").innerHTML = response.infant_mortality_rate.female.value + " " + response.infant_mortality_rate.female.units;
+                    document.getElementById("infant_mortality_rate_global_rank2").innerHTML = response.infant_mortality_rate.global_rank;
+
+                    document.getElementById("life_expectancy_at_birth_total_population2").innerHTML = response.life_expectancy_at_birth.total_population.value + " " + response.life_expectancy_at_birth.total_population.units;
+                    document.getElementById("life_expectancy_at_birth_male2").innerHTML = response.life_expectancy_at_birth.male.value + " " + response.life_expectancy_at_birth.male.units;
+                    document.getElementById("life_expectancy_at_birth_female2").innerHTML = response.life_expectancy_at_birth.female.value + " " + response.life_expectancy_at_birth.female.units;
+                    document.getElementById("life_expectancy_at_birth_global_rank2").innerHTML = response.life_expectancy_at_birth.global_rank;
+
+                    document.getElementById("children_born_per_woman2").innerHTML = response.total_fertility_rate.children_born_per_woman;
+                    document.getElementById("total_fertility_rate_global_rank2").innerHTML = response.total_fertility_rate.global_rank;
+
+                    document.getElementById("health_expenditures_percent_of_gdp2").innerHTML = response.health_expenditures.percent_of_gdp;
+                    document.getElementById("health_expenditures_global_rank2").innerHTML = response.health_expenditures.global_rank;
+
+                    document.getElementById("physicians_per_1000_population2").innerHTML = response.physicians_density.physicians_per_1000_population;
+
+                    document.getElementById("hospital_bed_density2").innerHTML = response.hospital_bed_density.beds_per_1000_population;
+
+
+                    document.getElementById("drinking_water_source_improved_urban2").innerHTML = response.drinking_water_source.improved.urban.value + " " + response.drinking_water_source.improved.urban.units;
+                    document.getElementById("drinking_water_source_improved_rural2").innerHTML = response.drinking_water_source.improved.rural.value + " " + response.drinking_water_source.improved.rural.units;
+                    document.getElementById("drinking_water_source_improved_total2").innerHTML = response.drinking_water_source.improved.total.value + " " + response.drinking_water_source.improved.total.units;
+
+                    document.getElementById("drinking_water_source_unimproved_urban2").innerHTML = response.drinking_water_source.unimproved.urban.value + " " + response.drinking_water_source.unimproved.urban.units;
+                    document.getElementById("drinking_water_source_unimproved_rural2").innerHTML = response.drinking_water_source.unimproved.rural.value + " " + response.drinking_water_source.unimproved.rural.units;
+                    document.getElementById("drinking_water_source_unimproved_total2").innerHTML = response.drinking_water_source.unimproved.total.value + " " + response.drinking_water_source.unimproved.total.units;
+
+
+                    document.getElementById("sanitation_facility_access_improved_urban2").innerHTML = response.sanitation_facility_access.improved.urban.value + " " + response.sanitation_facility_access.improved.urban.units;
+                    document.getElementById("sanitation_facility_access_improved_rural2").innerHTML = response.sanitation_facility_access.improved.rural.value + " " + response.sanitation_facility_access.improved.rural.units;
+                    document.getElementById("sanitation_facility_access_improved_total2").innerHTML = response.sanitation_facility_access.improved.total.value + " " + response.sanitation_facility_access.improved.total.units;
+
+                    document.getElementById("sanitation_facility_access_unimproved_urban2").innerHTML = response.sanitation_facility_access.unimproved.urban.value + " " + response.sanitation_facility_access.unimproved.urban.units;
+                    document.getElementById("sanitation_facility_access_unimproved_rural2").innerHTML = response.sanitation_facility_access.unimproved.rural.value + " " + response.sanitation_facility_access.unimproved.rural.units;
+                    document.getElementById("sanitation_facility_access_unimproved_total2").innerHTML = response.sanitation_facility_access.unimproved.total.value + " " + response.sanitation_facility_access.unimproved.total.units;
+
+
+                    document.getElementById("degree_of_risk2").innerHTML = response.major_infectious_diseases.degree_of_risk;
+
+                    document.getElementById("adult_obesity_percent_of_adults2").innerHTML = response.adult_obesity.percent_of_adults;
+                    document.getElementById("adult_obesity_global_rank2").innerHTML = response.adult_obesity.global_rank;
+
+                    document.getElementById("education_expenditures_percent_of_gdp2").innerHTML = response.education_expenditures.percent_of_gdp;
+                    document.getElementById("education_expenditures_global_rank2").innerHTML = response.education_expenditures.global_rank;
+
+                    document.getElementById("literacy_definition2").innerHTML = response.literacy.definition;
+                    document.getElementById("literacy_total_population2").innerHTML = response.literacy.total_population.value + " " + response.literacy.total_population.units;
+                    document.getElementById("literacy_male2").innerHTML = response.literacy.male.value + " " + response.literacy.male.units;
+                    document.getElementById("literacy_female2").innerHTML = response.literacy.female.value + " " + response.literacy.female.units;
+
+                    document.getElementById("school_life_expectancy_total2").innerHTML = response.school_life_expectancy.total.value + " " + response.school_life_expectancy.total.units;
+                    document.getElementById("school_life_expectancy_male2").innerHTML = response.school_life_expectancy.male.value + " " + response.school_life_expectancy.male.units;
+                    document.getElementById("school_life_expectancy_female2").innerHTML = response.school_life_expectancy.female.value + " " + response.school_life_expectancy.female.units;
+
+
+                    document.getElementById("youth_unemployment_total2").innerHTML = response.youth_unemployment.total.value + " " + response.youth_unemployment.total.units;
+                    document.getElementById("youth_unemployment_male2").innerHTML = response.youth_unemployment.male.value + " " + response.youth_unemployment.male.units;
+                    document.getElementById("youth_unemployment_female2").innerHTML = response.youth_unemployment.female.value + " " + response.youth_unemployment.female.units;
+
+
+                }
+            }
+
+        }
+
 
 
         function showTablea(id, idToShow) {
             var checkBox = document.getElementById(id);
             var table = document.getElementById(idToShow);
             if (checkBox.checked == true) {
-                table.style.display = "block";
+                table.style.display = "inline";
             } else {
                 table.style.display = "none";
             }
