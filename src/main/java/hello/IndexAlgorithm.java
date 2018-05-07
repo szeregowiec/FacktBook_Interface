@@ -2,6 +2,7 @@ package hello;
 
 import clojure.lang.Obj;
 import com.sun.org.apache.regexp.internal.RE;
+import database.Economy;
 import database.Geography;
 import database.In;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,20 +29,53 @@ public class IndexAlgorithm {
         String s;
         StringTokenizer st;
         for(Geography g : list){
-            s= g.getClimate().replaceAll("[^a-zA-Z]"," ");
-            st = new StringTokenizer(s);
-            addIndex(st,"Geography", g.getId(), "climate", "select g.climate, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
-
-            s = g.getLocation().replaceAll("[^a-zA-Z]"," ");
-            st = new StringTokenizer(s);
-            addIndex(st,"Geography", g.getId(), "location","select g.location, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
-
-
+//
+//            s= g.getClimate().replaceAll("[^a-zA-Z]"," ");
+//            st = new StringTokenizer(s);
+//            addIndex(st,"Geography", g.getId(), "climate", "select g.climate, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
+//
+//            s = g.getLocation().replaceAll("[^a-zA-Z]"," ");
+//            st = new StringTokenizer(s);
+//            addIndex(st,"Geography", g.getId(), "location","select g.location, d.name from Geography g, Data d where g.id = "+g.getId() +" and d.geography ="+g.getId());
+//
+//            if(g.getTerrain()!=null) {
+//                s = g.getTerrain().replaceAll("[^a-zA-Z]", " ");
+//                st = new StringTokenizer(s);
+//                addIndex(st, "Geography", g.getId(), "terrain", "select g.terrain, d.name from Geography g, Data d where g.id = " + g.getId() + " and d.geography =" + g.getId());
+//            }
+//
+//            if(g.getPopulation_distribution()!=null) {
+//                s = g.getPopulation_distribution().replaceAll("[^a-zA-Z]", " ");
+//                st = new StringTokenizer(s);
+//                addIndex(st, "Geography", g.getId(), "population_distribution", "select g.population_distribution, d.name from Geography g, Data d where g.id = " + g.getId() + " and d.geography =" + g.getId());
+//            }
+//
+//            if(g.getNote()!=null) {
+//                s = g.getNote().replaceAll("[^a-zA-Z]", " ");
+//                st = new StringTokenizer(s);
+//                addIndex(st, "Geography", g.getId(), "note", "select g.note, d.name from Geography g, Data d where g.id = " + g.getId() + " and d.geography =" + g.getId());
+//            }
 
 
 
 
         }
+
+        entityManager.getTransaction().begin();
+         query = entityManager.createQuery("select e from Economy e");
+        List<Economy> listE = query.getResultList();
+        entityManager.getTransaction().commit();
+
+        for(Economy e : listE){
+
+            if(e.getOverview()!=null) {
+                s = e.getOverview().replaceAll("[^a-zA-Z]", " ");
+                st = new StringTokenizer(s);
+                addIndex(st, "Economy", e.getId(), "overview", "select e.overview, d.name from Economy e, Data d where e.id = " + e.getId() + " and d.economy =" + e.getId());
+            }
+        }
+
+
         System.out.println(mapIndex);
 
     }
@@ -66,15 +100,22 @@ public class IndexAlgorithm {
 
         StringTokenizer st = new StringTokenizer(key);
         ArrayList<Index> first = new ArrayList<>();
-        first.addAll(mapIndex.get(st.nextToken()));
 
-//        System.out.println("first length "+first.size());
-//        System.out.println(first);
+
+        String index = st.nextToken();
+        if(mapIndex.containsKey(index)){
+            first.addAll(mapIndex.get(index));
+        }
+
+
+
         ArrayList<Index> second = new ArrayList<>();
         while(st.hasMoreTokens()){
-            second.addAll(mapIndex.get(st.nextToken()));
-            first.retainAll(second);
-           // System.out.println("second length "+second.size());
+            index = st.nextToken();
+            if(mapIndex.containsKey(index)){
+                second.addAll(mapIndex.get(index));
+                first.retainAll(second);
+            }
         }
 
 
@@ -99,7 +140,6 @@ public class IndexAlgorithm {
             System.out.println(r);
         }
 
-        System.out.println("this is the end");
 
 return endResult;
     }

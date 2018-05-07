@@ -11,6 +11,14 @@ public class Economy {
     @GenericGenerator(name="incrementator", strategy ="increment")
     private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Column(length = 50000)
     private String overview;
     @OneToOne(cascade = {CascadeType.ALL})
