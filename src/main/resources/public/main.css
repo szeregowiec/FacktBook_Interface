@@ -185,6 +185,15 @@ a:active {
     overflow-x: hidden;
 }
 
+
+#search_input2 {
+    text-align: center;
+    background-position: center;
+    font-size: 15px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
 #search_input {
     text-align: center;
     background-position: center;
@@ -192,6 +201,9 @@ a:active {
     border: none;
     border-bottom: 1px solid #ddd;
 }
+
+
+
 
 #left_countries {
     width: 320px;
