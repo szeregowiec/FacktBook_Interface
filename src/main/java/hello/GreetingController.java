@@ -3,7 +3,9 @@ package hello;
 import java.util.*;
 
 import com.sun.org.apache.regexp.internal.RE;
+import database.Economy;
 import database.Geography;
+import database.Government;
 import database.People;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,6 +56,20 @@ public class GreetingController {
     public People people(@PathVariable("country") String country) {
         Object obj = queryOne("select p from People p, Data d where d.name='"+country+"' and d.people=p.id");
         People data = (People) obj;
+        return data;
+    }
+
+    @GetMapping(value = "/countries/{country}/government", produces = "application/json")
+    public Government government(@PathVariable("country") String country) {
+        Object obj = queryOne("select p from Government p, Data d where d.name='"+country+"' and d.government=p.id");
+        Government data = (Government) obj;
+        return data;
+    }
+
+    @GetMapping(value = "/countries/{country}/economy", produces = "application/json")
+    public Economy economy(@PathVariable("country") String country) {
+        Object obj = queryOne("select p from Economy p, Data d where d.name='"+country+"' and d.economy=p.id");
+        Economy data = (Economy) obj;
         return data;
     }
 
@@ -305,6 +321,7 @@ public static List<CountrySort> sortCountries(String queryText){
     for(Object[] o :list){
         map.put((String)o[0],(Float)o[1]);
     }
+
     ValueComparator bvc = new ValueComparator(map);
     TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
     sorted_map.putAll(map);

@@ -62,17 +62,17 @@ public class Database_Controller {
         entityManager.getTransaction().begin();
 
 
-//   addA(entityManager,result);
-//        addB(entityManager,result);
-//        addC(entityManager,result);
-//  addD(entityManager,result);
-//        addE(entityManager,result);
-//        addF(entityManager,result);
-//        addG(entityManager,result);
-//        addH(entityManager,result);
-//        addI(entityManager,result);
-//        addJ(entityManager,result);
-//        addK(entityManager,result);
+        addA(entityManager,result);
+        addB(entityManager,result);
+        addC(entityManager,result);
+        addD(entityManager,result);
+        addE(entityManager,result);
+        addF(entityManager,result);
+        addG(entityManager,result);
+        addH(entityManager,result);
+        addI(entityManager,result);
+        addJ(entityManager,result);
+        addK(entityManager,result);
 
 
 
