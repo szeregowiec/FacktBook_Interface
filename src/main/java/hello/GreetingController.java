@@ -22,7 +22,7 @@ public class GreetingController {
    static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
     static EntityManager entityManager = entityManagerFactory.createEntityManager();
     static{
-       // IndexAlgorithm.geography(entityManager);
+        IndexAlgorithm.geography(entityManager);
     }
 
 

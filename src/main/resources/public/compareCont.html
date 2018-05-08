@@ -29,26 +29,23 @@
             <div class="col-sm-12" id="countryColumn">
                 <!--           <p>enter the phrase</p> -->
                 <div>
-                    <input type="text" placeholder="enter the phrase" id="search_pharse">
-                    <button type="button" class="btn btn-secondary btn-lg" id="search" onclick="showContents('search_result')">search</button>
+                    <input type="text" placeholder="enter the phrase" id="input_pharse">
+                    <button type="button" class="btn btn-secondary btn-lg" id="button_search" onclick="loadDoc()">search</button>
                     <p style="line-height: 5cm; "> </p>
                     <p style="line-height: 5cm; "> </p>
                     <div class="jumbotron text-center" id="search_result" style="display:none;">
                         <!--style="display:none;" -->
-                        <table align="center" id="table_search_pharse_result">
+                        <table align="center" width="1200" id="table_search_pharse_result">
                             <tr>
-                                <td width="200" id="" class="td_border">country</td>
-                                <td width="200" id="" class="td_border">table</td>
-                                <!--  mam tu na mysli geography albo people etc  -->
-                                <td width="200" id="" class="td_border">criterion</td>
-                                <!-- kryterium z tabeli  -->
-                                <td width="600" id="" class="td_border">value and units</td>
-                                <!-- to co tam jest -->
+                                <td width="140" id="" class="td_border">table</td>
+                                <td width="320" id="" class="td_border">country</td>
+                                <td width="140" id="" class="td_border">column</td>
+                                <td width="600" id="" class="td_border">result</td>
                             </tr>
 
 
                             <tr>
-                                <td>
+                                <td colspan="4">
                                     <table id="search_pharse_result" cellspacing="0" cellpadding="0" border="0">
 
                                     </table>
@@ -66,35 +63,42 @@
         function showContents(id) {
             if (document.getElementById(id).style.display == "none") {
                 document.getElementById(id).style.display = "contents";
-            } else {
-                document.getElementById(id).style.display = "none";
             }
         }
+
     </script>
     <script>
-        var request = new XMLHttpRequest();
-        request.addEventListener("readystatechange", processRequest, false);
-        request.open("GET", "//localhost:8080/continents", true);
-        request.send();
+        //"showContents('search_result')"
 
-        function processRequest(e) {
-            if (request.readyState == 4 && request.status == 200) {
-                var response = JSON.parse(request.responseText);
+        function loadDoc() {
 
+            var request = new XMLHttpRequest();
+            var pharse = document.getElementById('input_pharse').value;
+            request.addEventListener("readystatechange", processRequest, false);
+            request.open("GET", "//localhost:8080/countries/index/" + pharse, true);
+            request.send();
 
-                var lista;
-                var i;
-                for (i = 0; i < response.length; i++) {
-                    lista += "<li onclick=" + "\"changeContinent('" + response[i] + "')\">" + response[i] + "</li>"
+            function processRequest(e) {
+                if (request.readyState == 4 && request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    showContents('search_result');
+
+                    var lista = "";
+                    var i;
+                    for (i = 0; i < response.length; i++) {
+                        lista += "<tr> " +
+                            "<td width=\"140\" id=\"\" class=\"td_border\">" + response[i].table + "</td>" +
+                            "<td width=\"320\" id=\"\" class=\"td_border\">" + response[i].countryName.toUpperCase() + "</td>" +
+                            "<td width=\"140\" id=\"\" class=\"td_border\">" + response[i].column + "</td>" +
+                            "<td width=\"600\" id=\"\" class=\"td_border\">" + response[i].result + "</td>" +
+                            "</tr>"
+
+                    }
+                    document.getElementById("search_pharse_result").innerHTML = lista;
                 }
-                document.getElementById("continents").innerHTML = lista;
             }
         }
 
-        function changeContinent(country) {
-            document.getElementById("choose_continent").innerHTML = country;
-            document.getElementById("choose_continent").value = country;
-        }
     </script>
 
 
