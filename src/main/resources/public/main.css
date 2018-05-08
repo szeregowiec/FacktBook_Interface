@@ -203,7 +203,9 @@ a:active {
 }
 
 
-
+#search_pharse {
+    text-align: center;
+}
 
 #left_countries {
     width: 320px;

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Compare</title>
+    <title>Phrase search</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,67 +20,63 @@
 
 
     <div id="oneCountry" class="jumbotron text-center">
-
-        <div class="centered" id="oneCountry">Compare continents</div>
-
+        <div class="centered" id="oneCountry">Search phrase</div>
     </div>
 
-    <div class="album text-muted">
-        <div class="container">
 
-            <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="countryColumn">
+                <!--           <p>enter the phrase</p> -->
+                <div>
+                    <input type="text" placeholder="enter the phrase" id="search_pharse">
+                    <button type="button" class="btn btn-secondary btn-lg" id="search" onclick="showContents('search_result')">search</button>
+                    <p style="line-height: 5cm; "> </p>
+                    <p style="line-height: 5cm; "> </p>
+                    <div class="jumbotron text-center" id="search_result" style="display:none;">
+                        <!--style="display:none;" -->
+                        <table align="center" id="table_search_pharse_result">
+                            <tr>
+                                <td width="200" id="" class="td_border">country</td>
+                                <td width="200" id="" class="td_border">table</td>
+                                <!--  mam tu na mysli geography albo people etc  -->
+                                <td width="200" id="" class="td_border">criterion</td>
+                                <!-- kryterium z tabeli  -->
+                                <td width="600" id="" class="td_border">value and units</td>
+                                <!-- to co tam jest -->
+                            </tr>
 
 
+                            <tr>
+                                <td>
+                                    <table id="search_pharse_result" cellspacing="0" cellpadding="0" border="0">
 
-                <div class="col-sm-6" id="countryColumn">
-                    <p>choose first continent</p>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="choose_continent" value="brak">Choose continent!
-    
-  </button>
-                        <ul class="dropdown-menu" id="continents">
-                            <li><a href="#">continent 1</a></li>
-                            <li><a href="#">continent 2</a></li>
-                            <li><a href="#">continent 3</a></li>
-
-                        </ul>
-                        <!--end split button-->
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-
                 </div>
-
-                <div class="col-sm-6" id="countryColumn">
-                    <p>choose second continent</p>
-                    <div class="btn-group">
-
-                        <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose continent!
-    
-  </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">continent 1</a></li>
-                            <li><a href="#">continent 2</a></li>
-                            <li><a href="#">continent 3</a></li>
-
-                        </ul>
-                        <!--end split button-->
-                    </div>
-
-
-                </div>
-
             </div>
-
         </div>
     </div>
 
+
     <script>
-
-
-
+        function showContents(id) {
+            if (document.getElementById(id).style.display == "none") {
+                document.getElementById(id).style.display = "contents";
+            } else {
+                document.getElementById(id).style.display = "none";
+            }
+        }
+    </script>
+    <script>
         var request = new XMLHttpRequest();
         request.addEventListener("readystatechange", processRequest, false);
         request.open("GET", "//localhost:8080/continents", true);
         request.send();
+
         function processRequest(e) {
             if (request.readyState == 4 && request.status == 200) {
                 var response = JSON.parse(request.responseText);
@@ -88,18 +84,17 @@
 
                 var lista;
                 var i;
-                for(i=0; i<response.length;i++){
-                    lista += "<li onclick="+"\"changeContinent('"+response[i]+"')\">"+response[i]+"</li>"
+                for (i = 0; i < response.length; i++) {
+                    lista += "<li onclick=" + "\"changeContinent('" + response[i] + "')\">" + response[i] + "</li>"
                 }
-                document.getElementById("continents").innerHTML =lista;
+                document.getElementById("continents").innerHTML = lista;
             }
         }
-        function changeContinent(country){
+
+        function changeContinent(country) {
             document.getElementById("choose_continent").innerHTML = country;
             document.getElementById("choose_continent").value = country;
         }
-
-
     </script>
 
 
