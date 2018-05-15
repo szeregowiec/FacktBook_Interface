@@ -62,17 +62,25 @@ public class Database_Controller {
         entityManager.getTransaction().begin();
 
 
-        addA(entityManager,result);
-        addB(entityManager,result);
-        addC(entityManager,result);
-        addD(entityManager,result);
-        addE(entityManager,result);
-        addF(entityManager,result);
-        addG(entityManager,result);
-        addH(entityManager,result);
-        addI(entityManager,result);
-        addJ(entityManager,result);
-        addK(entityManager,result);
+//        addA(entityManager,result);
+//        addB(entityManager,result);
+//        addC(entityManager,result);
+//        addD(entityManager,result);
+//        addE(entityManager,result);
+//        addF(entityManager,result);
+//        addG(entityManager,result);
+//        addH(entityManager,result);
+//        addI(entityManager,result);
+//        addJ(entityManager,result);
+//        addK(entityManager,result);
+//        addL(entityManager,result);
+//        addM(entityManager,result);
+//        addN(entityManager,result);
+//        addO(entityManager,result);
+//        addP(entityManager,result);
+        addQ(entityManager,result);
+        addR(entityManager,result);
+
 
 
 
@@ -2403,10 +2411,824 @@ public class Database_Controller {
         addKyrgyzstan(entityManager,result);
     }
 
+    static void addLaos(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLaos().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLaos().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLaos().setName("laos");
 
+        result.getCountries().getLaos().getData().setName("laos");
+        entityManager.persist(result.getCountries().getLaos());
+    }
 
+    static void addLatvia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLatvia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLatvia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLatvia().setName("latvia");
 
+        result.getCountries().getLatvia().getData().setName("latvia");
+        entityManager.persist(result.getCountries().getLatvia());
+    }
+    static void addLebanon(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLebanon().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLebanon().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLebanon().setName("lebanon");
 
+        result.getCountries().getLebanon().getData().setName("lebanon");
+        entityManager.persist(result.getCountries().getLebanon());
+    }
+    static void addLesotho(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLesotho().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLesotho().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLesotho().setName("lesotho");
 
+        result.getCountries().getLesotho().getData().setName("lesotho");
+        entityManager.persist(result.getCountries().getLesotho());
+    }
+    static void addLiberia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLiberia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLiberia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLiberia().setName("liberia");
+
+        result.getCountries().getLiberia().getData().setName("liberia");
+        entityManager.persist(result.getCountries().getLiberia());
+    }
+    static void addLibya(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLibya().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLibya().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLibya().setName("libya");
+
+        result.getCountries().getLibya().getData().setName("libya");
+        entityManager.persist(result.getCountries().getLibya());
+    }
+    static void addLiechtenstein(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLiechtenstein().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLiechtenstein().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLiechtenstein().setName("liechtenstein");
+
+        result.getCountries().getLiechtenstein().getData().setName("liechtenstein");
+        entityManager.persist(result.getCountries().getLiechtenstein());
+    }
+    static void addLithuania(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLithuania().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLithuania().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLithuania().setName("lithuania");
+
+        result.getCountries().getLithuania().getData().setName("lithuania");
+        entityManager.persist(result.getCountries().getLithuania());
+    }
+    static void addLuxembourg(EntityManager entityManager, Json result){
+        if(!result.getCountries().getLuxembourg().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getLuxembourg().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getLuxembourg().setName("luxembourg");
+
+        result.getCountries().getLuxembourg().getData().setName("luxembourg");
+        entityManager.persist(result.getCountries().getLuxembourg());
+    }
+
+    static void addL(EntityManager entityManager, Json result){
+      addLatvia( entityManager, result );
+        addLebanon(entityManager,result);
+        addLesotho(entityManager,result);
+        addLiberia(entityManager,result);
+        addLibya(entityManager,result);
+        addLiechtenstein(entityManager,result);
+        addLithuania(entityManager,result);
+        addLuxembourg(entityManager,result);
+    }
+
+    static void addMacau(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMacau().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMacau().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMacau().setName("macau");
+
+        result.getCountries().getMacau().getData().setName("macau");
+        entityManager.persist(result.getCountries().getMacau());
+    }
+    static void addMacedonia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMacedonia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMacedonia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMacedonia().setName("macedonia");
+
+        result.getCountries().getMacedonia().getData().setName("macedonia");
+        entityManager.persist(result.getCountries().getMacedonia());
+    }
+    static void addMadagascar(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMadagascar().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMadagascar().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMadagascar().setName("madagascar");
+
+        result.getCountries().getMadagascar().getData().setName("madagascar");
+        entityManager.persist(result.getCountries().getMadagascar());
+    }
+    static void addMalawi(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMalawi().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMalawi().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMalawi().setName("malawi");
+
+        result.getCountries().getMalawi().getData().setName("malawi");
+        entityManager.persist(result.getCountries().getMalawi());
+    }
+    static void addMalaysia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMalaysia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMalaysia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMalaysia().setName("malaysia");
+
+        result.getCountries().getMalaysia().getData().setName("malaysia");
+        entityManager.persist(result.getCountries().getMalaysia());
+    }
+    static void addMaldives(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMaldives().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMaldives().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMaldives().setName("maldives");
+
+        result.getCountries().getMaldives().getData().setName("maldives");
+        entityManager.persist(result.getCountries().getMaldives());
+    }
+    static void addMali(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMali().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMali().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMali().setName("mali");
+
+        result.getCountries().getMali().getData().setName("mali");
+        entityManager.persist(result.getCountries().getMali());
+    }
+    static void addMalta(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMalta().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMalta().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMalta().setName("malta");
+
+        result.getCountries().getMalta().getData().setName("malta");
+        entityManager.persist(result.getCountries().getMalta());
+    }
+    static void addMarshall_islands(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMarshall_islands().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMarshall_islands().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMarshall_islands().setName("marshall_islands");
+
+        result.getCountries().getMarshall_islands().getData().setName("marshall_islands");
+        entityManager.persist(result.getCountries().getMarshall_islands());
+    }
+    static void addMauritania(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMauritania().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMauritania().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMauritania().setName("mauritania");
+
+        result.getCountries().getMauritania().getData().setName("mauritania");
+        entityManager.persist(result.getCountries().getMauritania());
+    }
+    static void addMauritius(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMauritius().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMauritius().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMauritius().setName("mauritius");
+
+        result.getCountries().getMauritius().getData().setName("mauritius");
+        entityManager.persist(result.getCountries().getMauritius());
+    }
+    static void addMexico(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMexico().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMexico().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMexico().setName("mexico");
+
+        result.getCountries().getMexico().getData().setName("mexico");
+        entityManager.persist(result.getCountries().getMexico());
+    }
+    static void addMicronesia_federated_states_of(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMicronesia_federated_states_of().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMicronesia_federated_states_of().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMicronesia_federated_states_of().setName("micronesia_federated_states_of");
+
+        result.getCountries().getMicronesia_federated_states_of().getData().setName("micronesia_federated_states_of");
+        entityManager.persist(result.getCountries().getMicronesia_federated_states_of());
+    }
+    static void addMoldova(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMoldova().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMoldova().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMoldova().setName("moldova");
+
+        result.getCountries().getMoldova().getData().setName("moldova");
+        entityManager.persist(result.getCountries().getMoldova());
+    }
+    static void addMonaco(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMonaco().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMonaco().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMonaco().setName("monaco");
+
+        result.getCountries().getMonaco().getData().setName("monaco");
+        entityManager.persist(result.getCountries().getMonaco());
+    }
+    static void addMongolia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMongolia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMongolia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMongolia().setName("mongolia");
+
+        result.getCountries().getMongolia().getData().setName("mongolia");
+        entityManager.persist(result.getCountries().getMongolia());
+    }
+    static void addMontenegro(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMontenegro().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMontenegro().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMontenegro().setName("montenegro");
+
+        result.getCountries().getMontenegro().getData().setName("montenegro");
+        entityManager.persist(result.getCountries().getMontenegro());
+    }
+    static void addMontserrat(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getMontserrat().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMontserrat().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getMontserrat().setName("montserrat");
+
+        result.getCountries().getMontserrat().getData().setName("montserrat");
+        entityManager.persist(result.getCountries().getMontserrat());
+    }
+    static void addMorocco(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMorocco().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMorocco().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMorocco().setName("morocco");
+
+        result.getCountries().getMorocco().getData().setName("morocco");
+        entityManager.persist(result.getCountries().getMorocco());
+    }
+    static void addMozambique(EntityManager entityManager, Json result){
+        if(!result.getCountries().getMozambique().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getMozambique().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getMozambique().setName("mozambique");
+
+        result.getCountries().getMozambique().getData().setName("mozambique");
+        entityManager.persist(result.getCountries().getMozambique());
+    }
+
+    static void addM(EntityManager entityManager, Json result){
+        addMacau(entityManager,result);
+        addMacedonia(entityManager,result);
+        addMadagascar(entityManager,result);
+        addMalawi(entityManager,result);
+        addMalaysia(entityManager,result);
+        addMaldives(entityManager,result);
+        addMali(entityManager,result);
+        addMalta(entityManager,result);
+        addMarshall_islands(entityManager,result);
+        addMauritania(entityManager,result);
+        addMauritius(entityManager,result);
+        addMexico(entityManager,result);
+        addMicronesia_federated_states_of(entityManager,result);
+        addMoldova(entityManager,result);
+        addMonaco(entityManager,result);
+        addMongolia(entityManager,result);
+        addMontenegro(entityManager,result);
+        addMontserrat(entityManager,result);
+        addMorocco(entityManager,result);
+        addMozambique(entityManager,result);
+    }
+
+    static void addNamibia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNamibia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNamibia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNamibia().setName("namibia");
+
+        result.getCountries().getNamibia().getData().setName("namibia");
+        entityManager.persist(result.getCountries().getNamibia());
+    }
+    static void addNauru(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNauru().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNauru().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNauru().setName("nauru");
+
+        result.getCountries().getNauru().getData().setName("nauru");
+        entityManager.persist(result.getCountries().getNauru());
+    }
+    static void addNavassa_island(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNavassa_island().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNavassa_island().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNavassa_island().setName("navassa_island");
+
+        result.getCountries().getNavassa_island().getData().setName("navassa_island");
+        entityManager.persist(result.getCountries().getNavassa_island());
+    }
+    static void addNepal(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNepal().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNepal().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNepal().setName("nepal");
+
+        result.getCountries().getNepal().getData().setName("nepal");
+        entityManager.persist(result.getCountries().getNepal());
+    }
+    static void addNetherlands(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNetherlands().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNetherlands().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNetherlands().setName("netherlands");
+
+        result.getCountries().getNetherlands().getData().setName("netherlands");
+        entityManager.persist(result.getCountries().getNetherlands());
+    }
+    static void addNew_caledonia(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNew_caledonia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNew_caledonia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNew_caledonia().setName("new_caledonia");
+
+        result.getCountries().getNew_caledonia().getData().setName("new_caledonia");
+        entityManager.persist(result.getCountries().getNew_caledonia());
+    }
+    static void addNew_zealand(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNew_zealand().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNew_zealand().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNew_zealand().setName("new_zealand");
+
+        result.getCountries().getNew_zealand().getData().setName("new_zealand");
+        entityManager.persist(result.getCountries().getNew_zealand());
+    }
+    static void addNicaragua(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNicaragua().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNicaragua().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNicaragua().setName("nicaragua");
+
+        result.getCountries().getNicaragua().getData().setName("nicaragua");
+        entityManager.persist(result.getCountries().getNicaragua());
+    }
+    static void addNiger(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNiger().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNiger().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNiger().setName("niger");
+
+        result.getCountries().getNiger().getData().setName("niger");
+        entityManager.persist(result.getCountries().getNiger());
+    }
+    static void addNigeria(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNigeria().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNigeria().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNigeria().setName("nigeria");
+
+        result.getCountries().getNigeria().getData().setName("nigeria");
+        entityManager.persist(result.getCountries().getNigeria());
+    }
+    static void addNiue(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNiue().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNiue().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNiue().setName("niue");
+
+        result.getCountries().getNiue().getData().setName("niue");
+        entityManager.persist(result.getCountries().getNiue());
+    }
+    static void addNorfolk_island(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNorfolk_island().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNorfolk_island().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNorfolk_island().setName("norfolk_island");
+
+        result.getCountries().getNorfolk_island().getData().setName("norfolk_island");
+        entityManager.persist(result.getCountries().getNorfolk_island());
+    }
+    static void addNorthern_mariana_islands(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getNorthern_mariana_islands().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNorthern_mariana_islands().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getNorthern_mariana_islands().setName("northern_mariana_islands");
+
+        result.getCountries().getNorthern_mariana_islands().getData().setName("northern_mariana_islands");
+        entityManager.persist(result.getCountries().getNorthern_mariana_islands());
+    }
+    static void addNorway(EntityManager entityManager, Json result){
+        if(!result.getCountries().getNorway().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getNorway().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getNorway().setName("norway");
+
+        result.getCountries().getNorway().getData().setName("norway");
+        entityManager.persist(result.getCountries().getNorway());
+    }
+
+    static void addN(EntityManager entityManager, Json result){
+        addNamibia(entityManager,result);
+        addNauru(entityManager,result);
+        addNavassa_island(entityManager,result);
+        addNepal(entityManager,result);
+        addNetherlands(entityManager,result);
+        addNew_caledonia(entityManager,result);
+        addNew_zealand(entityManager,result);
+        addNicaragua(entityManager,result);
+        addNiger(entityManager,result);
+        addNigeria(entityManager,result);
+        addNiue(entityManager,result);
+        addNorfolk_island(entityManager,result);
+        addNorthern_mariana_islands(entityManager,result);
+        addNorway(entityManager,result);
+    }
+
+    static void addOman(EntityManager entityManager, Json result){
+        if(!result.getCountries().getOman().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getOman().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getOman().setName("oman");
+
+        result.getCountries().getOman().getData().setName("oman");
+        entityManager.persist(result.getCountries().getOman());
+    }
+
+    static void addO(EntityManager entityManager, Json result){
+        addOman(entityManager,result);
+    }
+
+    static void addParacel_islands(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getParacel_islands().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getParacel_islands().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getParacel_islands().setName("paracel_islands");
+
+        result.getCountries().getParacel_islands().getData().setName("paracel_islands");
+        entityManager.persist(result.getCountries().getParacel_islands());
+    }
+    static void addParaguay(EntityManager entityManager, Json result){
+        if(!result.getCountries().getParaguay().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getParaguay().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getParaguay().setName("paraguay");
+
+        result.getCountries().getParaguay().getData().setName("paraguay");
+        entityManager.persist(result.getCountries().getParaguay());
+    }
+    static void addPeru(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPeru().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPeru().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPeru().setName("peru");
+
+        result.getCountries().getPeru().getData().setName("peru");
+        entityManager.persist(result.getCountries().getPeru());
+    }
+    static void addPhilippines(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getPhilippines().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPhilippines().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getPhilippines().setName("philippines");
+
+        result.getCountries().getPhilippines().getData().setName("philippines");
+        entityManager.persist(result.getCountries().getPhilippines());
+    }
+    static void addPitcairn_islands(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getPitcairn_islands().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPitcairn_islands().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getPitcairn_islands().setName("pitcairn_islands");
+
+        result.getCountries().getPitcairn_islands().getData().setName("pitcairn_islands");
+        entityManager.persist(result.getCountries().getPitcairn_islands());
+    }
+    static void addPoland(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPoland().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPoland().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPoland().setName("poland");
+
+        result.getCountries().getPoland().getData().setName("poland");
+        entityManager.persist(result.getCountries().getPoland());
+    }
+    static void addPacific_ocean(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getPacific_ocean().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPacific_ocean().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getPacific_ocean().setName("pacific_ocean");
+
+        result.getCountries().getPacific_ocean().getData().setName("pacific_ocean");
+        entityManager.persist(result.getCountries().getPacific_ocean());
+    }
+    static void addPakistan(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPakistan().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPakistan().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPakistan().setName("pakistan");
+
+        result.getCountries().getPakistan().getData().setName("pakistan");
+        entityManager.persist(result.getCountries().getPakistan());
+    }
+    static void addPalau(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getPalau().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPalau().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getPalau().setName("palau");
+
+        result.getCountries().getPalau().getData().setName("palau");
+        entityManager.persist(result.getCountries().getPalau());
+    }
+    static void addPanama(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPanama().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPanama().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPanama().setName("panama");
+
+        result.getCountries().getPanama().getData().setName("panama");
+        entityManager.persist(result.getCountries().getPanama());
+    }
+    static void addPapua_new_guinea(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPapua_new_guinea().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPapua_new_guinea().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPapua_new_guinea().setName("papua_new_guinea");
+
+        result.getCountries().getPapua_new_guinea().getData().setName("papua_new_guinea");
+        entityManager.persist(result.getCountries().getPapua_new_guinea());
+    }
+    static void addPortugal(EntityManager entityManager, Json result){
+        if(!result.getCountries().getPortugal().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPortugal().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getPortugal().setName("portugal");
+
+        result.getCountries().getPortugal().getData().setName("portugal");
+        entityManager.persist(result.getCountries().getPortugal());
+    }
+    static void addPuerto_rico(EntityManager entityManager, Json result){
+/*        if(!result.getCountries().getPuerto_rico().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getPuerto_rico().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }*/
+        result.getCountries().getPuerto_rico().setName("puerto_rico");
+
+        result.getCountries().getPuerto_rico().getData().setName("puerto_rico");
+        entityManager.persist(result.getCountries().getPuerto_rico());
+    }
+
+    static void addP(EntityManager entityManager, Json result){
+        addParacel_islands(entityManager,result);
+        addParaguay(entityManager,result);
+        addPeru(entityManager,result);
+        addPhilippines(entityManager,result);
+        addPitcairn_islands(entityManager,result);
+        addPoland(entityManager,result);
+        addPacific_ocean(entityManager,result);
+        addPakistan(entityManager,result);
+        addPalau(entityManager,result);
+        addPanama(entityManager,result);
+        addPapua_new_guinea(entityManager,result);
+        addPortugal(entityManager,result);
+        addPuerto_rico(entityManager,result);
+    }
+    static void addQatar(EntityManager entityManager, Json result){
+        if(!result.getCountries().getQatar().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getQatar().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getQatar().setName("qatar");
+
+        result.getCountries().getQatar().getData().setName("qatar");
+        entityManager.persist(result.getCountries().getQatar());
+    }
+
+    static void addQ(EntityManager entityManager, Json result){
+        addQatar(entityManager,result);
+    }
+
+    static void addRomania(EntityManager entityManager, Json result){
+        if(!result.getCountries().getRomania().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getRomania().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getRomania().setName("romania");
+
+        result.getCountries().getRomania().getData().setName("romania");
+        entityManager.persist(result.getCountries().getRomania());
+    }
+    static void addRussia(EntityManager entityManager, Json result){
+        if(!result.getCountries().getRussia().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getRussia().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getRussia().setName("russia");
+
+        result.getCountries().getRussia().getData().setName("russia");
+        entityManager.persist(result.getCountries().getRussia());
+    }
+    static void addRwanda(EntityManager entityManager, Json result){
+        if(!result.getCountries().getRwanda().getData().getGeography().getLand_boundaries().getBorder_countries().isEmpty()) {
+            for (Border_countries bc : result.getCountries().getRwanda().getData().getGeography().getLand_boundaries().getBorder_countries()) {
+                bc.setBorder(bc.getBorder_length().getValue());
+                bc.setUnits(bc.getBorder_length().getUnits());
+            }
+        }
+        result.getCountries().getRwanda().setName("rwanda");
+
+        result.getCountries().getRwanda().getData().setName("rwanda");
+        entityManager.persist(result.getCountries().getRwanda());
+    }
+
+    static void addR(EntityManager entityManager, Json result){
+        addRomania(entityManager,result);
+        addRussia(entityManager,result);
+        addRwanda(entityManager,result);
+    }
 
 }
