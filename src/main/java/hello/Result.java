@@ -1,5 +1,12 @@
 package hello;
 
+/**
+ * Klasa reprezentująca wynik wyszukiwania frazy w algorytmnie indeksowania
+ * String table - nazwa tebeli
+ * String countryName- nazwa państwa
+ * String column - nazwa kolumny w tabeli
+ * String result - wpis z bazy danych
+ */
 public class Result {
 
     private String table;

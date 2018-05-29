@@ -16,6 +16,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+/**
+ * Klasa odpowiadająca za komunikację klenta z aplikacją, wystawia dostępne endpointy
+ */
 @RestController
 public class GreetingController {
 
@@ -33,6 +36,10 @@ public class GreetingController {
 
     }
 
+    /**
+     * Metoda zwracająca dostępne w bazie nazwy państw
+     * @return
+     */
     @GetMapping("/countries")
     public List<String> countries() {
         List<String> lista = queryList("select d.name from Data d");
@@ -45,6 +52,11 @@ public class GreetingController {
         return lista;
     }
 
+    /**
+     * Metoda zwracająca tabelę Geography dla podanego państwa
+     * @param country - nazwa państwa
+     * @return zwraca obiekt klasy Geography
+     */
     @GetMapping(value = "/countries/{country}/geography", produces = "application/json")
     public Geography geography(@PathVariable("country") String country) {
         Object obj = queryOne("select g from Geography g, Data d where d.name='"+country+"' and d.geography=g.id");
@@ -52,6 +64,11 @@ public class GreetingController {
         return data;
     }
 
+    /**
+     * Metoda zwracająca tabelę People dla podanego państwa
+     * @param country - nazwa państwa
+     * @return zwraca obiekt klasy People
+     */
     @GetMapping(value = "/countries/{country}/people", produces = "application/json")
     public People people(@PathVariable("country") String country) {
         Object obj = queryOne("select p from People p, Data d where d.name='"+country+"' and d.people=p.id");
@@ -59,6 +76,11 @@ public class GreetingController {
         return data;
     }
 
+    /**
+     * Metoda zwracająca tabelę Government dla podanego państwa
+     * @param country - nazwa państwa
+     * @return zwraca obiekt klasy Government
+     */
     @GetMapping(value = "/countries/{country}/government", produces = "application/json")
     public Government government(@PathVariable("country") String country) {
         Object obj = queryOne("select p from Government p, Data d where d.name='"+country+"' and d.government=p.id");
@@ -66,6 +88,11 @@ public class GreetingController {
         return data;
     }
 
+    /**
+     * Metoda zwracająca tabelę Economy dla podanego państwa
+     * @param country - nazwa państwa
+     * @return zwraca obiekt klasy Economy
+     */
     @GetMapping(value = "/countries/{country}/economy", produces = "application/json")
     public Economy economy(@PathVariable("country") String country) {
         Object obj = queryOne("select p from Economy p, Data d where d.name='"+country+"' and d.economy=p.id");
@@ -74,7 +101,10 @@ public class GreetingController {
     }
 
 
-
+    /**
+     * Metoda zwraca zbiór regionów dostępnych w bazie
+     * @return zbiór nazw regionów
+     */
     @GetMapping(value = "/continents", produces = "application/json")
     public Set<String> continents() {
 
@@ -84,6 +114,7 @@ public class GreetingController {
 
         return set;
     }
+
 
     @GetMapping(value = "/continents/{continent}", produces = "application/json")
     public List<String> continent(@PathVariable("continent") String continent) {
@@ -98,6 +129,10 @@ public class GreetingController {
     //////////////////////////////////////////////////////////////////////////////////////--------------------------SORT--------------------------------------
     //rozwązac poroblem z wysyłaniem HashMapy ! problem z konwersją na json ?
 
+    /**
+     * Metoda sortuje państwa ze względu na długość Coastline
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/coastline", produces = "application/json")
     public List<CountrySort>  sortGeographyCoastline() {
 
@@ -105,6 +140,10 @@ public class GreetingController {
                 "ValueAndUnits c where d.geography=g.id and g.coastline=c.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na całkowitą powierzchnię
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/total", produces = "application/json")
     public List<CountrySort>  sortGeographyTotal() {
 
@@ -112,6 +151,10 @@ public class GreetingController {
                 "where d.geography=g.id and g.area=a.id and a.total=t.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na powierzchnię lądową
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/land", produces = "application/json")
     public List<CountrySort>  sortGeographyLand() {
 
@@ -119,190 +162,314 @@ public class GreetingController {
                 "where d.geography=g.id and g.area=a.id and a.land=l.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na powierzchnię wodną
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/water", produces = "application/json")
     public List<CountrySort>  sortGeographyWater() {
         return sortCountries("select d.name, w.value, w.units from Data d, Geography g, Area a, ValueAndUnits w " +
                 "where d.geography=g.id and g.area=a.id and a.water=w.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na długość granic z innymi państwami
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/land_boundaries", produces = "application/json")
     public List<CountrySort>  sortGeographyLand_Boundaries() {
         return sortCountries("select d.name, t.value, t.units from Data d, Geography g, Land_boundaries lb, ValueAndUnits t " +
                 "where d.geography=g.id and g.land_boundaries=lb.id and lb.total=t.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na średnią wysokość
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/mean_elevation", produces = "application/json")
     public List<CountrySort>  sortGeographyMean_Elevation() {
         return sortCountries("select d.name, m.value, m.units from Data d, Geography g, Elevation e, ValueAndUnits m " +
                 "where d.geography=g.id and g.elevation=e.id and e.mean_elevation=m.id ");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na najniższy punkt
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/lowest_point", produces = "application/json")
     public List<CountrySort>  sortGeographyLowest_Point() {
         return sortCountries("select d.name, p.value, p.units from Data d, Geography g, Elevation e, Point lp, ValueAndUnits p " +
                 "where d.geography=g.id and g.elevation=e.id and e.lowest_point=lp.id and lp.elevation=p.id");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na najwyższy punkt
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/highest_point", produces = "application/json")
     public List<CountrySort>  sortGeographyHighest_Point() {
         return sortCountries("select d.name, p.value, p.units from Data d, Geography g, Elevation e, Point hp, ValueAndUnits p " +
                 "where d.geography=g.id and g.elevation=e.id and e.highest_point=hp.id and hp.elevation=p.id");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na agricultural_land_total
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/agricultural_land_total", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_total() {
         return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_total=alt.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na agricultural_land_arable_land
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/agricultural_land_arable_land", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_arable_land() {
         return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_arable_land=alt.id");
     }
 
+    /**
+     * Metoda sortuje państwa ze względu na agricultural_land_permanent_crops
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_crops", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_permanent_crops() {
         return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_crops=alt.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na agricultural_land_permanent_pasture
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/agricultural_land_permanent_pasture", produces = "application/json")
     public List<CountrySort>  sortGeographyAgricultural_land_permanent_pasture() {
         return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.agricultural_land_permanent_pasture=alt.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na forest
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/geography/forest", produces = "application/json")
     public List<CountrySort>  sortGeographyForest() {
         return sortCountries("select d.name, alt.value, alt.units from Data d, Geography g, Land_use lu, By_sector bs, ValueAndUnits alt " +
                 "where d.geography=g.id and g.land_use=lu.id and lu.by_sector=bs.id and bs.forest=alt.id");
     }
 ///////////////////////PEOPLE sort
+    /**
+     * Metoda sortuje państwa ze względu na population
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/population", produces = "application/json")
     public List<CountrySort>  sortGeographyPopulation() {
         return sortCountries("select d.name, po.total from Data d, People p,  Population po " +
                 "where d.people=p.id and p.population=po.id ");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_0_to_14/percent
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/percent", produces = "application/json")
     public List<CountrySort>  sortGeographyAge_0_to_14_percent() {
         return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_0_to_14/males
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/males", produces = "application/json")
     public List<CountrySort>  sortGeographyAge_0_to_14_males() {
         return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_0_to_14/females
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_0_to_14/females", produces = "application/json")
     public List<CountrySort>  sortGeographyAge_0_to_14_females() {
         return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_0_to_14=maf.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na age_15_to_24/percent
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/percent", produces = "application/json")
     public List<CountrySort>  sortGeographyage_15_to_24_percent() {
         return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_15_to_24/males
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/males", produces = "application/json")
     public List<CountrySort>  sortGeographyage_15_to_24_males() {
         return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_15_to_24/females
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_15_to_24/females", produces = "application/json")
     public List<CountrySort>  sortGeographyage_15_to_24_females() {
         return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_15_to_24=maf.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na age_25_to_54/percent
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/percent", produces = "application/json")
     public List<CountrySort>  sortGeographyage_25_to_54_percent() {
         return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_25_to_54/males
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/males", produces = "application/json")
     public List<CountrySort>  sortGeographyage_25_to_54_males() {
         return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_25_to_54/females
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_25_to_54/females", produces = "application/json")
     public List<CountrySort>  sortGeographyage_25_to_54_females() {
         return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_25_to_54=maf.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na age_55_to_64/percent
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/percent", produces = "application/json")
     public List<CountrySort>  sortGeographyage_55_to_64_percent() {
         return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_55_to_64/males
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/males", produces = "application/json")
     public List<CountrySort>  sortGeographyage_55_to_64_males() {
         return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_55_to_64/females
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_55_to_64/females", produces = "application/json")
     public List<CountrySort>  sortGeographyage_55_to_64_females() {
         return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_55_to_64=maf.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na age_65_and_over/percent
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/percent", produces = "application/json")
     public List<CountrySort>  sortGeographyage_65_and_over_percent() {
         return sortCountries("select d.name, maf.percent from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_65_and_over/males
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/males", produces = "application/json")
     public List<CountrySort>  sortGeographyage_65_and_over_males() {
         return sortCountries("select d.name, maf.males from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na age_65_and_over/females
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/age_structure/age_65_and_over/females", produces = "application/json")
     public List<CountrySort>  sortGeographyage_65_and_over_females() {
         return sortCountries("select d.name, maf.females from Data d, People p,  Age_structure a, MalesAndFemales maf " +
                 "where d.people=p.id and p.age_structure=a.id and a.age_65_and_over=maf.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na total_dependency_ratio
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/total_dependency_ratio", produces = "application/json")
     public List<CountrySort>  sortGeographytotal_dependency_ratio() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
                 "where d.people=p.id and p.dependency_ratios=r.id and r.total_dependency_ratio=vau.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na youth_dependency_ratio
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/youth_dependency_ratio", produces = "application/json")
     public List<CountrySort>  sortGeographyyouth_dependency_ratio() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
                 "where d.people=p.id and p.dependency_ratios=r.id and r.youth_dependency_ratio=vau.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na elderly_dependency_ratio
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/elderly_dependency_ratio", produces = "application/json")
     public List<CountrySort>  sortGeographyelderly_dependency_ratio() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
                 "where d.people=p.id and p.dependency_ratios=r.id and r.elderly_dependency_ratio=vau.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na potential_support_ratio
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/potential_support_ratio", produces = "application/json")
     public List<CountrySort>  sortGeographypotential_support_ratio() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Ratios r, ValueAndUnits vau " +
                 "where d.people=p.id and p.dependency_ratios=r.id and r.potential_support_ratio=vau.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na median_age/total
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/median_age/total", produces = "application/json")
     public List<CountrySort>  sortPeopleMedianAgeTotal() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
                 "where d.people=p.id and p.median_age=ma.id and ma.total=vau.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na median_age/male
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/median_age/male", produces = "application/json")
     public List<CountrySort>  sortPeopleMedianAgeMale() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
                 "where d.people=p.id and p.median_age=ma.id and ma.male=vau.id");
     }
+    /**
+     * Metoda sortuje państwa ze względu na median_age/female
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/median_age/female", produces = "application/json")
     public List<CountrySort>  sortPeopleMedianAgeFemale() {
         return sortCountries("select d.name, vau.value, vau.units from Data d, People p,  Median_age ma, ValueAndUnits vau " +
                 "where d.people=p.id and p.median_age=ma.id and ma.female=vau.id");
     }
-
+    /**
+     * Metoda sortuje państwa ze względu na population_growth_rate
+     * @return lista posortowanych państw
+     */
     @GetMapping(value = "/countries/sort/people/population_growth_rate", produces = "application/json")
     public List<CountrySort>  sortPeoplepopulation_growth_rate() {
         return sortCountries("select d.name, pgr.growth_rate from Data d, People p,  Population_growth_rate pgr " +
